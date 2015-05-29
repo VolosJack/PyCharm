@@ -1,0 +1,9 @@
+<toolSet name="External Tools">
+  <tool name="Kaazing" description="Kaazing Websocket Gateway" showInMainMenu="true" showInEditor="true" showInProject="true" showInSearchPopup="true" disabled="false" useConsole="true" showConsoleOnStdOut="false" showConsoleOnStdErr="false" synchronizeAfterRun="false">
+    <exec>
+      <option name="COMMAND" value="C:\kaazing\kaazing-gateway-community-5.0.0\bin\gateway.start.bat" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="C:/kaazing/kaazing-gateway-community-5.0.0/bin" />
+    </exec>
+  </tool>
+</toolSet>
