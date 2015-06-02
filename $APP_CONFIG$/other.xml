@@ -2,6 +2,18 @@
   <component name="AngularJSConfig">
     <option name="INSERT_WHITESPACE" value="true" />
   </component>
+  <component name="Configuration">
+    <option name="mainSpecFilesMap">
+      <map>
+        <entry key="structureCtrl.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/structure/controllers/structureCtrlSpec.js" />
+      </map>
+    </option>
+    <option name="moduleNameSuggestions">
+      <list>
+        <option value="Structure" />
+      </list>
+    </option>
+  </component>
   <component name="CvsApplicationLevelConfiguration">
     <option name="EXT_CONFIGURATION">
       <value>
