@@ -7,6 +7,7 @@
       <map>
         <entry key="companyDataService.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/home/directives/companyInfo/companyDataServiceSpec.js" />
         <entry key="structureCtrl.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/structure/controllers/structureCtrlSpec.js" />
+        <entry key="vsPlotDirective.js" value="$USER_HOME$/PycharmProjects/vsPlot/directives/vsPlotDirectiveSpec.js" />
       </map>
     </option>
     <option name="moduleNameSuggestions">

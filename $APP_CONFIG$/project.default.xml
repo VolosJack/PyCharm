@@ -18,6 +18,9 @@
         <modules />
       </component>
       <component name="ProjectRootManager" version="2" />
+      <component name="PropertiesComponent">
+        <property name="last_opened_file_path" value="C:/Anaconda/python.exe" />
+      </component>
     </defaultProject>
   </component>
 </application>
