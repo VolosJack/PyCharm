@@ -6,7 +6,10 @@
     <option name="mainSpecFilesMap">
       <map>
         <entry key="companyDataService.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/home/directives/companyInfo/companyDataServiceSpec.js" />
+        <entry key="futureIntervalService.js" value="$USER_HOME$/PycharmProjects/vsPlot/services/futureIntervalServiceSpec.js" />
+        <entry key="intervalControlDirective.js" value="$USER_HOME$/PycharmProjects/vsPlot/directives/intervalControlDirectiveSpec.js" />
         <entry key="structureCtrl.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/structure/controllers/structureCtrlSpec.js" />
+        <entry key="thesisPlotDirective.js" value="$USER_HOME$/PycharmProjects/vsPlot/directives/thesisPlotDirectiveSpec.js" />
         <entry key="vsPlotDirective.js" value="$USER_HOME$/PycharmProjects/vsPlot/directives/vsPlotDirectiveSpec.js" />
       </map>
     </option>
@@ -14,6 +17,7 @@
       <list>
         <option value="Structure" />
         <option value="home" />
+        <option value="vsPlot" />
       </list>
     </option>
   </component>
