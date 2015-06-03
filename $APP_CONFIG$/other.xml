@@ -5,12 +5,14 @@
   <component name="Configuration">
     <option name="mainSpecFilesMap">
       <map>
+        <entry key="companyDataService.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/home/directives/companyInfo/companyDataServiceSpec.js" />
         <entry key="structureCtrl.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/structure/controllers/structureCtrlSpec.js" />
       </map>
     </option>
     <option name="moduleNameSuggestions">
       <list>
         <option value="Structure" />
+        <option value="home" />
       </list>
     </option>
   </component>
