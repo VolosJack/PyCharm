@@ -1,0 +1,122 @@
+Index: dst/css/base.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- dst/css/base.css	(revision 82c93e5771fb7e3dee21d857e24180f123209aa6)
++++ dst/css/base.css	(revision )
+@@ -8837,3 +8837,9 @@
+   stroke: #ffffff;
+   shape-rendering: crispEdges;
+ }
++svg.options-area-chart {
++  fill: #ffffff;
++}
++svg.options-histogram {
++  fill: #ffffff;
++}
+Index: src/less/includes/Options/options-area-chart.less
+===================================================================
+--- src/less/includes/Options/options-area-chart.less	(revision 82c93e5771fb7e3dee21d857e24180f123209aa6)
++++ src/less/src/options-area-chart.less	(revision )
+@@ -1,0 +1,0 @@
+Index: src/less/includes/Options/main.less
+===================================================================
+--- src/less/includes/Options/main.less	(revision 82c93e5771fb7e3dee21d857e24180f123209aa6)
++++ src/less/src/options.less	(revision )
+@@ -1,0 +1,0 @@
+Index: src/js/Directives.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/js/Directives.js	(revision 82c93e5771fb7e3dee21d857e24180f123209aa6)
++++ src/js/Directives.js	(revision )
+@@ -62,20 +62,20 @@
+     .directive('advSettingsDir', function () {
+         return {
+             restrict: 'E',
+-            templateUrl: 'src/templates/Analyze/optionsVis.html'
++            templateUrl: 'src/modules/analyze/templates/optionsVis.html'
+         };
+     })
+     .directive('surfaceAnalysisDir', function () {
+         return {
+             restrict: 'E',
+-            templateUrl: 'src/templates/Analyze/graph2d.tpl.html',
++            templateUrl: 'src/modules/analyze/templates/graph2d.tpl.html',
+             controller: 'graph3DCtrl'
+         };
+     })
+     .directive('resultsTable', function () {
+         return {
+             restrict: 'E',
+-            templateUrl: 'src/templates/Analyze/resultsTable.html',
++            templateUrl: 'src//modules/analyze/templates/resultsTable.html',
+             controller: 'resultsCtrl'
+         };
+     })
+\ No newline at end of file
+Index: src/less/includes/Options/options-histogram.less
+===================================================================
+--- src/less/includes/Options/options-histogram.less	(revision 82c93e5771fb7e3dee21d857e24180f123209aa6)
++++ src/less/src/options-histogram.less	(revision )
+@@ -1,0 +1,0 @@
+Index: src/less/src/base.less
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/less/src/base.less	(revision 82c93e5771fb7e3dee21d857e24180f123209aa6)
++++ src/less/src/base.less	(revision )
+@@ -5,6 +5,8 @@
+ @import "../../../src/less/src/structure.less";
+ @import "../../../src/less/src/home.less";
+ 
+-@import '../../../src/less/includes/Options/main';
++@import "../../../src/less/src/options";
++@import "../../../src/less/src/options-area-chart";
++@import "options-histogram.less";
+ 
+ @import "../../../bower_components/bootstrap/less/utilities.less";
+\ No newline at end of file
+Index: src/app.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/app.js	(revision 82c93e5771fb7e3dee21d857e24180f123209aa6)
++++ src/app.js	(revision )
+@@ -3,7 +3,7 @@
+  */
+ 
+ angular.module('Second', ['ui.bootstrap', 'ngScrollbar', 'ui.grid', 'ui.router', 'ngAnimate',
+-		'n3-line-chart', 'ngSanitize', 'ngVis','Structure', 'Helpers', 'Home', 'vsRabbit', 'Optimization','vsPlot','Analyze'])
++		'n3-line-chart', 'ngSanitize', 'vsOptions', 'ngVis', 'Structure', 'Helpers', 'Home', 'vsRabbit', 'Optimization','vsPlot','Analyze'])
+ 	.config(function ($stateProvider, $urlRouterProvider, vsConnectionProvider, userProvider) {
+ 		userProvider.setUser('volos');
+ 		userProvider.setPassword('test');
+@@ -29,20 +29,20 @@
+ 		states.push({
+ 			name: 'analyze',
+ 			url: '/analyze',
+-			templateUrl: 'src/templates/analyze.html',
++			templateUrl: 'src/modules/analyze/templates/analyze.html',
+ 			controller: 'graph3DCtrl'
+ 		});
+ 		states.push({
+ 			name: 'analyze.graph2d',
+ 			url: '/graph2d',
+-			templateUrl: 'src/templates/Analyze/graph2d.tpl.html',
++			templateUrl: 'src/modules/analyze/templates/graph2d.tpl.html',
+ 			controller: 'graph3DCtrl',
+ 			parent: 'analyze'
+ 		});
+ 		states.push({
+ 			name: 'analyze.options',
+ 			url: '/options',
+-			templateUrl: 'src/templates/Analyze/optionsVis.html',
++			templateUrl: 'src/modules/analyze/templates/optionsVis.html',
+ 			controller: 'OptionsController',
+ 			parent: 'analyze'
+ 		});
