@@ -18,7 +18,9 @@
         <entry key="predictionLineFactory.js" value="$USER_HOME$/PycharmProjects/vsPlot/services/predictionLineFactorySpec.js" />
         <entry key="structureCtrl.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/structure/controllers/structureCtrlSpec.js" />
         <entry key="thesisPlotDirective.js" value="$USER_HOME$/PycharmProjects/vsPlot/directives/thesisPlotDirectiveSpec.js" />
+        <entry key="vsConnectionService.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/helpers/services/vsConnectionServiceSpec.js" />
         <entry key="vsPlotDirective.js" value="$USER_HOME$/PycharmProjects/vsPlot/directives/vsPlotDirectiveSpec.js" />
+        <entry key="vsPublisherFactory.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/helpers/services/vsPublisherFactorySpec.js" />
       </map>
     </option>
     <option name="moduleNameSuggestions">
@@ -27,6 +29,7 @@
         <option value="home" />
         <option value="vsPlot" />
         <option value="Optimization" />
+        <option value="Helpers" />
       </list>
     </option>
   </component>
