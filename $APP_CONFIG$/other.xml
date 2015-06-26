@@ -40,6 +40,7 @@
         <entry key="vsGetService.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/helpers/services/vsGetServiceSpec.js" />
         <entry key="vsPlotDirective.js" value="$USER_HOME$/PycharmProjects/vsPlot/directives/vsPlotDirectiveSpec.js" />
         <entry key="vsPublisherFactory.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/helpers/services/vsPublisherFactorySpec.js" />
+        <entry key="vsStructureDirective.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/structure/vsStructureDirectiveSpec.js" />
       </map>
     </option>
     <option name="moduleNameSuggestions">
