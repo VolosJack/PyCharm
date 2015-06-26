@@ -87,6 +87,7 @@
   </component>
   <component name="PyCodeInsightSettings">
     <option name="SHOW_IMPORT_POPUP" value="true" />
+    <option name="DJANGO_AUTOINSERT_TAG_CLOSE" value="false" />
     <option name="INSERT_TYPE_DOCSTUB" value="true" />
   </component>
   <component name="PyTestFrameworkService">
