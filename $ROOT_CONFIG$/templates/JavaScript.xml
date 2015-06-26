@@ -8,4 +8,15 @@
       <option name="JS_STATEMENT" value="true" />
     </context>
   </template>
+  <template name="$con" value="console.log($STATEMENT$)" description="Inserts a console.log call" toReformat="false" toShortenFQNames="true">
+    <variable name="STATEMENT" expression="" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="HTML_TEXT" value="true" />
+      <option name="HTML" value="true" />
+      <option name="JAVA_SCRIPT" value="true" />
+      <option name="JS_EXPRESSION" value="true" />
+      <option name="JSX_HTML" value="true" />
+      <option name="JS_STATEMENT" value="true" />
+    </context>
+  </template>
 </templateSet>
