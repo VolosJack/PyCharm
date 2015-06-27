@@ -1,0 +1,99 @@
+Index: src/modules/structure/controllers/structureCtrl.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/structure/controllers/structureCtrl.js	(revision d3cb1ec3791af2b7a02fa5ea5a981d31b2b725ef)
++++ src/modules/structure/controllers/structureCtrl.js	(revision )
+@@ -10,9 +10,9 @@
+ angular.module('Structure')
+     .controller('structure', function($scope, structureFactory, dataService){
+ 
+-        $scope.send = structureFactory.sendStructure;
++        this.send = structureFactory.sendStructure;
+ 
+-
++        this.setActiveCategory
+ 
+ 
+ });
+Index: src/modules/structure/directives/vsStructureDirective.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/structure/directives/vsStructureDirective.js	(revision d3cb1ec3791af2b7a02fa5ea5a981d31b2b725ef)
++++ src/modules/structure/directives/vsStructureDirective.js	(revision )
+@@ -14,20 +14,10 @@
+             templateUrl: "src/modules/structure/directives/form.html",
+             controller: function ($scope, vsContract, dataService, structureFactory) {
+                 var vs = this;
+-
++                console.log(dataService.allOptionsByType());
+                 vs.activeCategory = structureFactory.getActiveCategory();
+ 
+                 vs.activeOption = structureFactory.getActiveOption();
+-
+-                $scope.$watch("vs.activeOption", function (newOption) {
+-                    structureFactory.setActiveOption(newOption)
+-                });
+-
+-                $scope.$watch("newCategory", function (newCategory) {
+-                    structureFactory.setActiveCategory(newCategory);
+-                    vs.activeCategory = structureFactory.getActiveCategory();
+-                    vs.activeOption = structureFactory.getActiveOption();
+-                });
+ 
+                 vs.dropDownItems = dataService.dropDownItems;
+ 
+Index: src/modules/helpers/services/dataService.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/helpers/services/dataService.js	(revision d3cb1ec3791af2b7a02fa5ea5a981d31b2b725ef)
++++ src/modules/helpers/services/dataService.js	(revision )
+@@ -34,22 +34,20 @@
+ 		}
+ 
+ 		function optionsByType(type) {
+-			var optionsCatArray = [];
++			var optionsCatArray = {};
+ 			angular.forEach(options, function (option) {
+ 				if (option.type == type) {
+-					optionsCatArray.push(option);
++					optionsCatArray[option.Option_Type] = option;
+ 				}
+ 			});
+ 			return optionsCatArray;
+ 		}
+ 
+         function allOptionsByType(){
+-            var optionsArray = [];
++            var optionsArray = {};
+             angular.forEach(categories, function(title){
+-                optionsArray.push({
+-                    title: title,
+-                    options: optionsByType(title)
+-                })
++                optionsArray[title]= optionsByType(title)
++
+             });
+             return optionsArray
+         }
+Index: src/modules/database/factories/vsContractFactory.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/database/factories/vsContractFactory.js	(revision d3cb1ec3791af2b7a02fa5ea5a981d31b2b725ef)
++++ src/modules/database/factories/vsContractFactory.js	(revision )
+@@ -19,8 +19,6 @@
+         Contract.prototype.getPrice = function getPrice() {
+             var __ = this;
+             if (valid) {
+-                resultsService
+-
+                 vsConnection.Quote.publisher.publish(JSON.stringify(__))
+             }
+         };
