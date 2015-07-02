@@ -21,6 +21,7 @@
   <component name="Configuration">
     <option name="mainSpecFilesMap">
       <map>
+        <entry key="RequestHandlerFactory.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/database/factories/RequestHandlerFactorySpec.js" />
         <entry key="companyDataService.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/home/directives/companyInfo/companyDataServiceSpec.js" />
         <entry key="contractFactory.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/database/factories/contractFactorySpec.js" />
         <entry key="futureIntervalService.js" value="$USER_HOME$/PycharmProjects/vsPlot/services/futureIntervalServiceSpec.js" />
