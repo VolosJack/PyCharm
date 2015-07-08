@@ -35,6 +35,7 @@
         <entry key="predictionLineDirective.js" value="$USER_HOME$/PycharmProjects/vsPlot/directives/predictionLineDirectiveSpec.js" />
         <entry key="predictionLineFactory.js" value="$USER_HOME$/PycharmProjects/vsPlot/services/predictionLineFactorySpec.js" />
         <entry key="structureCtrl.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/structure/controllers/structureCtrlSpec.js" />
+        <entry key="thesisFactory.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/vsPlot/services/thesisFactorySpec.js" />
         <entry key="thesisPlotDirective.js" value="$USER_HOME$/PycharmProjects/vsPlot/directives/thesisPlotDirectiveSpec.js" />
         <entry key="vsConnectionService.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/helpers/services/vsConnectionServiceSpec.js" />
         <entry key="vsConsumerFactory.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/helpers/services/vsConsumerFactorySpec.js" />
