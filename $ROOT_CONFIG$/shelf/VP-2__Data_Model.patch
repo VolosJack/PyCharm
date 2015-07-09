@@ -1,0 +1,1954 @@
+Index: src/modules/database/factories/vsPositionFactory.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/database/factories/vsPositionFactory.js	(revision )
++++ src/modules/database/factories/vsPositionFactory.js	(revision )
+@@ -0,0 +1,9 @@
++angular.module('Database')
++    .factory('vsPosition', function(){
++
++        function Position() {
++
++        }
++
++        return Position;
++});
+Index: src/modules/database/factories/vsPositionFactorySpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/database/factories/vsPositionFactorySpec.js	(revision )
++++ src/modules/database/factories/vsPositionFactorySpec.js	(revision )
+@@ -0,0 +1,21 @@
++describe('Service: Database.vsPosition', function () {
++
++    // load the service's module
++    beforeEach(module('Database'));
++
++    // instantiate service
++    var service;
++
++    //update the injection
++    beforeEach(inject(function (vsPosition) {
++        service = vsPosition;
++    }));
++
++    /**
++     * @description
++     * Sample test case to check if the service is injected properly
++     * */
++    it('should be injected and defined', function () {
++        expect(service).toBeDefined();
++    });
++});
+Index: src/modules/database/factories/vsOptimizationFactorySpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/database/factories/vsOptimizationFactorySpec.js	(revision )
++++ src/modules/database/factories/vsOptimizationFactorySpec.js	(revision )
+@@ -0,0 +1,21 @@
++describe('Service: Optimization.vsOptimization', function () {
++
++    // load the service's module
++    beforeEach(module('Optimization'));
++
++    // instantiate service
++    var service;
++
++    //update the injection
++    beforeEach(inject(function (vsOptimization) {
++        service = vsOptimization;
++    }));
++
++    /**
++     * @description
++     * Sample test case to check if the service is injected properly
++     * */
++    it('should be injected and defined', function () {
++        expect(service).toBeDefined();
++    });
++});
+Index: src/modules/vsPlot/services/thesisFactorySpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/vsPlot/services/thesisFactorySpec.js	(revision )
++++ src/modules/vsPlot/services/thesisFactorySpec.js	(revision )
+@@ -0,0 +1,21 @@
++describe('Service: vsPlot.thesis', function () {
++
++    // load the service's module
++    beforeEach(module('vsPlot'));
++
++    // instantiate service
++    var service;
++
++    //update the injection
++    beforeEach(inject(function (thesis) {
++        service = thesis;
++    }));
++
++    /**
++     * @description
++     * Sample test case to check if the service is injected properly
++     * */
++    it('should be injected and defined', function () {
++        expect(service).toBeDefined();
++    });
++});
+Index: src/modules/vsPlot/services/thesisFactory.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/vsPlot/services/thesisFactory.js	(revision )
++++ src/modules/vsPlot/services/thesisFactory.js	(revision )
+@@ -0,0 +1,18 @@
++angular.module('vsPlot')
++    .factory('thesis', function(){
++
++        function Thesis(predictionLine, ticker, data, maturity) {
++            this.predictionLine = predictionLine;
++            this.ticker = ticker;
++            this.priceData = data;
++            this.maturity = maturity;
++        }
++
++
++
++        Thesis.build = function (data) {
++            return new Thesis(data.predictionLine, data.ticker, data.data, data.maturity)
++        };
++
++        return Thesis;
++});
+Index: src/modules/database/factories/vsOptimizationFactory.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/database/factories/vsOptimizationFactory.js	(revision )
++++ src/modules/database/factories/vsOptimizationFactory.js	(revision )
+@@ -0,0 +1,20 @@
++angular.module('Optimization')
++    .factory('vsOptimization', function(){
++
++        function Optimization(ticker, settings, portfolio, prediction) {
++            this.Ticker = ticker;
++            this.Optimize_Settings = settings;
++            this.Option_Portfolio_Category=portfolio;
++            this.Optimize_Prediction = prediction;
++        }
++
++        Optimization.build = function build(data) {
++            return new Optimization(
++                data.ticker,
++                data.settings,
++                data.portfolio,
++                data.prediction
++            )
++        }
++    return Optimization;
++});
+Index: dst/css/base.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- dst/css/base.css	(date 1436217031000)
++++ dst/css/base.css	(revision )
+@@ -8949,6 +8949,8 @@
+ }
+ .quoteResponses {
+   overflow-x: scroll;
++  overflow-y: hidden;
++  height: 350px;
+   width: 100%;
+ }
+ .panel-heading-select {
+Index: src/modules/optimization/templates/optimization.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/optimization/templates/optimization.html	(date 1436217031000)
++++ src/modules/optimization/templates/optimization.html	(revision )
+@@ -8,11 +8,67 @@
+     </div>
+ 
+     <tabset class="tab-animation col-lg-9" type="pills">
+-        <tab active="tabs[0]" heading="Trade Thesis">
+-            <vs-plot></vs-plot>
++        <tab active="optimize.tabs[0]" heading="Trade Thesis">
++            <vs-plot prediction="optimize.predictionDates" maturity="optimize.maturityDate" price-data="optimize.priceData"></vs-plot>
+         </tab>
+-        <tab active="tabs[1]" heading="Parameters">
+-            <parameters></parameters>
++        <tab active="optimize.tabs[1]" heading="Parameters">
++	        <div class="row">
++
++		        <div class="col-xs-4">
++
++			        <h3>Trade Objective</h3>
++
++			        <select class="form-control"
++			                ng-options="f for f in optimize.tradeObjectives | filter: removeUnderscore"
++			                ng-model="optimize.request.settings.Opt_Metric">
++				        <option></option>
++			        </select>
++
++			        <h3>Contracts</h3>
++
++			        <accordion close-others="oneAtATime">
++				        <accordion-group ng-repeat="types in optimize.options">
++					        <accordion-heading id="optimizationCat">
++						        {{ types.title }}
++					        </accordion-heading>
++					        <div id="optimizationReturn" ng-repeat="option in types.options">
++						        <input type="checkbox" ng-model="optimize.request.portfolio[option.Option_Type]"> {{ option.name }}
++					        </div>
++				        </accordion-group>
++			        </accordion>
++			        <button type="button"
++			                class="btn btn-success btn-lg normalButton topRow"
++			                ng-click="optimize.sendOptimize()">
++				        Price
++			        </button>
++		        </div>
++
++		        <div class="col-xs-4">
++			        <accordion class="didOverflow">
++				        <accordion-group ng-repeat="result in resultsData">
++
++					        <accordion-heading>
++						        Ticker: {{ result.Ticker }}
++					        </accordion-heading>
++
++					        <div ng-repeat="item in result.Optimal_Portfolios">
++						        <h4>Option Type: {{ item.Option_Type | removeUnderscore }}</h4>
++						        Price: ${{ item.Option_Value[0] }}
++						        <div ng-repeat="(param, value) in item.Opt_Params">
++							        {{ param | removeUnderscore }}: {{ value | currency }}
++						        </div>
++						        <!--<div ng-repeat="param in item.Opt_Param_Values[0] track by $index">-->
++						        <!--{{ item.Opt_Param_List[$index] }}-->
++						        <!--<input class="form-control" ng-model="item" type="number">-->
++						        <!--</div>-->
++					        </div>
++
++				        </accordion-group>
++
++			        </accordion>
++		        </div>
++
++	        </div>
+         </tab>
+     </tabset>
+ 
+\ No newline at end of file
+Index: src/modules/vsPlot/controllers/predictionLineCtrl.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/vsPlot/controllers/predictionLineCtrl.js	(date 1436217031000)
++++ src/modules/vsPlot/controllers/predictionLineCtrl.js	(revision )
+@@ -13,8 +13,6 @@
+ function predictionLine(companyData, PredictionLine) {
+     var vs = this;
+     var initData = {};
+-    console.log(vs.maturity);
+-    console.log(vs.predictionLine);
+ 
+     initData.maturityDate = {
+         date: vs.maturity,
+Index: src/js/controllers/navBarCtrl.js
+===================================================================
+--- src/js/controllers/navBarCtrl.js	(date 1436217031000)
++++ src/modules/nav/controllers/navBarCtrl.js	(revision )
+@@ -2,7 +2,7 @@
+  * Created by CLong on 3/2/2015.
+  */
+ angular.module('Second')
+-    .controller('navBarCtrl', function ($scope) {
++    .controller('navBarCtrl', function ($scope, vsConnection) {
+         $scope.noView = [];
+ 
+         $scope.status = {
+@@ -12,6 +12,7 @@
+             isUsropen: false
+         };
+ 
++        $scope.setConnection = vsConnection.setConnection;
+ 
+         $scope.toggleDropdown = function ($event) {
+             $event.preventDefault();
+Index: src/modules/optimization/optimization.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/optimization/optimization.js	(date 1436217031000)
++++ src/modules/optimization/optimization.js	(revision )
+@@ -1,28 +1,37 @@
+ /**
+  * Created by Admin on 6/4/2015.
+  */
+-angular.module('Optimization',[]).config(function ($stateProvider, $urlRouterProvider){
++angular.module('Optimization',['vsPlot']).config(function ($stateProvider, $urlRouterProvider){
+     $stateProvider.state('optimization',{
+         url: '/optimization',
+         resolve: {
+-            priceData: function (DataService, companyData) {
+-                console.log("Resolve Attempt");
+-                var today = new Date();
+-                var end = new Date(today);
++            priceData: function (HistData, companyData) {
++                var end, histData, data, priceData, today;
++                today = new Date();
++                end = new Date(today);
+                 end.setDate(today.getDate() + 100);
+ 
+-                var data = {
+-                    end: end,
++                data = {
++                    end: new Date(end),
+                     ratio:.3,
+                     ticker: companyData.ticker
+                 };
+ 
+-                var histData = DataService.setData(data);
++                priceData = HistData.build(data);
++                priceData.setData();
+ 
++                return priceData
++            },
++            maturityDate: function () {
++                var today,  end;
++                today = new Date();
++                end = new Date(today);
++                end.setDate(today.getDate() + 100);
+                 return end
+             }
++
+         },
+         templateUrl: "src/modules/optimization/templates/optimization.html",
+-        controller: 'optimization'
++        controller: 'optimization as optimize'
+     })
+ });
+Index: src/modules/analyze/controllers/graph3dCtrl.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/analyze/controllers/graph3dCtrl.js	(date 1436217031000)
++++ src/modules/analyze/controllers/graph3dCtrl.js	(revision )
+@@ -64,13 +64,11 @@
+             yCenter: '45%'
+         };
+ 
+-        getResult();
+-
+-        $scope.$on('Get_SweepResults', function (event, results) {
++        $scope.$on('Sweep', function (event, results) {
+             console.log("A get sweep message was received!");
+             console.log(results);
+             //data.update(getResult(results.Request_ID))
+-            console.log(results.Asset_Price_Sweep)
++            console.log(results)
+         });
+ 
+ 
+\ No newline at end of file
+Index: src/modules/helpers/services/vsConsumerFactory.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/helpers/services/vsConsumerFactory.js	(date 1436217031000)
++++ src/modules/helpers/services/vsConsumerFactory.js	(revision )
+@@ -56,7 +56,6 @@
+                 if (e.args.replyText) {
+                     console.log("Error: Volos_B2F Exchange", e);
+                 } else {
+-                    console.log("EXCHANGE DECLARED: Volos_B2F");
+                     __.declareQueue()
+                 }
+             });
+@@ -76,11 +75,9 @@
+ 
+ 
+             __.channel.addEventListener("declarequeue", function () {
+-                console.log("QUEUE DECLARED: " + __.queue);
+             });
+ 
+             __.channel.addEventListener("bindqueue", function () {
+-                console.log("QUEUE BOUND: " + exchange + " - " + __.queue);
+                 __.consumeBasic();
+             });
+ 
+Index: src/modules/vsPlot/services/HistDataFactory.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/vsPlot/services/HistDataFactory.js	(date 1436217031000)
++++ src/modules/vsPlot/services/HistDataFactory.js	(revision )
+@@ -8,100 +8,96 @@
+ angular.module('vsPlot')
+     .factory('HistData', function (yahoo) {
+ 
+-
+-        var ticker = 'GS';
+-        var days;
+-
+         function HistData(end, ratio, ticker) {
+             this.end = end;
+             this.ratio = ratio;
+             this.ticker = ticker;
+         }
+ 
+-        HistData.prototype.getLastPrice = function () {
+-            return HistData.getData(this.data.length - 1)
++        HistData.prototype.getLastPrice = function getLastPrice() {
++            return HistData.getData(__.data.length - 1)
+         };
+ 
+-        HistData.prototype.setData = function () {
++        HistData.prototype.setData = function setData() {
++            var today, oneDay, futureDays, histStartDate, tickerData;
++            var __ = this;
+             var priceData = [];
+-            if ((angular.isDate(this.end))) {
+-                var today = new Date();
+-                var oneDay = 24*60*60*1000;
+-                var futureDays = Math.round(Math.abs((this.end.getTime() - today.getTime())/(oneDay)));
++            if (angular.isDate(__.end)) {
++                today = new Date();
++                oneDay = 24 * 60 * 60 * 1000;
++                futureDays = Math.round(Math.abs((__.end.getTime() - today.getTime()) / (oneDay)));
+ 
+-                var histStartDate = new Date(today);
++                histStartDate = new Date(today);
+ 
+-                histStartDate.setTime(today.getTime() - Math.round(this.ratio * futureDays * oneDay ));
++                histStartDate.setTime(today.getTime() - Math.round(__.ratio * futureDays * oneDay));
+ 
+ 
+-                var tickerData = yahoo.getPrices(ticker, histStartDate, today);
++                tickerData = yahoo.getPrices(__.ticker, histStartDate, today);
+ 
+-                tickerData
+-                    .then(function (priceData) {
+-                        console.log(priceData);
++                tickerData.then(function (priceData) {
++                    var d;
+-                        var pkrPriceData = [];
+-                        angular.forEach(priceData, function (price) {
+-                            var d = new Date(price.date);
+-                            d.setDate(d.getDate());
+-                            pkrPriceData.push({
+-                                date: new Date(d),
+-                                price: price.adjClose
+-                            });
+-                        });
++                    var pkrPriceData = [];
++                    angular.forEach(priceData, function (price) {
++                        var d = new Date(price.date);
++                        d.setDate(d.getDate());
++                        pkrPriceData.push({
++                            date: new Date(d),
++                            price: price.adjClose
++                        });
++                    });
++                    console.log(pkrPriceData[priceData.length - 1].date);
+-                        if (pkrPriceData[priceData.length-1].date == today){
++                    if (pkrPriceData[priceData.length - 1].date == today) {
+-                            return pkrPriceData
+-                        } else {
++                        return pkrPriceData
++                    } else {
+-                            while (pkrPriceData[pkrPriceData.length-1].date < today){
++                        while (pkrPriceData[pkrPriceData.length - 1].date < today) {
+-                                var d = new Date(pkrPriceData[pkrPriceData.length-1].date);
++                            d = new Date(pkrPriceData[pkrPriceData.length - 1].date);
+-                                d.setDate(d.getDate()+1);
++                            d.setDate(d.getDate() + 1);
+-                                pkrPriceData.push({
++                            pkrPriceData.push({
+-                                    date: new Date(d) ,
++                                date: new Date(d),
+-                                    price: pkrPriceData[pkrPriceData.length-1].price
++                                price: pkrPriceData[pkrPriceData.length - 1].price
+-                                });
+-                            }
+-                            return pkrPriceData
+-                        }
++                            });
++                        }
++                        return pkrPriceData
++                    }
+-                    })
+-                    .then(function (data) {
+-                        HistData.data = (data);
+-                        HistData.pastDays = HistData.data.length-1;
+-                        for (var i = HistData.pastDays; i < (HistData.pastDays + futureDays); i++) {
+-                            var d = new Date(HistData.data[i-1].date);
++                }, function (error) {
++                    console.log(error)
++                }).then(function (data) {
++                    var d;
++                    var j;
++                    console.log("then 2 called");
++                    __.data = data;
++                    __.pastDays = __.data.length - 1;
++                    for (j = __.pastDays; j < (__.pastDays + futureDays); j++) {
++                        d = new Date(__.data[j - 1].date);
+-                            d.setDate(d.getDate() + 1);
++                        d.setDate(d.getDate() + 1);
+-                            HistData.data[i] = {
++                        __.data[j] = {
+-                                date: new Date(d),
++                            date: new Date(d),
+-                                price: HistData.data[i-1].price
++                            price: __.data[j - 1].price
+-                            }
+-                        }
++                        }
++                    }
+-                        return HistData.data;
+-                    })
+-
++                    return __.data
++                }, function (error) {
++                    console.log(error)
++                });
+             }
+-            else {
+-                console.log("error: is not a date!!!");
+-            }
+         };
+ 
+-        HistData.prototype.getNumberOfDays = function () {
++        HistData.prototype.getNumberOfDays = function getNumberOfDays() {
+             return days;
+         };
+ 
+-        HistData.prototype.getData = function (index) {
++        HistData.prototype.getData = function getData(index) {
++            var __ = this;
+ 
+-            function lookUpData(index) {
+-                return HistData.data[index]
+-            }
+-
+-            if (__.data == undefined || __.data == []) {
+-                HistData.setData();
+-                return HistData.data
++            if (!__.data || __.data == []) {
++                return 0
+             } else {
+                 try {
+-                    lookUpData(index)
++                    return __.data[index]
+                 } catch (e) {
+                     console.log("Error retrieving data: ", e);
+                     try {
+-                        return HistData.data
++                        return __.data
+                     } catch (e) {
+                         console.log("Error retrieving data: ", e)
+                     }
+@@ -109,14 +105,11 @@
+             }
+         };
+ 
+-
+-        HistData.build = function (data) {
++        HistData.build = function build(data) {
+             return new HistData(data.end, data.ratio, data.ticker);
+         };
+ 
+         return HistData
+ 
+-
+-    })
+-;
++    });
+ 
+Index: src/modules/structure/templates/structure.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/structure/templates/structure.html	(date 1436217031000)
++++ src/modules/structure/templates/structure.html	(revision )
+@@ -17,14 +17,16 @@
+ 
+ 					<div class="panel-body divOverflow">
+ 						<div class="row">
+-							<div class="col-lg-6">
++							<div class="col-lg-8 col-lg-offset-2">
+ 								<img ng-src="{{ activeOption.svg }}">
+ 							</div>
+-							<div class="col-lg-6">
+-								<p>{{ activeOption.description }}</p>
+-							</div>
++						</div>
++						<div class="row">
++							<div class="col-lg-12">
++								<p class="">{{ activeOption.description }}</p>
+-						</div>
+-					</div>
++							</div>
++						</div>
++					</div>
+ 
+ 				</div>
+ 			</div>
+@@ -146,13 +148,6 @@
+ 						<button type="button" class="btn btn-success"
+ 						        ng-click="structure.sendStructure(request)">Price
+ 						</button>
+-
+-						<button type="button"
+-						        onclick="changeTab(2,'#myTab2')"
+-						        class="btn btn-info "
+-						        ng-click="sendSweep(concatData, structureForm, activeOption)">
+-							Analyze
+-						</button>
+ 					</div>
+ 				</div>
+ 			</div>
+@@ -238,11 +233,11 @@
+ 
+ 		<div class="row quoteResponses">
+ 			<div ng-repeat="(id, contract) in structure.pastContracts" class="">
+-				<div class="col-lg-3">
++				<div class="col-lg-4">
+ 					<div class="panel panel-default ">
+ 						<div class="panel-heading panel-heading-select">
+ 							<h3 class="panel-title">
+-								{{ contract.Contract_Params.Ticker }} {{ contract.Contract_Params.Maturity_Date}}
++								{{ contract.Contract_Params.Ticker }} {{ contract.Contract_Params.Maturity_Date}} {{ contract.Contract_Params.Option_Type | removeUnderscore }}
+ 							</h3>
+ 							<a ng-click="structure.removeContract(id)" class="panel-remove">
+ 								<span class="glyphicon glyphicon-remove-sign"></span>
+@@ -253,30 +248,30 @@
+ 								<table class="col-lg-6 table-data">
+ 									<tr>
+ 										<td>Value:</td>
+-										<td>{{ contract.Model_Output.Value_Contract.Option_Value }}</td>
++										<td>{{ contract.Model_Output.Value_Contract.Option_Value | currency: "$": 5}}</td>
+ 									</tr>
+ 									<tr>
+ 										<td>Total Premium:</td>
+-										<td>{{ contract.Position_Spec.Total_Premium }}</td>
++										<td>{{ contract.Position_Spec.Total_Premium | currency: "$": 2 }}</td>
+ 									</tr>
+ 									<tr>
+ 										<td>Exposure (Notional):</td>
+-										<td>{{ contract.Position_Spec.Notional }}</td>
++										<td>{{ contract.Position_Spec.Notional | currency: "$": 2 }}</td>
+ 									</tr>
+ 									<tr>
+ 										<td>Expected Bid:</td>
+-										<td>{{ contract.Model_Output.Value_Contract.Expected_Bid }}</td>
++										<td>{{ contract.Model_Output.Value_Contract.Expected_Bid | currency: "$": 5}}</td>
+ 									</tr>
+ 									<tr>
+ 										<td>Expected Offer:</td>
+-										<td>{{ contract.Model_Output.Value_Contract.Expected_Offer }}</td>
++										<td>{{ contract.Model_Output.Value_Contract.Expected_Offer | currency: "$": 5 }}</td>
+ 									</tr>
+ 								</table>
+ 
+ 								<table class="col-lg-6 table-data">
+ 									<tr>
+ 										<td>Asset Price:</td>
+-										<td>{{ contract.Model_Params.Asset_Price }}</td>
++										<td>{{ contract.Model_Params.Asset_Price | currency: "$": 2 }}</td>
+ 									</tr>
+ 									<tr>
+ 										<td>Volatility:</td>
+@@ -290,9 +285,17 @@
+ 								</table>
+ 							</div>
+ 							<div class="row">
+-								<div class="col-lg-12">
+-									<button class="btn btn-primary">Actions</button>
+-									<button class="btn btn-primary">Analysis</button>
++								<div class="col-lg-4 col-lg-offset-8">
++									<div class="btn-group" dropdown>
++										<button type="button" class="btn btn-primary dropdown-toggle" dropdown-toggle>
++											Analyze <span class="caret"></span>
++										</button>
++										<ul class="dropdown-menu" role="menu">
++											<li><a ng-click="contract.getSweep()">Sweep</a></li>
++											<li><a ng-click="">Scenario</a></li>
++											<li><a ng-click="">Profit and Loss</a></li>
++										</ul>
++									</div>
+ 								</div>
+ 							</div>
+ 
+Index: src/modules/vsPlot/directives/predictionLine/predictionLineDirective.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/vsPlot/directives/predictionLine/predictionLineDirective.js	(date 1436217031000)
++++ src/modules/vsPlot/directives/predictionLine/predictionLineDirective.js	(revision )
+@@ -8,31 +8,17 @@
+  * @restrict A
+  * */
+ angular.module('vsPlot')
+-    .directive('predictionLine', function () {
++    .directive('predictionLine', function (companyData, PredictionLine) {
+         return {
+             restrict: 'E',
+             scope:{
+-                maturity: '=maturity',
++                maturity: '=',
+                 predictionDates: '='
+             },
+-            controller: function (PredictionLine, companyData) {
+-                var vs = this;
+-                var initData = {};
+-                console.log(vs.maturity);
++            controller: function () {
++                var __ = this;
+ 
+-                initData.maturityDate = {
+-                    date: vs.maturity,
+-                    price: companyData.tickerData["previousClose"],
+-                    volatility: 30
+-                };
+ 
+-                initData.startDate = {
+-                    date: new Date(),
+-                    price: companyData.tickerData["previousClose"],
+-                    volatility: 20
+-                };
+-
+-                vs.predictionDates = PredictionLine.build(initData);
+             },
+             controllerAs: 'vs',
+             bindToController: true,
+Index: src/modules/optimization/templates/optimizationSettings.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/optimization/templates/optimizationSettings.html	(date 1436217031000)
++++ src/modules/optimization/templates/optimizationSettings.html	(revision )
+@@ -21,10 +21,6 @@
+                    placeholder="%"
+                    ng-model="expMark">
+ 
+-
+-
+-
+-
+             <accordion close-others="oneAtATime">
+                 <accordion-group ng-repeat="types in allOptionsByTypeArray">
+                     <accordion-heading id="optimizationCat">
+@@ -37,7 +33,7 @@
+             </accordion>
+             <button type="button"
+                     class="btn btn-success btn-lg normalButton topRow"
+-                    ng-click="sendOptimize(optCat, optimizeForm)">
++                    ng-click="sendOptimize()">
+                 Price
+             </button>
+         </div>
+Index: src/modules/optimization/directives/optimizationSettings.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/optimization/directives/optimizationSettings.html	(date 1436217031000)
++++ src/modules/optimization/directives/optimizationSettings.html	(revision )
+@@ -7,22 +7,11 @@
+             <h3>Trade Objective</h3>
+ 
+             <select class="form-control"
+-                    ng-options="f for f in dropDownItems.tradeObjectiveArray | filter:removeUnderscore"
+-                    ng-model="request.Opt_Opt_Metric">
++                    ng-options="f for f in tradeObjectives | filter:removeUnderscore"
++                    ng-model="request.Optimize_Settings.Opt_Metric">
+                 <option></option>
+             </select>
+ 
+-            <h3>Expected Markup</h3>
+-
+-            <input class="form-control"
+-                   type="number"
+-                   min="0"
+-                   max="1"
+-                   placeholder="%"
+-                   ng-model="expMark">
+-
+-
+-
+             <h3>Contracts</h3>
+ 
+             <accordion close-others="oneAtATime">
+@@ -31,13 +20,13 @@
+                         {{ types.title }}
+                     </accordion-heading>
+                     <div id="optimizationReturn" ng-repeat="option in types.options">
+-                        <input type="checkbox" ng-model="optionPortfolio[option.Option_Type]"> {{ option.name }}
++                        <input type="checkbox" ng-model="request.Option_Portfolio_Category[option.Option_Type]"> {{ option.name }}
+                     </div>
+                 </accordion-group>
+             </accordion>
+             <button type="button"
+                     class="btn btn-success btn-lg normalButton topRow"
+-                    ng-click="">
++                    ng-click="sendOptimize()">
+                 Price
+             </button>
+         </div>
+Index: src/app.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/app.js	(date 1436217031000)
++++ src/app.js	(revision )
+@@ -6,8 +6,8 @@
+ 		'n3-line-chart', 'ngSanitize', 'vsOptions', 'ngVis', 'Structure', 'Helpers', 'Home',
+         'Optimization','vsPlot','Analyze', 'Database'])
+ 	.config(function ($stateProvider, $urlRouterProvider, vsConnectionProvider, userProvider) {
+-		userProvider.setUser('VolosJack');
+-		userProvider.setPassword('Volos');
++		userProvider.setUser('volos');
++		userProvider.setPassword('test');
+ 
+ 
+ 		var states = [];
+@@ -33,12 +33,12 @@
+ 		});
+ 
+ 		//unmatched url redirect to /
+-		$urlRouterProvider.otherwise('/structure');
++		$urlRouterProvider.otherwise('/home');
+ 
+ 	})
+ 	.run(function ($rootScope, resultsService, vsConnection) {
+ 		resultsService.createTables();
+-        //resultsService.dropTable('Quote');
++        //resultsService.dropTable('predictions');
+         vsConnection.setConnection()
+ 	});
+ 
+Index: src/modules/optimization/directives/parametersCtrlSpec.js
+===================================================================
+--- src/modules/optimization/directives/parametersCtrlSpec.js	(date 1436217031000)
++++ src/modules/optimization/directives/parametersCtrlSpec.js	(date 1436217031000)
+@@ -1,20 +0,0 @@
+-describe('Controller: Optimization.parameters', function () {
+-
+-    // load the controller's module
+-    beforeEach(module('Optimization'));
+-
+-    var ctrl,
+-        scope;
+-
+-    // Initialize the controller and a mock scope
+-    beforeEach(inject(function ($controller, $rootScope) {
+-        scope = $rootScope.$new();
+-        ctrl = $controller('parameters', {
+-            $scope: scope
+-        });
+-    }));
+-
+-    it('should be defined', function () {
+-        expect(ctrl).toBeDefined();
+-    });
+-});
+Index: src/modules/database/factories/vsContractFactory.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/database/factories/vsContractFactory.js	(date 1436217031000)
++++ src/modules/database/factories/vsContractFactory.js	(revision )
+@@ -15,12 +15,39 @@
+ 
+         Contract.prototype.getPrice = function getPrice() {
+             var __ = this;
+-            __.Request_Id = uuid.v4().toString();
++            __.Position_Id = uuid.v4().toString();
+             __.Request_Type = "Quote";
+-            resultsService.recordQuoteRequest(__.Request_Id, __.Contract_Id);
++            resultsService.recordQuoteRequest(__.Position_Id, __.Contract_Id);
+             vsConnection.Quote.publisher.publish(JSON.stringify(__));
+         };
+ 
++        Contract.prototype.getSweep = function getSweep() {
++            var __ = this, message ={};
++            __.Sweep_Id = uuid.v4().toString();
++            message.Position_Id = angular.copy(__.Position_Id);
++            message.Request_Type = "Sweep";
++            message.Sweep_Settings = {
++                "Sweep_Output": "All",
++                "Axes":{
++                    "X_Axis": {
++                        "label": "Expiration",
++                        "Steps": 20,
++                        "limits": 2
++                    },
++                    "Y_Axis": {
++                        "label": "Asset",
++                        "Steps": 20,
++                        "limits": 2
++                    }
++                }
++            };
++            message.Contract_Params = angular.copy(__.Contract_Params);
++            message.Pricing_Method = angular.copy(__.Pricing_Method);
++            message.Position_Spec = angular.copy(__.Position_Spec);
++            resultsService.recordSweepRequest(__.Sweep_Id, __.Position_Id);
++            vsConnection.Sweep.publisher.publish(JSON.stringify(message))
++        };
++
+         Contract.prototype.save = function save() {
+             var __ = this;
+             var saveData = {
+@@ -32,12 +59,13 @@
+         };
+ 
+         Contract.prototype.removeContract = function removeContract() {
+-            resultsService.delRequest(this.Request_Type, this.Request_Id)
++            resultsService.delRequest(this.Request_Type, this.Position_Id)
+         };
+ 
+         Contract.prototype.update = function update (results) {
+             var __ = this;
+-            angular.extend(__, results)
++            angular.extend(__, results);
++            console.log(__)
+         };
+ 
+         Contract.build = function build(data) {
+Index: src/modules/optimization/directives/parametersDirective.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/optimization/directives/parametersDirective.js	(date 1436217031000)
++++ src/modules/optimization/directives/parametersDirective.js	(revision )
+@@ -11,8 +11,6 @@
+     .directive('parameters', function () {
+         return {
+             restrict: 'E',
+-            scope: '@request',
+-            templateUrl: 'src/modules/optimization/directives/optimizationSettings.html',
+-            controller: 'parameters'
++            templateUrl: 'src/modules/optimization/directives/optimizationSettings.html'
+         };
+ });
+Index: src/js/controllers/notifyCtrl.js
+===================================================================
+--- src/js/controllers/notifyCtrl.js	(date 1436217031000)
++++ src/modules/nav/controllers/notifyCtrl.js	(revision )
+@@ -1,0 +1,0 @@
+Index: src/modules/database/services/resultsService.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/database/services/resultsService.js	(date 1436217031000)
++++ src/modules/database/services/resultsService.js	(revision )
+@@ -31,122 +31,114 @@
+                         "type": "BLOB"
+                     }
+                 },
+-                "Quote": {
+-                    "Request_Id": {
++                "Position": {
++                    "Position_Id": {
+                         "type": "TEXT",
+                         "null": "NOT NULL",
+                         "primary": true
+                     },
+                     "Contract_Id": {
+                         "type": "TEXT"
+-                    }
+-                },
++                    },
+-                "predictions": {
+-                    "Opinion_ID": {
+-                        "null": "NOT NULL",
+-                        "type": "TEXT",
+-                        "primary": true
+-                    },
+-                    "date": {
+-                        "type": "TIMESTAMP",
+-                        "null": "NOT NULL",
+-                        "default": "CURRENT_TIMESTAMP"
+-                    },
+-
+-                    "Optimization_ID": {
++                    "Sweep_Id":{
+                         "type": "TEXT"
+-                    },
+-                    "Notes": {
+-                        "type": "TEXT"
+-                    },
+-                    "Manager_Price_Targets": {
+-                        "type": 'BLOB'
+-                    },
+-                    "Manager_Vol": {
+-                        "type": 'BLOB'
+-                    },
+-                    "Manager_Date_Targets": {
+-                        "type": 'BLOB'
+                     }
+                 },
+-                "sweep": {
+-                    "Position_ID": {
++                "sweeps": {
++                    "Sweep_Id": {
+                         "type": "TEXT",
+                         "null": "NOT NULL",
+                         "primary": true
+                     },
+-                    "Opinion_ID": {
+-                        "type": "TEXT"
+-                    },
+                     "date": {
+                         "type": "TIMESTAMP",
+                         "null": "NOT NULL",
+                         "default": "CURRENT_TIMESTAMP"
+                     },
+-                    "Request_Type": {
+-                        "type": "TEXT"
++                    "Axes": {
++                        "type": "BLOB"
+                     },
+-                    "ticker": {
+-                        "type": "TEXT"
+-                    },
+-                    "Option_Type": {
+-                        "type": "TEXT"
+-                    },
+-                    "Option_Name": {
+-                        "type": "TEXT"
+-                    },
+-                    "body": {
++                    "Sweeps": {
+                         "type": "BLOB"
+                     }
+-                },
+-                "optimization": {
+-                    "date": {
+-                        "type": "TIMESTAMP",
+-                        "null": "NOT NULL",
+-                        "default": "CURRENT_TIMESTAMP"
+-                    },
+-                    "Position_ID": {
+-                        "type": "TEXT"
+-                    },
+-                    "Opinion_ID": {
+-                        "type": "TEXT"
+-                    },
+-                    "Optimization_ID": {
+-                        "type": "TEXT",
+-                        "null": "NOT NULL",
+-                        "primary": true
+-                    },
+-                    "Prediction_ID": {
+-                        "type": "TEXT"
+-                    }
++                }
+-                },
+-                "opinions": {
+-                    "date": {
+-                        "type": "TIMESTAMP",
+-                        "null": "NOT NULL",
+-                        "default": "CURRENT_TIMESTAMP"
+-                    },
+-                    "Opinion_ID": {
+-                        "type": "TEXT",
+-                        "null": "NOT NULL",
+-                        "primary": true
+-                    },
+-                    "Ticker": {
+-                        "type": "TEXT"
+-                    },
+-                    "Prediction_ID": {
+-                        "type": "TEXT"
+-                    }
+-                }
++                //"predictions": {
++                //    "Opinion_ID": {
++                //        "null": "NOT NULL",
++                //        "type": "TEXT",
++                //        "primary": true
++                //    },
++                //    "date": {
++                //        "type": "TIMESTAMP",
++                //        "null": "NOT NULL",
++                //        "default": "CURRENT_TIMESTAMP"
++                //    },
++                //
++                //    "Optimization_ID": {
++                //        "type": "TEXT"
++                //    },
++                //    "Notes": {
++                //        "type": "TEXT"
++                //    },
++                //    "Manager_Price_Targets": {
++                //        "type": 'BLOB'
++                //    },
++                //    "Manager_Vol": {
++                //        "type": 'BLOB'
++                //    },
++                //    "Manager_Date_Targets": {
++                //        "type": 'BLOB'
++                //    }
++                //},
++                //"optimization": {
++                //    "date": {
++                //        "type": "TIMESTAMP",
++                //        "null": "NOT NULL",
++                //        "default": "CURRENT_TIMESTAMP"
++                //    },
++                //    "Position_ID": {
++                //        "type": "TEXT"
++                //    },
++                //    "Opinion_ID": {
++                //        "type": "TEXT"
++                //    },
++                //    "Optimization_ID": {
++                //        "type": "TEXT",
++                //        "null": "NOT NULL",
++                //        "primary": true
++                //    },
++                //    "Prediction_ID": {
++                //        "type": "TEXT"
++                //    }
++                //},
++                //"opinions": {
++                //    "date": {
++                //        "type": "TIMESTAMP",
++                //        "null": "NOT NULL",
++                //        "default": "CURRENT_TIMESTAMP"
++                //    },
++                //    "Opinion_ID": {
++                //        "type": "TEXT",
++                //        "null": "NOT NULL",
++                //        "primary": true
++                //    },
++                //    "Ticker": {
++                //        "type": "TEXT"
++                //    },
++                //    "Prediction_ID": {
++                //        "type": "TEXT"
++                //    }
++                //}
+             };
+ 
+             __.handleResult = function handleResult(type, body) {
+ 
+                 switch (type) {
+                     case "Quote":
+-                        __.updateContract(body, type);
++                        __.updateContract(body);
+                         break;
+                     case "Sweep":
++                        __.updateSweep(body);
+                         break;
+                     case "Analytics":
+                         break;
+@@ -160,7 +152,7 @@
+                 }
+             };
+ 
+-            __.getContracts = function (request_type) {
++            __.getContracts = function getContracts (request_type) {
+                 var contracts = {};
+                 db.selectAll(request_type).then(function (results) {
+                     var i, idSet;
+@@ -181,6 +173,13 @@
+                 return contracts
+             };
+ 
++            __.getSweep = function getSweep() {
++                db.selectAll('sweeps')
++                    .then(function (sweeps) {
++                        return sweeps.rows.item(0);
++                    })
++            };
++
+             __.saveContract = function saveContract(contract) {
+                 db.insert('contracts', {
+                     "Contract_Id": contract.Contract_Id,
+@@ -189,30 +188,50 @@
+                 });
+             };
+ 
+-            __.updateContract = function updateContract(reply, type) {
+-                db.select(type, {Request_Id: reply.Request_Id})
++            __.updateContract = function updateContract(reply) {
++                db.select("Position", {Position_Id: reply.Position_Id})
+                     .then(function (results) {
+-                        var i, quoteContractId;
++                        var i, positionIds;
+                         for (i = 0; i < results.rows.length; i++) {
+-                            quoteContractId = angular.fromJson(results.rows.item(i));
++                            positionIds = angular.fromJson(results.rows.item(i));
+                             db.update('contracts', {
+                                 "Model_Params": JSON.stringify(reply.Model_Params),
+                                 "Model_Output": JSON.stringify(reply.Model_Output),
+                                 "Position_Spec": JSON.stringify(reply.Position_Spec)
+                             }, {
+-                                "Contract_Id": quoteContractId.Contract_Id
++                                "Contract_Id": positionIds.Contract_Id
+                             });
+                         }
+-                        $rootScope.$emit(reply.Request_Id, reply)
++                        $rootScope.$emit(reply.Position_Id, reply)
+                     })
+             };
+ 
++            __.updateSweep = function updateSweep(reply) {
++                db.select("Position", {Position_Id: reply.Position_Id})
++                    .then(function (results) {
++                        var i, positionIds;
++                        for (i = 0; i < results.rows.length; i++) {
++                            positionIds = angular.fromJson(results.rows.item(i));
++                            db.insert('sweeps', {
++                                "Sweep_Id": positionIds.Sweep_Id,
++                                "Axes": JSON.stringify(reply.Axes),
++                                "Sweeps": JSON.stringify(reply.Sweeps)
++                            })
++                        }
++                        $rootScope.$emit(reply.Position_Id, reply)
++                    })
++            };
++
+             __.delRequest = function delResult(type, id) {
+                 db.del('contracts', {"Contract_Id": id})
+             };
+ 
++            __.recordSweepRequest = function recordSweepRequest(sweepId, positionId) {
++                db.update('Position', {"Sweep_Id": sweepId},{"Position_Id": positionId})
++            };
++
+             __.recordQuoteRequest = function recordQuoteRequest(request, contract) {
+-                db.insert('Quote', {"Contract_Id": contract, "Request_Id": request});
++                db.insert('Position', {"Contract_Id": contract, "Position_Id": request});
+             };
+ 
+             __.dropTable = function dropTable(table) {
+\ No newline at end of file
+Index: src/modules/vsPlot/templates/vsPlot.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/vsPlot/templates/vsPlot.html	(date 1436217031000)
++++ src/modules/vsPlot/templates/vsPlot.html	(revision )
+@@ -5,12 +5,12 @@
+     <div class="col-lg-10 pkrPanel">
+         <div class="row pkrChartWrapper">
+             <div class="col-lg-12">
+-                <thesis-plot intervals="intervals" data="vs.HistData" prediction-dates="vs.predictionDates" ></thesis-plot>
++                <thesis-plot intervals="intervals" data="vs.priceData" prediction-dates="vs.predictionDates" ></thesis-plot>
+             </div>
+         </div>
+         <div class="row">
+             <div class="col-lg-12">
+-                <prediction-line  maturity="maturityDate" prediction-dates="vs.predictionDates"></prediction-line>
++                <prediction-line  maturity="vs.maturity" prediction-dates="vs.predictionDates"></prediction-line>
+             </div>
+         </div>
+ 
+Index: src/less/src/structure.less
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/less/src/structure.less	(date 1436217031000)
++++ src/less/src/structure.less	(revision )
+@@ -1,14 +1,14 @@
+ @import "variables.less";
+ .quoteResponses{
+   overflow-x: scroll;
++  overflow-y: hidden;
++  height: 350px;
+   width: 100%;
+ }
+-
+-
+ 
+ .panel-heading-select {
+   width:100%;
+-  font-size: @font-size-large;
++  font-size:@font-size-large;
+ }
+ 
+ .panel-remove{
+\ No newline at end of file
+Index: src/modules/vsPlot/services/futureIntervalService.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/vsPlot/services/futureIntervalService.js	(date 1436217031000)
++++ src/modules/vsPlot/services/futureIntervalService.js	(revision )
+@@ -45,7 +45,6 @@
+                 dayCounter++
+ 
+             }
+-            console.log(riskNeutralForecastData);
+             return riskNeutralForecastData;
+ 
+         }
+@@ -160,7 +159,6 @@
+                 }
+                 currentPredictionDateIdx++;
+             } while (currentPredictionDateIdx < predictionDates.length);
+-            console.log(confidenceIntervals);
+             return confidenceIntervals;
+ 
+         }
+Index: src/js/controllers/resultsCtrl.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/js/controllers/resultsCtrl.js	(date 1436217031000)
++++ src/js/controllers/resultsCtrl.js	(revision )
+@@ -5,7 +5,6 @@
+ angular.module('Second').controller('resultsCtrl',
+     function ($timeout, $rootScope, $scope, dataService) {
+         $scope.optionsObs = dataService.options;
+-        $scope.analyzeTabs = [true, false, false];
+ 
+         function optionByName(name) {
+             var activeOption = [];
+@@ -31,30 +30,11 @@
+         $scope.getResultsData = function () {
+             $scope.resultsData = [];
+             $scope.getQuoteData = [];
+-            $rootScope.db.select("rpc", {
+-                "body": 'IS NOT NULL'
+-            })
+-                .then(function (results) {
+-                    for (i = 0; i < results.rows.length; i++) {
+-                        $scope.resultsData[i] =
+-                            angular.fromJson(results.rows.item(i));
+-                        $scope.resultsData[i].jsonBody =
+-                            angular.fromJson($scope.resultsData[i].body);
+-                        if ($scope.resultsData[i].jsonBody.Request_Type = "Get_Quote") {
+-                            $scope.getQuoteData.push({
+-                                Ticker: $scope.resultsData[i].jsonBody.Ticker
+-                            });
+-                        }
+-                        $scope.resultsData[i].activeOption = optionByName($scope.resultsData[i].Option_Type);
+-                    }
+-                    $scope.resultsData.reverse();
+-                });
+         };
+ 
+         $scope.$on('Results', function () {
+             $scope.getResultsData();
+         });
+-
+ 
+         $scope.getResultsData();
+ 
+\ No newline at end of file
+Index: src/modules/vsPlot/controllers/vsPlotCtrl.js
+===================================================================
+--- src/modules/vsPlot/controllers/vsPlotCtrl.js	(date 1436217031000)
++++ src/modules/vsPlot/controllers/vsPlotCtrl.js	(date 1436217031000)
+@@ -1,11 +0,0 @@
+-/**
+- * Created by CLong on 5/27/2015.
+- */
+-angular
+-    .module('vsPlot')
+-    .controller('vsPlotCtrl', function vsPlotCtrl(HistData) {
+-        vs = this;
+-
+-        vs.HistData = HistData
+-    }
+-);
+\ No newline at end of file
+Index: src/modules/helpers/services/vsPublisherFactory.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/helpers/services/vsPublisherFactory.js	(date 1436217031000)
++++ src/modules/helpers/services/vsPublisherFactory.js	(revision )
+@@ -61,13 +61,10 @@
+                 type: exchangeType
+             };
+ 
+-            console.log("OPENED: Publish Channel");
+-
+             __.channel.declareExchange(config);
+ 
+             // listen for these requests to return
+             __.channel.addEventListener("declareexchange", function () {
+-                console.log("EXCHANGE DECLARED: " + exchange);
+             });
+ 
+             __.channel.addEventListener("error", function (e) {
+Index: src/modules/structure/services/structureFactory.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/structure/services/structureFactory.js	(date 1436217031000)
++++ src/modules/structure/services/structureFactory.js	(revision )
+@@ -50,8 +50,8 @@
+         }
+ 
+         function addContract(contract) {
+-            pastContracts[contract.Request_Id] = contract;
+-            $rootScope.$on(contract.Request_Id, function (event, result) {
++            pastContracts[contract.Position_Id] = contract;
++            $rootScope.$on(contract.Position_Id, function (event, result) {
+                 contract.update(result)
+             })
+         }
+Index: src/modules/analyze/templates/analyze.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/analyze/templates/analyze.html	(date 1436217031000)
++++ src/modules/analyze/templates/analyze.html	(revision )
+@@ -1,20 +1,4 @@
+ <div class="row">
+-    <div class="col-lg-3">
+-        <company-info></company-info>
+-    </div>
+-    <div class="col-lg-9">
+-        <tabset class="tab-animation" ng-controller="resultsCtrl">
+-            <tab active="analyzeTabs[2]" heading="Results Table">
+-                <results-table></results-table>
+-            </tab>
+-            <tab active="analyzeTabs[0]" heading="Results Analysis">
+-                <surface-analysis-dir></surface-analysis-dir>
+-            </tab>
+ 
+-            <tab active="analyzeTabs[1]" heading="Risk Analysis">
+-                <adv-settings-dir></adv-settings-dir>
+-            </tab>
+-        </tabset>
+-    </div>
+ </div>
+ 
+Index: src/modules/vsPlot/directives/vsPlotDirective.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/vsPlot/directives/vsPlotDirective.js	(date 1436217031000)
++++ src/modules/vsPlot/directives/vsPlotDirective.js	(revision )
+@@ -8,11 +8,38 @@
+  * @restrict A
+  * */
+ angular.module('vsPlot')
+-    .directive('vsPlot', function () {
++    .directive('vsPlot', function (thesis, companyData, PredictionLine) {
+         return {
+             restrict: 'E',
+             templateUrl: 'src/modules/vsPlot/templates/vsPlot.html',
+-            controller:'vsPlotCtrl',
++            scope:{
++                prediction: '=',
++                priceData: "=",
++                maturity: "="
++            },
++            controller: function () {
++                var vs = this
++                vs.data = vs.priceData;
++                var initData = {};
++
++                initData.maturityDate = {
++                    date: vs.maturity,
++                    price: companyData.tickerData["previousClose"],
++                    volatility: 30
++                };
++
++                initData.startDate = {
++                    date: new Date(),
++                    price: companyData.tickerData["previousClose"],
++                    volatility: 20
++                };
++
++
++                vs.predictionDates = PredictionLine.build(initData);
++                vs.thesis = thesis.build(vs)
++
++            },
++            bindToController: true,
+             controllerAs: 'vs'
+         };
+ });
+Index: src/modules/vsPlot/directives/predictionLine/predictionLineFactory.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/vsPlot/directives/predictionLine/predictionLineFactory.js	(date 1436217031000)
++++ src/modules/vsPlot/directives/predictionLine/predictionLineFactory.js	(revision )
+@@ -5,17 +5,14 @@
+             this.predictionDates = [startDate, maturityDate];
+         }
+ 
+-
+         PredictionLine.prototype.addDate = function addDate(index) {
+-            console.log("addDate Called");
+-            var newDate = {};
++            var newDate = {}, __ = this;
+             newDate.date = new Date();
+-            newDate.date.setTime((this.predictionDates[index].date.getTime()+this.predictionDates[index+1].date.getTime())/2)
+-            newDate.price = this.predictionDates[index].price;
++            newDate.date.setTime((__.predictionDates[index].date.getTime()+__.predictionDates[index+1].date.getTime())/2);
++            newDate.price = __.predictionDates[index].price;
+             newDate.volatility = 20;
++            __.predictionDates.splice(index+1, 0, PredictionDate.build(newDate))
+ 
+-
+-            this.predictionDates.splice(index+1, 0, PredictionDate.build(newDate))
+         };
+ 
+         PredictionLine.prototype.removeDate = function removeDate(index) {
+@@ -28,9 +25,7 @@
+                 PredictionDate.build(data.startDate),
+                 PredictionDate.build(data.maturityDate)
+             );
+-
+             pLine.addDate(0);
+-
+             return pLine
+         };
+ 
+Index: src/modules/vsPlot/services/dataService.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/vsPlot/services/dataService.js	(date 1436217031000)
++++ src/modules/vsPlot/services/dataService.js	(revision )
+@@ -11,8 +11,7 @@
+         __.setData = function (data) {
+             var histPrices;
+             histPrices = HistData.build(data);
+-            histPrices.setData(data);
+-            return histPrices.getData
++            histPrices.setData();
+         };
+ 
+ 
+\ No newline at end of file
+Index: index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- index.html	(date 1436217031000)
++++ index.html	(revision )
+@@ -96,7 +96,7 @@
+                 </a>
+                 <ul class="dropdown-menu animated fadeInLeft">
+                     <li class="arrow"></li>
+-                    <li ng-click=""><a href="">Connect</a></li>
++                    <li ><a href="" ng-click="setConnection()">Connect</a></li>
+                     <li ng-click="win.showDevTools()">Settings</li>
+                     <li class="divider"></li>
+                     <li ng-click="kaazingService.handleDisconnect()">Log Out</li>
+@@ -153,12 +153,12 @@
+ <!--Controllers-->
+ <script type="text/javascript" src="src/js/controllers/pkrCtrl.js"></script>
+ <script type="text/javascript" src="src/js/controllers/historicalCtrl.js"></script>
+-<script type="text/javascript" src="src/js/controllers/structureCtrl.js"></script>
+-<script type="text/javascript" src="src/js/controllers/optimizationCtrl.js"></script>
++<!--<script type="text/javascript" src="src/js/controllers/structureCtrl.js"></script>-->
++<!--<script type="text/javascript" src="src/js/controllers/optimizationCtrl.js"></script>-->
+ <script type="text/javascript" src="src/js/controllers/resultsCtrl.js"></script>
+ <script type="text/javascript" src="src/js/controllers/exchangeCtrl.js"></script>
+ <script type="text/javascript" src="src/js/controllers/thesisCtrl.js"></script>
+-<script type="text/javascript" src="src/js/controllers/navBarCtrl.js"></script>
++<script type="text/javascript" src="src/modules/nav/controllers/navBarCtrl.js"></script>
+ <script type="text/javascript" src="src/js/controllers/greeksCtrl.js"></script>
+ 
+ <!--Services-->
+@@ -174,12 +174,10 @@
+ <script type="text/javascript" src="src/modules/database/factories/vsContractFactory.js"></script>
+ 
+ <script type="text/javascript" src="src/modules/helpers/helpers.js"></script>
+-<script type="text/javascript" src="src/modules/database/services/resultsService.js"></script>
+ <script type="text/javascript" src="src/modules/helpers/services/vsPublisherFactory.js"></script>
+ <script type="text/javascript" src="src/modules/helpers/services/vsConsumerFactory.js"></script>
+ <script type="text/javascript" src="src/modules/helpers/services/vsRequestFactory.js"></script>
+ <script type="text/javascript" src="src/modules/helpers/services/userService.js"></script>
+-<script type="text/javascript" src="src/modules/database/services/sqliteService.js"></script>
+ <script type="text/javascript" src="src/modules/helpers/services/dataService.js"></script>
+ <script type="text/javascript" src="src/modules/helpers/services/yahooService.js"></script>
+ <script type="text/javascript" src="src/modules/helpers/directives/datePickerDirective.js"></script>
+@@ -205,7 +203,6 @@
+ 
+ <script src="src/modules/optimization/optimization.js"></script>
+ <script src="src/modules/optimization/controllers/optimizationCtrl.js"></script>
+-<script src="src/modules/optimization/directives/parametersCtrl.js"></script>
+ <script src="src/modules/optimization/directives/parametersDirective.js"></script>
+ 
+ 
+@@ -213,9 +210,9 @@
+ <script type="text/javascript" src="src/modules/vsPlot/services/dataService.js"></script>
+ <script type="text/javascript" src="src/modules/vsPlot/services/futureIntervalService.js"></script>
+ <script type="text/javascript" src="src/modules/vsPlot/services/HistDataFactory.js"></script>
++<script type="text/javascript" src="src/modules/vsPlot/services/thesisFactory.js"></script>
+ <script type="text/javascript" src="src/modules/vsPlot/directives/predictionDate/predictionDateFactory.js"></script>
+ <script type="text/javascript" src="src/modules/vsPlot/directives/predictionLine/predictionLineFactory.js"></script>
+-<script type="text/javascript" src="src/modules/vsPlot/controllers/vsPlotCtrl.js"></script>
+ <script type="text/javascript" src="src/modules/vsPlot/controllers/predictionLineCtrl.js"></script>
+ <script type="text/javascript" src="src/modules/vsPlot/directives/predictionDate/predictionDateDirective.js"></script>
+ <script type="text/javascript" src="src/modules/vsPlot/directives/predictionLine/predictionLineDirective.js"></script>
+Index: src/modules/vsPlot/templates/predictionLine.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/vsPlot/templates/predictionLine.html	(date 1436217031000)
++++ src/modules/vsPlot/templates/predictionLine.html	(revision )
+@@ -1,7 +1,7 @@
+ <div ng-repeat="dates in vs.predictionDates track by $index" class="">
+ 
+     <div ng-repeat="date in dates | orderBy: date" class="col-xs-3">
+-        <button ng-show="$index != 0 && $index != dates.length -1" class="btn" ng-click="vs.predictionDates.removeDate($index)">Remove</button>
++        <button ng-show="$index != 0 && $index != dates.length -1" class="btn" ng-click="vs.predictionDates.removeDate($index); drawLinesAndSliders();">Remove</button>
+         <prediction-date date="date" index="$index"></prediction-date>
+         <button ng-show="$index != dates.length -1" class="btn addPredictionDate" ng-click="vs.predictionDates.addDate($index)">Add</button>
+ 
+Index: src/js/Directives.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/js/Directives.js	(date 1436217031000)
++++ src/js/Directives.js	(revision )
+@@ -2,30 +2,6 @@
+  * Created by CLong on 2/15/2015.
+  */
+ angular.module('Second')
+-    .directive('optionTypeDir', function () {
+-        return {
+-            restrict: 'E',
+-            templateUrl: 'src/templates/Structure/optionType.html'
+-        };
+-    })
+-    .directive('optionStyleDir', function () {
+-        return {
+-            restrict: 'E',
+-            templateUrl: 'src/templates/Structure/optionStyle.html'
+-        };
+-    })
+-    .directive('underlyingAsset', function () {
+-        return {
+-            restrict: 'E',
+-            templateUrl: 'src/templates/Structure/underlyingAsset.html'
+-        };
+-    })
+-    .directive('paramDir', function () {
+-        return {
+-            restrict: 'E',
+-            templateUrl: 'src/templates/Structure/params.html'
+-        };
+-    })
+     .directive('tradeThesisDir', function () {
+         return {
+             restrict: 'E',
+\ No newline at end of file
+Index: src/modules/vsPlot/directives/thesisPlot/thesisPlotDirective.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/vsPlot/directives/thesisPlot/thesisPlotDirective.js	(date 1436217031000)
++++ src/modules/vsPlot/directives/thesisPlot/thesisPlotDirective.js	(revision )
+@@ -8,33 +8,31 @@
+  * @restrict A
+  * */
+ angular.module('vsPlot')
+-    .directive('thesisPlot', function (FutureInterval, HistData) {
++    .directive('thesisPlot', function (FutureInterval, $timeout) {
+         return {
+             restrict: 'E',
+             template: '<div class="pkrChart"></div>',
+             replace: true,
+-            scope:{
+-                intervals: '=',
+-                data: '=',
+-                predictionDates: '='
+-            },
+             link: function (scope, elem, attr, ctrl) {
+-                console.log(scope);
++                var vs;
++                var bisectDate, formatValue, formatCurrency;
++                var margin, width, height;
+                 el = elem[0];
+-                console.log(elem);
+-                var vs = this;
++                vs = this;
+ 
++                console.log(scope)
+                 vs.pkrPriceData = scope.data;
+ 
+-                var margin = {top: 20, right: 100, bottom: 30, left: 50},
+-                    width = 1000 - margin.left - margin.right,
++                
++                margin = {top: 20, right: 100, bottom: 30, left: 50};
++                width = 1000 - margin.left - margin.right;
+-                    height = 575 - margin.top - margin.bottom;
++                height = 575 - margin.top - margin.bottom;
+ 
+-                var bisectDate = d3.bisector(function (d) {
++                bisectDate = d3.bisector(function (d) {
+                         return d.date;
+-                    }).left,
+-                    formatValue = d3.format(",.2f"),
++                    }).left;
++                formatValue = d3.format(",.2f");
+-                    formatCurrency = function (d) {
++                formatCurrency = function (d) {
+                         return "$" + formatValue(d);
+                     };
+ 
+@@ -92,14 +90,21 @@
+                 vs.drawFutureDates = drawFutureDates;
+                 vs.drawLinesAndSliders = drawLinesAndSliders;
+ 
++                $timeout(function () {
+-                vs.drawChart();
++                    vs.drawChart();
++                },500);
++
++                scope.$watch("predictionDates.predictionDates", function (newVal, oldVal) {
++                    if (newVal && oldVal) {
++                        vs.drawLinesAndSliders()
++                    }
++                }, true);
+                 //Drawing Functions
+ 
+                 // initializes the chart, nukes the whole thing and
+                 // draws all elements based on current maturity date and
+                 // prediction parameters
+                 function drawChart(setPredictionValues) {
+-                    console.log("drawChart was called");
+ 
+                     // nuke chart and set mouseup actions
+                     elem.mouseup(function () {
+@@ -171,28 +176,23 @@
+                 }
+ 
+                 function drawStepTwo(setPredictionValues) {
+-                    console.log("drawStepTwo was called");
+ 
++                    var j;
++                    var todaysPrice;
++                    var yRange;
++                    var yAxis;
++                    var xAxis;
+                     elem.html("");
+ 
+-                    var xAxis = d3.svg.axis()
++                    xAxis = d3.svg.axis()
+                         .scale(vs.x)
+                         .orient("bottom");
+ 
+-                    var yAxis = d3.svg.axis()
++                    yAxis = d3.svg.axis()
+                         .scale(vs.y)
+                         .orient("left");
+ 
+-                    vs.pkrPriceData.data.forEach(function (d) {
+-                        d.date = d.date;
+-                        d.price = +d.price;
+-                    });
+-
+-                    vs.pkrPriceData.data.sort(function (a, b) {
+-                        return a.date - b.date;
+-                    });
+-
+-                    var yRange = d3.max(vs.pkrPriceData.data, function (d) {
++                    yRange = d3.max(vs.pkrPriceData.data, function (d) {
+                             return d.price;
+                         }) - d3.min(vs.pkrPriceData.data, function (d) {
+                             return d.price;
+@@ -336,8 +336,8 @@
+ 
+                     if (setPredictionValues) {
+                         // set prediction date prices to todays price
+-                        var todaysPrice = vs.pkrPriceData.data[HistData.pastDays].price;
+-                        for (var j = 0; j <scope.predictionDates.predictionDates.length; j++) {
++                        todaysPrice = vs.pkrPriceData.data[vs.pkrPriceData.pastDays].price;
++                        for (j = 0; j <scope.predictionDates.predictionDates.length; j++) {
+                            scope.predictionDates.predictionDates[j].price = todaysPrice;
+                         }
+                         scope.$apply();
+@@ -354,7 +354,7 @@
+ 
+                 function drawRiskNeutralForecast() {
+ 
+-                    vs.rnData = FutureInterval.getRiskNeutralForecast(scope.predictionDates.predictionDates, vs.pkrPriceData.data, HistData.pastDays, vs.riskNeutralForecastData);
++                    vs.rnData = FutureInterval.getRiskNeutralForecast(scope.predictionDates.predictionDates, vs.pkrPriceData.data, vs.pkrPriceData.pastDays, vs.riskNeutralForecastData);
+                     // confidence intervals
+                     $("#riskNeutralConfidenceInterval").attr("d",
+                         vs.confidenceInterval(vs.rnData));
+@@ -366,7 +366,7 @@
+ 
+                 function drawHistoricalForecast() {
+ 
+-                    vs.hData = FutureInterval.getHistoricalForecast(scope.predictionDates.predictionDates, vs.pkrPriceData.data, HistData.pastDays, vs.historicalForecastData);
++                    vs.hData = FutureInterval.getHistoricalForecast(scope.predictionDates.predictionDates, vs.pkrPriceData.data, vs.pkrPriceData.pastDays, vs.historicalForecastData);
+                     // confidence intervals
+                     $("#historicalConfidenceInterval").attr("d",
+                         vs.confidenceInterval(vs.historicalForecastData));
+@@ -380,7 +380,7 @@
+                 //// renders the line to the right of today's date
+                 function drawFutureDates() {
+ 
+-                    vs.cData = FutureInterval.getFutureDates(scope.predictionDates.predictionDates, vs.pkrPriceData.data, HistData.pastDays, vs.confidenceInterval);
++                    vs.cData = FutureInterval.getFutureDates(scope.predictionDates.predictionDates, vs.pkrPriceData.data, vs.pkrPriceData.pastDays, vs.confidenceInterval);
+                     // line plot
+                     $("#historyPath").attr("d",
+                         vs.line(vs.pkrPriceData.data));
+@@ -396,7 +396,6 @@
+                 // draws lines and sliders for prediction values, then
+                 // draws line connecting predicted values
+                 function drawLinesAndSliders() {
+-                    console.log("drawLinesAndSliders was called");
+ 
+                     // nuke bars and sliders
+                     $('.pkrChart .bar').remove();
+@@ -483,60 +482,6 @@
+                     //vs.setOnForm();
+                     vs.drawFutureDates();
+                 }
+-                //
+-                //
+-                ////DatePicker Stuff
+-                //
+-                //// Disable weekend selection
+-                //function disabled(date, mode) {
+-                //    return (mode === 'day' && (date.getDay() === 0 || date.getDay() === 6));
+-                //}
+-                //
+-                //function open($event, index) {
+-                //    $event.preventDefault();
+-                //    $event.stopPropagation();
+-                //
+-                //    var thisPickerOpenedValue = $scope.preditctionLine[index].pickerOpened;
+-                //
+-                //    $scope.preditctionLine.forEach(function (date) {
+-                //        date.pickerOpened = false;
+-                //    });
+-                //    $scope.preditctionLine[index].pickerOpened = !thisPickerOpenedValue;
+-                //}
+-                //
+-                //vs.dateOptions = {
+-                //    formatYear: 'yy',
+-                //    startingDay: 1
+-                //};
+-                //
+-                //vs.formats = ['dd MMMM yyyy', 'yyyy/MM/dd', 'dd.MM.yyyy',
+-                //    'shortDate'];
+-                //vs.format = vs.formats[0];
+-                //vs.monthNames = ["January", "February", "March", "April", "May",
+-                //    "June", "July", "August", "September", "October", "November", "December"];
+-                //
+-                //
+-                ////Connect To Form
+-                //
+-                ////gets suggestions for options from the back end
+-                //function setOnForm() {
+-                //    vs.optimizeForm.Manager_Price_Targets = [];
+-                //    vs.optimizeForm.Manager_Vol = [];
+-                //    vs.optimizeForm.Manager_Date_Targets = [];
+-                //    angular.forEach(vs.preditctionLine, function (date) {
+-                //        vs.optimizeForm.Manager_Price_Targets.push(date.price);
+-                //        vs.optimizeForm.Manager_Vol.push(date.volatility / 100);
+-                //        vs.optimizeForm.Manager_Date_Targets.push(date.date.getFullYear() + "-" + ((date.date.getMonth() + 1) < 10 ? ('0' + (date.date.getMonth() + 1)) : (date.date.getMonth() + 1)) + "-" + date.date.getDate());
+-                //    });
+-                //    vs.optimizeForm.Manager_Vol.splice(0, 1);
+-                //}
+-
+-
+-
+-
+-
+-
+-
+ 
+             }
+         };
+Index: src/modules/optimization/controllers/optimizationCtrl.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/optimization/controllers/optimizationCtrl.js	(date 1436217031000)
++++ src/modules/optimization/controllers/optimizationCtrl.js	(revision )
+@@ -8,9 +8,20 @@
+  * @requires $scope
+  * */
+ angular.module('Optimization')
+-    .controller('optimization', function($scope, dataService, priceData){
+-        $scope.dropDownItems = dataService.dropDownItems;
+-        $scope.tabs = [true, false];
++    .controller('optimization', function($scope, dataService, priceData, maturityDate){
++        var __ = this;
++        __.predictionDates = []
++        __.tradeObjectives = dataService.dropDownItems.tradeObjectiveArray;
++        __.tabs = [true, false];
++        __.options = dataService.allOptionsByType();
++        __.request = {};
++        __.sendOptimize = function () {
++            __.request.ticker = $scope.ticker;
++            console.log(__.request, __);
++        };
+ 
+-        $scope.maturityDate = priceData;
++        __.maturityDate = maturityDate;
++        console.log(__)
++        __.priceData = priceData;
++        console.log(__.priceData)
+ });
+Index: src/modules/optimization/directives/parametersCtrl.js
+===================================================================
+--- src/modules/optimization/directives/parametersCtrl.js	(date 1436217031000)
++++ src/modules/optimization/directives/parametersCtrl.js	(date 1436217031000)
+@@ -1,13 +0,0 @@
+-/**
+- * @ngdoc controller
+- * @name parameters
+- *
+- * @description
+- * _Please update the description and dependencies._
+- *
+- * @requires $scope
+- * */
+-angular.module('Optimization')
+-    .controller('parameters', function($scope, dataService){
+-        $scope.options = dataService.allOptionsByType();
+-    });
