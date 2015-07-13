@@ -2,9 +2,9 @@
   <component name="ApplicationTasksOptions">
     <TaskOptions isEnabled="true">
       <option name="arguments" value="$FileName$" />
-      <option name="checkSyntaxErrors" value="true" />
+      <option name="checkSyntaxErrors" value="false" />
       <option name="description" value="Compiles .less files into .css files" />
-      <option name="exitCodeBehavior" value="ERROR" />
+      <option name="exitCodeBehavior" value="ALWAYS" />
       <option name="fileExtension" value="less" />
       <option name="immediateSync" value="true" />
       <option name="name" value="Less" />
@@ -21,8 +21,8 @@
       <option name="outputFromStdout" value="false" />
       <option name="passParentEnvs" value="true" />
       <option name="program" value="$USER_HOME$/PycharmProjects/FrontEnd/node_modules/.bin/lessc.cmd" />
-      <option name="scopeName" value="Project Files" />
-      <option name="trackOnlyRoot" value="false" />
+      <option name="scopeName" value="Changed Files" />
+      <option name="trackOnlyRoot" value="true" />
       <option name="workingDir" value="C:\Users\Admin\PycharmProjects\FrontEnd\src\less\src" />
       <envs />
     </TaskOptions>
