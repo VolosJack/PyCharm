@@ -148,5 +148,17 @@
       <option name="useProxy" value="false" />
       <username>jack.long</username>
     </YouTrack>
+    <YouTrack shared="false" url="http://volossoftware.myjetbrains.com/youtrack">
+      <commitMessageFormat>{id} {summary}</commitMessageFormat>
+      <option name="defaultSearch" value="sort by: updated #Unresolved" />
+      <password>dff9dfc2dfd8dfcfdfcedf8bdf9bdf98df99</password>
+      <option name="loginAnonymously" value="false" />
+      <option name="preferredCloseTaskState" />
+      <option name="preferredOpenTaskState" />
+      <option name="shouldFormatCommitMessage" value="false" />
+      <option name="useHttpAuthentication" value="false" />
+      <option name="useProxy" value="false" />
+      <username>jack.long</username>
+    </YouTrack>
   </component>
 </application>
