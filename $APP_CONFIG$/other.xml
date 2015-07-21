@@ -40,6 +40,7 @@
         <entry key="structureCtrl.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/structure/controllers/structureCtrlSpec.js" />
         <entry key="thesisFactory.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/vsPlot/services/thesisFactorySpec.js" />
         <entry key="thesisPlotDirective.js" value="$USER_HOME$/PycharmProjects/vsPlot/directives/thesisPlotDirectiveSpec.js" />
+        <entry key="underScoreFilter.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/helpers/filters/underScoreFilterSpec.js" />
         <entry key="vsConnectionService.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/helpers/services/vsConnectionServiceSpec.js" />
         <entry key="vsConsumerFactory.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/helpers/services/vsConsumerFactorySpec.js" />
         <entry key="vsGetService.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/helpers/services/vsGetServiceSpec.js" />
