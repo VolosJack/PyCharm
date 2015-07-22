@@ -28,6 +28,7 @@
         <entry key="futureIntervalService.js" value="$USER_HOME$/PycharmProjects/vsPlot/services/futureIntervalServiceSpec.js" />
         <entry key="intervalControlDirective.js" value="$USER_HOME$/PycharmProjects/vsPlot/directives/intervalControlDirectiveSpec.js" />
         <entry key="maturityDateFactory.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/vsPlot/directives/predictionDate/maturityDateFactorySpec.js" />
+        <entry key="optResultCtrl.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/optimization/controllers/optResultCtrlSpec.js" />
         <entry key="optimizationCtrl.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/optimization/controllers/optimizationCtrlSpec.js" />
         <entry key="parametersCtrl.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/optimization/directives/parametersCtrlSpec.js" />
         <entry key="parametersDirective.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/optimization/directives/parametersDirectiveSpec.js" />
