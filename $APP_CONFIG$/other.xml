@@ -49,6 +49,7 @@
         <entry key="vsPlotDirective.js" value="$USER_HOME$/PycharmProjects/vsPlot/directives/vsPlotDirectiveSpec.js" />
         <entry key="vsPositionFactory.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/database/factories/vsPositionFactorySpec.js" />
         <entry key="vsPublisherFactory.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/helpers/services/vsPublisherFactorySpec.js" />
+        <entry key="vsScenarioFactory.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/database/factories/vsScenarioFactorySpec.js" />
         <entry key="vsStructureDirective.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/structure/vsStructureDirectiveSpec.js" />
         <entry key="vsflipDirective.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/analyze/directives/vsflipDirectiveSpec.js" />
       </map>
