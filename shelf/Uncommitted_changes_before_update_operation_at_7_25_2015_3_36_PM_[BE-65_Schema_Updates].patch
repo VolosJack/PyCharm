@@ -1,0 +1,59 @@
+Index: volos/vps_data/queue_test.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- volos/vps_data/queue_test.py	(revision 86a625e709f137580dc67421bb0558e3e970087c)
++++ volos/vps_data/queue_test.py	(revision )
+@@ -9,7 +9,7 @@
+ 
+     USER = "volos"
+     PASSWORD = "test"
+-    IP = "localhost"
++    IP = "54.149.173.86"
+ 
+     @staticmethod
+     def rabbit_setup(user, password, ip):
+@@ -30,12 +30,14 @@
+ 
+         json_data = json.loads(body.decode())
+         if json_data["Request_Type"] == "Analyze":
+-            filename = "io\Get_Analytics_Output.json"
++            filename = "io\Get_Quote_Output.json"
+             with open(filename) as json_file:
+                 json_reply = json.load(json_file)
+ 
++            json_reply["Position_Id"] = json_data["Position_Id"]
++            print(json_reply)
++            print type(json_reply)
+             reply_json = json.dumps(json_reply)
+-
+             self.publish2rmq(reply_json, reply_to)
+         elif json_data["Request_Type"] == "PL":
+             filename = "io\Get_Profit_And_Loss_Output.json"
+@@ -70,6 +72,15 @@
+ 
+             reply_json = json.dumps(json_reply)
+             self.publish2rmq(reply_json, reply_to)
++        elif json_data["Request_Type"] == "IV":
++            filename = "io\Get_IV_Output.json"
++            with open(filename) as json_file:
++                json_reply = json.load(json_file)
++
++            json_reply["Position_Id"] = json_data["Position_Id"]
++            print(json_reply)
++            reply_json = json.dumps(json_reply)
++            self.publish2rmq(reply_json, reply_to)
+         else:
+             print("Error")
+ 
+@@ -83,7 +94,7 @@
+     def run(self, queue):
+         channel = self.connection.channel()
+         channel.exchange_declare(exchange='Volos_F2B', type='direct')
+-        channel.queue_declare(queue=queue, durable=False)
++        channel.queue_declare(queue=queue, durable=True)
+         channel.queue_bind(exchange='Volos_F2B', queue=queue)
+         channel.basic_qos(prefetch_count=1)
+         channel.basic_consume(self.callback, queue=queue, no_ack=True)
+\ No newline at end of file
