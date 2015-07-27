@@ -1,0 +1,139 @@
+Index: src/modules/analyze/analyze.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/analyze/analyze.js	(revision 1bc48645f3a2fbd3a4723a0d3e133dd177cda927)
++++ src/modules/analyze/analyze.js	(revision )
+@@ -69,11 +69,12 @@
+     states.push({
+         name: 'pLThesis',
+         url: '/pLThesis/:id',
+-        templateUrl: 'src/modules/profitLoss/templates/pLThesis.html',
++        templateUrl: 'src/modules/profitLoss/templates/pLPlot.html',
+         resolve: {
+             contract: function ($stateParams, resultsService, vsContract) {
+                 return resultsService.getContractById($stateParams.id)
+                     .then(function (result) {
++                        console.log(result);
+                         return vsContract.build(result);
+                     }).then(function (contract) {
+                         console.log(contract)
+@@ -87,6 +88,17 @@
+             }
+         },
+         controller: 'pLoss as pl'
++    });
++    states.push({
++        name: 'Options',
++        url: '/Options/:reply',
++        templateUrl: 'src/modules/analyze/templates/optionsVis.html',
++        resolve: {
++            pLData: function ($stateParams) {
++                return $stateParams.reply
++            }
++        },
++        controller: 'profitLoss as pL'
+     });
+     states.push({
+         name: 'pL',
+\ No newline at end of file
+Index: dst/css/base.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- dst/css/base.css	(revision 1bc48645f3a2fbd3a4723a0d3e133dd177cda927)
++++ dst/css/base.css	(revision )
+@@ -1,0 +1,0 @@
+Index: index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- index.html	(revision 1bc48645f3a2fbd3a4723a0d3e133dd177cda927)
++++ index.html	(revision )
+@@ -94,7 +94,17 @@
+ 								</div>
+ 							</a>
+ 
+-							<a ng-switch-when="Analyze" ui-sref="Analyze">
++							<a ng-switch-when="Analyze" ui-sref="Options">
++								{{items.result.Ticker}}{{ items.result.Optimize_Setting.Opt_Metric }}
++								<div class="media-left"><img style="width: inherit;"
++								                             src="src/svg/A%20Logos_Binary.svg"/></div>
++								<div class="media-body" ng-click="noView[$index].pop()">
++									<h6 class="media-heading" style="color: darkgray;">{{items.result.Ticker}}</h6>
++
++									<div class="text-muted f-s-11"> {{ items.Request_Type }}</div>
++								</div>
++							</a>
++							<a ng-switch-when="Results" ui-sref="Analyze">
+ 								{{items.result.Ticker}}{{ items.result.Optimize_Setting.Opt_Metric }}
+ 								<div class="media-left"><img style="width: inherit;"
+ 								                             src="src/svg/A%20Logos_Binary.svg"/></div>
+Index: src/modules/database/services/resultsService.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/database/services/resultsService.js	(revision 1bc48645f3a2fbd3a4723a0d3e133dd177cda927)
++++ src/modules/database/services/resultsService.js	(revision )
+@@ -152,6 +152,7 @@
+                         __.updateSweep(body);
+                         break;
+                     case "Analyze":
++                        __.updateAnalyze(body)
+                         break;
+                     case "Optimize":
+                         __.updateOptimize(body);
+@@ -275,6 +276,11 @@
+                 console.log(reply);
+                 $rootScope.$emit(reply.Position_Id, reply);
+                 $rootScope.$emit("pL", reply);
++            };
++            __.updateAnalyze = function updateAnalyze(reply) {
++                console.log(reply);
++                $rootScope.$emit(reply.Position_Id, reply);
++                $rootScope.$emit("Analyze", reply);
+             };
+ 
+             __.updateContract = function updateContract(reply) {
+Index: src/modules/analyze/controllers/analyzeCtrl.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/analyze/controllers/analyzeCtrl.js	(revision 1bc48645f3a2fbd3a4723a0d3e133dd177cda927)
++++ src/modules/analyze/controllers/analyzeCtrl.js	(revision )
+@@ -42,7 +42,8 @@
+             $state.go('scenario', {id: contract})
+         };
+         __.goPl = function goPl(contract) {
+-            $state.go('pL', {reply: contract})
++            console.log(contract)
++            $state.go('pLThesis', {id: contract})
+         };
+ 
+         __.writeIt = function writeIt(card) {
+Index: src/modules/nav/controllers/navBarCtrl.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/nav/controllers/navBarCtrl.js	(revision 1bc48645f3a2fbd3a4723a0d3e133dd177cda927)
++++ src/modules/nav/controllers/navBarCtrl.js	(revision )
+@@ -23,6 +23,13 @@
+         $scope.$on('Results', function (event, results) {
+             console.log("A result was heard");
+             $scope.noView.push({
++                type: 'Results',
++                result: results
++            });
++        });
++        $scope.$on('Analyze', function (event, results) {
++            console.log("A result was heard");
++            $scope.noView.push({
+                 type: 'Analyze',
+                 result: results
+             });
