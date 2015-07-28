@@ -1,0 +1,97 @@
+Index: dst/css/base.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- dst/css/base.css	(revision cc514ea08eab7b21ab3964dffbe963d2f6da2c56)
++++ dst/css/base.css	(revision )
+@@ -1,0 +1,0 @@
+Index: src/modules/home/directives/companyInfo/controllers/companyInfoCtrl.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/home/directives/companyInfo/controllers/companyInfoCtrl.js	(revision cc514ea08eab7b21ab3964dffbe963d2f6da2c56)
++++ src/modules/home/directives/companyInfo/controllers/companyInfoCtrl.js	(revision )
+@@ -12,6 +12,9 @@
+         //        getName(newTicker);
+         //    }
+         //});
++        $scope.$on('Technicals', function (event, data) {
++            $scope.assetAnalysisData = data
++        })
+ 
+         $scope.submitTicker = function (newTicker) {
+                 console.log("submit ticker: " + newTicker);
+Index: src/modules/home/directives/companyInfo/services/companyDataService.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/home/directives/companyInfo/services/companyDataService.js	(revision cc514ea08eab7b21ab3964dffbe963d2f6da2c56)
++++ src/modules/home/directives/companyInfo/services/companyDataService.js	(revision )
+@@ -118,13 +118,13 @@
+ 
+         function getAssetAnalysis() {
+ 
+-            //var objectPassed = {
+-            //  "Request_Type": "Asset_Analysis",
+-            //  "Params": {
+-            //    "Ticker": ticker,
+-            //    "Historical_Days":30
+-            //  }
+-            //};
++            var objectPassed = {
++              "Request_Type": "Asset_Analysis",
++              "Params": {
++                "Ticker": ticker,
++                "Historical_Days":30
++              }
++            };
+             ////
+             //var objectPassed = {
+             //    "Request_Type": 'Get_IV',
+@@ -153,7 +153,7 @@
+             return __.assetAnalysisData;
+ 
+ 
+-            //vsConnection.Quote.publisher.publish(JSON.stringify(objectPassed));
++            vsConnection.Technicals.publisher.publish(JSON.stringify(objectPassed));
+ 
+         }
+ 
+Index: src/modules/database/services/resultsService.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/database/services/resultsService.js	(revision cc514ea08eab7b21ab3964dffbe963d2f6da2c56)
++++ src/modules/database/services/resultsService.js	(revision )
+@@ -281,6 +281,11 @@
+                 $rootScope.$broadcast("IV", reply);
+             };
+ 
++            __.updateTechnicals = function updateTechnicals(reply) {
++                console.log(reply);
++
++                $rootScope.$broadcast("Technicals", reply);
++            };
+             __.updatePL = function updatePL(reply) {
+                 console.log(reply);
+ 
+@@ -417,6 +422,7 @@
+                         return positionIds;
+                     });
+             };
++
+             __.getAllOptimizeRecords = function getAllOptimizeRecords() {
+                 var optimizations, opts = [];
+                 optimizations = db.selectAll('optimizations').then(function (results) {
+Index: dst/css/main.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- dst/css/main.css	(revision cc514ea08eab7b21ab3964dffbe963d2f6da2c56)
++++ dst/css/main.css	(revision )
+@@ -1,0 +1,0 @@
