@@ -1,0 +1,37 @@
+Index: dst/css/base.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- dst/css/base.css	(revision 3f519cdfef9405de50f2adab5a091907030e450c)
++++ dst/css/base.css	(revision )
+@@ -9396,9 +9396,9 @@
+   border: 1px solid #cb5d00;
+ }
+ .comp-svg {
+-  padding: 0px);
++  padding: 0px;
+   background-color: #333333;
+-  margin-bottom: 10px;
++  margin-bottom: 5px;
+ }
+ #top-svg {
+   margin-top: 10px;
+@@ -9481,6 +9481,9 @@
+ .grayDarkBackground {
+   background-color: #333333;
+   border: 1px solid #cb5d00;
++}
++#resultsTableRightMargin {
++  margin-right: 10px;
+ }
+ .largerFont {
+   font-size: 19px;
+Index: dst/css/main.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- dst/css/main.css	(revision 3f519cdfef9405de50f2adab5a091907030e450c)
++++ dst/css/main.css	(revision )
+@@ -1,0 +1,0 @@
