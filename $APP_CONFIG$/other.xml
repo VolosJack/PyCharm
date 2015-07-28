@@ -21,6 +21,7 @@
   <component name="Configuration">
     <option name="mainSpecFilesMap">
       <map>
+        <entry key="PLPlotCtrl.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/profitLoss/PLPlotCtrlSpec.js" />
         <entry key="RequestHandlerFactory.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/database/factories/RequestHandlerFactorySpec.js" />
         <entry key="analyzeCtrl.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/analyze/controllers/analyzeCtrlSpec.js" />
         <entry key="companyDataService.js" value="$USER_HOME$/PycharmProjects/FrontEnd/src/modules/home/directives/companyInfo/companyDataServiceSpec.js" />
