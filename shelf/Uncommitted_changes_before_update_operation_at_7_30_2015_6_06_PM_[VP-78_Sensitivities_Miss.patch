@@ -1,0 +1,25 @@
+Index: dst/css/base.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- dst/css/base.css	(revision 299cad41d0433d0a4eca132cb8cad5fb8a02dc7e)
++++ dst/css/base.css	(revision )
+@@ -9485,6 +9485,9 @@
+   background-color: #333333;
+   border: 1px solid #cb5d00;
+ }
++#activeContract {
++  background-color: #777777;
++}
+ #resultsTableRightMargin {
+   margin-right: 10px;
+ }
+Index: dst/css/main.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- dst/css/main.css	(revision 299cad41d0433d0a4eca132cb8cad5fb8a02dc7e)
++++ dst/css/main.css	(revision )
+@@ -1,0 +1,0 @@
