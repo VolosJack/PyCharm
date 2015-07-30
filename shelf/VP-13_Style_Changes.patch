@@ -1,0 +1,556 @@
+Index: dst/css/base.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- dst/css/base.css	(revision ee0025407915c3153eb4dc5d956aaf60cbf564da)
++++ dst/css/base.css	(revision )
+@@ -8874,7 +8874,6 @@
+   background-color: #222222;
+   color: #e6e7e8;
+   border: 1px solid #666666;
+-  width: 80px;
+   padding-left: 6px;
+ }
+ .scenario .pkr .pkrPanel {
+@@ -9480,16 +9479,25 @@
+ }
+ .orangeBorder {
+   border: 1px solid #cb5d00;
++  padding-left: 0px;
++  padding-right: 0px;
+ }
+ .grayDarkBackground {
+   background-color: #333333;
+   border: 1px solid #cb5d00;
+ }
++#activeContract {
++  background-color: #777777;
++}
+ #resultsTableRightMargin {
+   margin-right: 10px;
+ }
+ .largerFont {
+   font-size: 19px;
++}
++.full-width {
++  width: 100%;
++  background-color: #eeeeee;
+ }
+ vs-graph3d {
+   margin-left: auto;
+Index: src/modules/analyze/templates/graph3d.tpl.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/analyze/templates/graph3d.tpl.html	(revision ee0025407915c3153eb4dc5d956aaf60cbf564da)
++++ src/modules/analyze/templates/graph3d.tpl.html	(revision )
+@@ -1,8 +1,8 @@
+ <div class="row">
+ 	<div class="col-lg-3">
+-		<div class="row">
++
+-			<company-info></company-info>
++		<company-info></company-info>
+-		</div>
++
+ 		<div class="row">
+ 			<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+ 				<div class="panel panel-default ">
+@@ -91,7 +91,7 @@
+ 					</div>
+ 					<div class="panel-body">
+ 						<div style="padding: 5px" class="btn-group">
+-							<label class="btn btn-default"
++							<label class="btn btn-default full-width"
+ 							       ng-repeat="(name, sweep) in contract.Sweeps"
+ 							       ng-click="getChart(name)"> {{ name | removeUnderscore }} </label>
+ 						</div>
+@@ -102,7 +102,7 @@
+ 				<div class="panel panel-default" style="height:100%;">
+ 					<div class="panel-body" style="height:900px;padding:3px;">
+ 						<vs-graph3d ng-show="graphLoaded" data="data" options="options"
+-						             events="graphEvents"></vs-graph3d>
++						            events="graphEvents"></vs-graph3d>
+ 					</div>
+ 				</div>
+ 			</div>
+\ No newline at end of file
+Index: src/modules/optimization/templates/optimizationSettings.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/optimization/templates/optimizationSettings.html	(revision ee0025407915c3153eb4dc5d956aaf60cbf564da)
++++ src/modules/optimization/templates/optimizationSettings.html	(revision )
+@@ -9,96 +9,93 @@
+ 	</div>
+ 
+ 	<div class="col-lg-9">
+-
+ 		<div class="row">
+-
+ 			<div class="col-xs-10">
+-
++				<div class="comp">
+-				<div class="row pkr">
+-					<div class="col-lg-2">
++					<div class="row pkr">
++						<div class="col-lg-2">
+-						<interval-control  display="optimize.display" intervals="intervals"></interval-control>
++							<interval-control display="optimize.display" intervals="intervals"></interval-control>
+-					</div>
+-					<div class="col-lg-8 pkrPanel">
+-						<div class="row pkrChartWrapper">
+-							<div class="col-lg-12">
+-								<thesis-plot intervals="intervals" price-data="vs.priceData"
+-								             prediction-dates="optimize.predictionDates"></thesis-plot>
+-							</div>
+-						</div>
+-					</div>
+-				</div>
++						</div>
++						<div class="col-lg-8 pkrPanel">
++							<div class="row pkrChartWrapper">
++								<div class="col-lg-12">
++									<thesis-plot intervals="intervals" price-data="vs.priceData"
++									             prediction-dates="optimize.predictionDates"></thesis-plot>
++								</div>
++							</div>
++						</div>
++					</div>
+ 
+-				<div class="row pkr">
+-					<div class="col-lg-12">
+-						<prediction-line prediction-dates="optimize.predictionDates"></prediction-line>
+-					</div>
+-				</div>
++					<div class="row pkr">
++						<div class="col-lg-12">
++							<prediction-line prediction-dates="optimize.predictionDates"></prediction-line>
++						</div>
++					</div>
+-
+-			</div>
++				</div>
++			</div>
+ 
+-			<div class="col-xs-2 comp">
+-
++			<div class="col-xs-2">
++				<div class="comp">
+-				<h3>Trade Objective</h3>
++					<h3>Trade Objective</h3>
+-
+-				<select class="form-control"
+-				        ng-options="f for f in optimize.tradeObjectives | filter: removeUnderscore"
+-				        ng-model="optimize.request.Optimize_Settings.Opt_Metric">
+-					<option></option>
+-				</select>
++					<select class="form-control"
++					        ng-options="f for f in optimize.tradeObjectives | filter: removeUnderscore"
++					        ng-model="optimize.request.Optimize_Settings.Opt_Metric">
++						<option></option>
++					</select>
+ 
+-				<h3>Contracts</h3>
++					<h3>Contracts</h3>
+-
+-				<accordion close-others="oneAtATime">
+-					<accordion-group ng-repeat="types in optimize.options">
+-						<accordion-heading id="optimizationCat">
+-							{{ types.title }}
+-						</accordion-heading>
++					<accordion close-others="oneAtATime">
++						<accordion-group ng-repeat="types in optimize.options">
++							<accordion-heading id="optimizationCat">
++								{{ types.title }}
++							</accordion-heading>
+-						<div id="optimizationReturn" ng-repeat="option in types.options" >
++							<div id="optimizationReturn" ng-repeat="option in types.options">
+-							<input type="checkbox" ng-model="optimize.request.portfolio[option.Option_Type]"> {{
+-							                                                                                  option.name
+-							                                                                                  }}
+-						</div>
+-					</accordion-group>
+-				</accordion>
++								<input type="checkbox" ng-model="optimize.request.portfolio[option.Option_Type]"> {{
++								                                                                                  option.name
++								                                                                                  }}
++							</div>
++						</accordion-group>
++					</accordion>
+ 
+-				<h3>Position</h3>
++					<h3>Position</h3>
+ 
+-				<div class="form-group">
+-					<label for="tradeSize" class=" control-label">Trade Size:</label>
++					<div class="form-group">
++						<label for="tradeSize" class=" control-label">Trade Size:</label>
+ 
+-					<div class=" input-group" id="tradeSize">
++						<div class=" input-group" id="tradeSize">
+ 
+-						<input type="number"
+-						       class="form-control"
+-						       placeholder="Amount:"
+-						       ng-model="optimize.request.Position_Spec.Trade_Size">
++							<input type="number"
++							       class="form-control"
++							       placeholder="Amount:"
++							       ng-model="optimize.request.Position_Spec.Trade_Size">
+ 
+-						<div class="input-group-addon optionStyleTradeSizeInputAddon">
+-							<select class="form-control"
+-							        ng-model="optimize.request.Position_Spec.Trade_Size_Type"
+-							        ng-init="optimize.request.Position_Spec.Trade_Size_Type = optimize.tradeSizeArray[0]"
+-							        ng-options="f for f in optimize.tradeSizeArray"> </select>
+-						</div>
++							<div class="input-group-addon optionStyleTradeSizeInputAddon">
++								<select class="form-control"
++								        ng-model="optimize.request.Position_Spec.Trade_Size_Type"
++								        ng-init="optimize.request.Position_Spec.Trade_Size_Type = optimize.tradeSizeArray[0]"
++								        ng-options="f for f in optimize.tradeSizeArray"> </select>
++							</div>
+ 
+-					</div>
+-				</div>
++						</div>
++					</div>
+ 
+-				<div class="form-group">
+-					<label for="markup" class=" control-label">Expected Markup:</label>
++					<div class="form-group">
++						<label for="markup" class=" control-label">Expected Markup:</label>
+ 
+-					<div class=" input-group" id="markup">
+-						<input type="number" class="form-control"
+-						       ng-model="optimize.request.Position_Spec.Expected_Spread"
+-						       placeholder="Expected Markup"> <span class="input-group-addon" id="percent">%</span>
+-					</div>
++						<div class=" input-group" id="markup">
++							<input type="number" class="form-control"
++							       ng-model="optimize.request.Position_Spec.Expected_Spread"
++							       placeholder="Expected Markup"> <span class="input-group-addon" id="percent">%</span>
++						</div>
+ 
+-				</div>
++					</div>
+ 
+-				<button type="button"
+-				        class="btn btn-success btn-lg normalButton topRow"
+-				        ng-click="optimize.sendOptimize()">
+-					Optimize
+-				</button>
++					<button type="button"
++					        class="btn btn-success btn-lg normalButton topRow"
++					        ng-click="optimize.sendOptimize()">
++						Optimize
++					</button>
++				</div>
+ 			</div>
+ 
+ 		</div>
+\ No newline at end of file
+Index: src/modules/home/templates/home.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/home/templates/home.html	(revision ee0025407915c3153eb4dc5d956aaf60cbf564da)
++++ src/modules/home/templates/home.html	(revision )
+@@ -1,68 +1,59 @@
+ <div class="row">
+ 
+-    <div class="col-lg-3">
++	<div class="col-lg-3">
+ 
+-        <div class="row">
++		<div class="row">
+ 
+-                <div class="col-lg-12">
++			<div class="col-lg-12">
+ 
+-                    <company-info></company-info>
++				<company-info></company-info>
+ 
+-                </div>
++			</div>
+ 
+-            </div>
++		</div>
+ 
+-        <hst-plot></hst-plot>
++		<hst-plot></hst-plot>
+ 
+-    </div>
++	</div>
+ 
+-    <div class="col-lg-9">
++	<div class="col-lg-9">
+ 
+-        <div class="row">
+-
+-            <div class="col-lg-12">
+-
+-                <div class="row comp-tabs">
++		<div class="row comp-tabs">
+ 
+-                    <tabset class="col-lg-12 tab-animation orangeBorder" justified="true">
++			<tabset class="col-lg-12 tab-animation orangeBorder" justified="true">
+ 
+-                        <tab active="companyTabs[0]" heading="Table" ng-click="initExpandRows()">
++				<tab active="companyTabs[0]" heading="Table" ng-click="initExpandRows()">
+ 
+-                            <table-dir></table-dir>
++					<table-dir></table-dir>
+ 
+-                        </tab>
++				</tab>
+ 
+-                        <tab active="companyTabs[1]" heading="Implied Volatility Surface">
+-							<div class="row">
+-								<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
++				<tab active="companyTabs[1]" heading="Implied Volatility Surface">
++					<div class="row">
++						<div class="col-xs-2 col-sm-2 col-md-2 col-lg-2">
+-									<select class="form-control impliedVolMargin" ng-model="model.type" ng-change="getChart(model.type,'Mid_IV_Matrix')">
++							<select class="form-control impliedVolMargin" ng-model="model.type"
++							        ng-change="getChart(model.type,'Mid_IV_Matrix')">
+-										<option value="Call">Call</option>
+-										<option value="Put">Put</option>
+-									</select>
+-								</div>
+-							</div>
++								<option value="Call">Call</option>
++								<option value="Put">Put</option>
++							</select>
++						</div>
++					</div>
+ 
+-	                        <div class="row">
++					<div class="row">
+-								<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="height: 860px; padding:5px;">
+-									<vs-graph3d ng-show="graphLoaded" data="data" options="options" events="graphEvents"></vs-graph3d>
++						<div class="col-xs-12 col-sm-12 col-md-12 col-lg-12" style="height: 860px; margin:5px;">
++							<vs-graph3d ng-show="graphLoaded" data="data" options="options"
++							            events="graphEvents"></vs-graph3d>
+-								</div>
++						</div>
+ 
+-							</div>
++					</div>
+ 
+-
+-                        </tab>
++				</tab>
+ 
+-                    </tabset>
++			</tabset>
+ 
+-                </div>
++		</div>
+-
+-            </div>
+-
+-        </div>
+-
+-
+ 
+-    </div>
++	</div>
+ 
+ </div>
+ 
+Index: dst/css/main.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- dst/css/main.css	(revision ee0025407915c3153eb4dc5d956aaf60cbf564da)
++++ dst/css/main.css	(revision )
+@@ -388,7 +388,6 @@
+   background-color: #222222;
+   color: #e6e7e8;
+   border: 1px solid #666666;
+-  width: 80px;
+   padding-left: 6px;
+ }
+ .scenario .pkr .pkrPanel {
+Index: src/less/src/main.less
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/less/src/main.less	(revision ee0025407915c3153eb4dc5d956aaf60cbf564da)
++++ src/less/src/main.less	(revision )
+@@ -426,7 +426,6 @@
+       background-color: @gray-darker;
+       color: #e6e7e8;
+       border: 1px solid #666666;
+-      width: 80px;
+       padding-left: 6px;
+     }
+     .pkrPanel {
+Index: src/modules/analyze/controllers/analyzeCtrl.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/analyze/controllers/analyzeCtrl.js	(revision ee0025407915c3153eb4dc5d956aaf60cbf564da)
++++ src/modules/analyze/controllers/analyzeCtrl.js	(revision )
+@@ -27,8 +27,8 @@
+                 var temp = item.refreshPosition();
+                 temp.then(function (result) {
+                     angular.extend(item, result);
+-                    //item.Position_Id = result.Position_Id
+-                    //item.Sweep_Id = result.Sweep_Id
++                    item.Position_Id = result.Position_Id;
++                    item.Sweep_Id = result.Sweep_Id;
+                 });
+                 __.contracts.push(item)
+             });
+Index: index.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- index.html	(revision ee0025407915c3153eb4dc5d956aaf60cbf564da)
++++ index.html	(revision )
+@@ -53,7 +53,7 @@
+ 		<ul ng-controller="navBarCtrl" class="nav navbar-nav navbar-right">
+ 
+ 			<li>
+-				<form class="navbar-form full-width">
++				<form class="navbar-form">
+ 					<div class="input-group">
+ 						<input type="text" class="form-control" placeholder="Search for..."> <span
+ 							class="input-group-btn">
+Index: src/modules/home/controllers/homeCtrl.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/home/controllers/homeCtrl.js	(revision ee0025407915c3153eb4dc5d956aaf60cbf564da)
++++ src/modules/home/controllers/homeCtrl.js	(revision )
+@@ -23,7 +23,7 @@
+             width: '100%',
+             style: "surface",
+             backgroundColor: {
+-                fill: "grey",
++                fill: "#242424",
+                 stroke: "white"
+             },
+             keepAspectRatio: false,
+@@ -31,9 +31,9 @@
+             showGrid: true,
+             showPerspective: true,
+             showShadow: false,
+-            xLabel: "Asset Price",
++            xLabel: "Strike Price",
+             yLabel: "Expiration",
+-            zLabel: "Option_Price_Sweep",
++            zLabel: "Implied Vol",
+             xCenter: '55%',
+             yCenter: '45%'
+         };
+@@ -43,6 +43,7 @@
+             IV["Call"] = results.Call;
+             IV["Put"] = results.Put;
+             console.log(results)
++            $scope.graphAvailible = true;
+         });
+ 
+ 
+@@ -78,5 +79,6 @@
+             $scope.graphLoaded = true;}
+         };
+ 
++        $scope.graphAvailible = false;
+         $scope.graphLoaded = false;
+ });
+Index: src/less/src/optimization.less
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/less/src/optimization.less	(revision ee0025407915c3153eb4dc5d956aaf60cbf564da)
++++ src/less/src/optimization.less	(revision )
+@@ -1,5 +1,7 @@
+ @import "variables";
+ 
+-.hstOpt{
++.full-width{
++  width: 100%;
++  background-color: @gray-lighter;
+ 
+ }
+Index: src/less/src/base.less
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/less/src/base.less	(revision ee0025407915c3153eb4dc5d956aaf60cbf564da)
++++ src/less/src/base.less	(revision )
+@@ -4,6 +4,7 @@
+ @import "mixins.less";
+ @import "../../../src/less/src/main.less";
+ @import "../../../src/less/src/structure.less";
++@import "optimization";
+ @import "home.less";
+ @import "deck-grid.less";
+ @import "options";
+\ No newline at end of file
+Index: src/modules/database/services/resultsService.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/database/services/resultsService.js	(revision ee0025407915c3153eb4dc5d956aaf60cbf564da)
++++ src/modules/database/services/resultsService.js	(revision )
+@@ -183,7 +183,8 @@
+ 
+             __.getContracts = function getContracts(request_type) {
+                 var contracts, opts = [];
+-                contracts = db.selectAll(request_type).then(function (results) {
++                contracts = db.selectAll(request_type)
++                    .then(function (results) {
+                     for (var i = 0; i < results.rows.length; i++) {
+                         var opt = {}, option = angular.fromJson(results.rows.item(i));
+                         opt.Contract_Params = JSON.parse(option.Contract_Params);
+@@ -286,6 +287,7 @@
+ 
+                 $rootScope.$broadcast("Technicals", reply);
+             };
++
+             __.updatePL = function updatePL(reply) {
+                 console.log(reply);
+ 
+@@ -485,8 +487,7 @@
+                     var positions = [];
+                     for (var i = 0; i < result.rows.length; i++) {
+                         var position = angular.fromJson(result.rows.item(i));
+-                        var contract = __.getContractById(position.Contract_Id);
+-                        positions.push(angular.extend(contract, position));
++                        positions.push(__.getContractById(position.Contract_Id))
+                     }
+                     return positions
+                 });
+Index: src/less/src/structure.less
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/less/src/structure.less	(revision ee0025407915c3153eb4dc5d956aaf60cbf564da)
++++ src/less/src/structure.less	(revision )
+@@ -139,6 +139,8 @@
+ 
+ .orangeBorder{
+   border: @div-default-border;
++  padding-left: 0px;
++  padding-right: 0px;
+ }
+ 
+ .grayDarkBackground{
