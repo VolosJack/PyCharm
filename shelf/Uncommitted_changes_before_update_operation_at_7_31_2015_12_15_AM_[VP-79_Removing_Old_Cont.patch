@@ -1,0 +1,8 @@
+Index: dst/css/deck-grid.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- dst/css/deck-grid.css	(revision b8a606c09a3ab0136509c7900e0b5353d64cdd30)
++++ dst/css/deck-grid.css	(revision )
+@@ -1,0 +1,0 @@
