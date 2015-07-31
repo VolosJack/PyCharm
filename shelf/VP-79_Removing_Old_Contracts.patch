@@ -1,0 +1,8 @@
+Index: dst/css/base.css
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- dst/css/base.css	(revision 1f3bec6a0812ea8095c2b12d9550448216639b16)
++++ dst/css/base.css	(revision )
+@@ -1,0 +1,0 @@
