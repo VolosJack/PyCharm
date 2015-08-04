@@ -26,7 +26,7 @@
       <option name="workingDir" value="C:\Users\Admin\PycharmProjects\FrontEnd\src\less" />
       <envs />
     </TaskOptions>
-    <TaskOptions isEnabled="true">
+    <TaskOptions isEnabled="false">
       <option name="arguments" value="$FileName$" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" value="Compiles .less files into .css files" />
@@ -52,7 +52,7 @@
       <option name="workingDir" value="C:\Users\Admin\PycharmProjects\FrontEnd\src\less" />
       <envs />
     </TaskOptions>
-    <TaskOptions isEnabled="true">
+    <TaskOptions isEnabled="false">
       <option name="arguments" value="$FileName$" />
       <option name="checkSyntaxErrors" value="true" />
       <option name="description" value="Compiles .less files into .css files" />
