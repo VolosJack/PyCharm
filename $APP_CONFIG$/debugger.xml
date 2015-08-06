@@ -5,7 +5,13 @@
     <debuggers>
       <debugger id="javascript">
         <configuration>
-          <custom-object-presentation />
+          <custom-object-presentation>
+            <properties>
+              <property value="*" />
+              <property value="id" />
+              <property value="name" />
+            </properties>
+          </custom-object-presentation>
         </configuration>
       </debugger>
     </debuggers>

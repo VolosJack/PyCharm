@@ -18,6 +18,7 @@
       </profile-state>
     </entry>
   </component>
+  <component name="BuiltInServerOptions" builtInServerAvailableExternally="true" />
   <component name="Configuration">
     <option name="mainSpecFilesMap">
       <map>
@@ -158,9 +159,24 @@
       <option name="useProxy" value="false" />
       <username>jack.long</username>
     </YouTrack>
+    <GitHub shared="false" url="https://github.com">
+      <commitMessageFormat>{id} {summary}</commitMessageFormat>
+      <password />
+      <token>dfc9df9edf99dfcedf99dfcfdf9edfc8dfc9dfcbdf9ddf98df9cdfc8df99df99df92df99dfccdf99dfcedf92df93df99dfcfdfccdf9ddfc8dfcbdf9ddf9ddf99df9fdfc9df9ddfcbdf9adf9bdf98dfc9</token>
+      <option name="loginAnonymously" value="false" />
+      <option name="preferredCloseTaskState" />
+      <option name="preferredOpenTaskState" />
+      <option name="repoAuthor" value="volossoftware" />
+      <option name="repoName" value="FrontEnd" />
+      <option name="shouldFormatCommitMessage" value="true" />
+      <option name="useHttpAuthentication" value="false" />
+      <option name="useProxy" value="false" />
+      <option name="user" value="" />
+      <username />
+    </GitHub>
     <YouTrack shared="false" url="https://volossoftware.myjetbrains.com/youtrack">
       <commitMessageFormat>{id} {summary}</commitMessageFormat>
-      <option name="defaultSearch" value="Assignee: me sort by: Priority " />
+      <option name="defaultSearch" value="project: VolosPlatform sort by: Priority " />
       <password>dff9dfc2dfd8dfcfdfcedf8bdf9bdf98df99</password>
       <option name="loginAnonymously" value="false" />
       <option name="preferredCloseTaskState" />
