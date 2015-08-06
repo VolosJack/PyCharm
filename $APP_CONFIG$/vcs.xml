@@ -26,6 +26,10 @@
           <option name="url" value="https://github.com/fintechsandbox/project-sandcastle.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/petebacondarwin/dgeni-angular.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
     <option name="cloneParentDir" value="C:\Users\Admin\PycharmProjects" />
