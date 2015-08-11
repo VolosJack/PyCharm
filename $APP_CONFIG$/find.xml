@@ -1,11 +1,11 @@
 <application>
   <component name="FindSettings">
-    <option name="customScope" value="File 'C:\Users\Admin\PycharmProjects\FrontEnd\src\modules\analyze\analyze.js'" />
-    <option name="defaultScopeName" value="File 'C:\Users\Admin\PycharmProjects\FrontEnd\src\modules\analyze\analyze.js'" />
+    <option name="customScope" value="File 'C:\Users\Admin\PycharmProjects\FrontEnd\bower_components\angular-deckgrid\angular-deckgrid.js'" />
+    <option name="defaultScopeName" value="File 'C:\Users\Admin\PycharmProjects\FrontEnd\bower_components\angular-deckgrid\angular-deckgrid.js'" />
     <option name="localCaseSensitive" value="true" />
     <option name="localRegularExpressions" value="true" />
     <option name="LOCAL_CASE_SENSITIVE_SEARCH" value="true" />
     <option name="LOCAL_REGULAR_EXPRESSIONS" value="true" />
-    <option name="SEARCH_SCOPE" value="File 'C:\Users\Admin\PycharmProjects\FrontEnd\src\modules\analyze\analyze.js'" />
+    <option name="SEARCH_SCOPE" value="File 'C:\Users\Admin\PycharmProjects\FrontEnd\bower_components\angular-deckgrid\angular-deckgrid.js'" />
   </component>
 </application>
