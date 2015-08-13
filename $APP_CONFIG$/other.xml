@@ -186,6 +186,9 @@
       <username>jack.long</username>
     </YouTrack>
   </component>
+  <component name="SvgViewer.Settings">
+    <option name="PLUGIN_ENABLED" value="true" />
+  </component>
   <component name="TeamCityHistory">
     <option name="HISTORY" value="" />
   </component>
