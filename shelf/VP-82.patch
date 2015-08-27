@@ -1,0 +1,531 @@
+Index: src/modules/home/home.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/home/home.js	(revision 7655038c24d2431d9f8616bee744f7bb67d0e41f)
++++ src/modules/home/home.js	(revision )
+@@ -9,8 +9,16 @@
+  * Module for homepage and company info
+  *
+  */
+-
+ angular.module('Home', ['n3-line-chart', 'Helpers', 'ui.grid', 'ui.grid.grouping', 'kendo.directives', 'cgBusy'])
++	.config(["$stateProvider",function ($stateProvider) {
++		//$stateProvider
++		//	.state('home', {
++		//		url: '/home',
++		//		templateUrl: 'src/modules/home/templates/home.html',
++		//		controller: 'home as home'
++		//	})
++
++	}])
+ 	.value('cgBusyDefaults',{
+ 	  message:'Loading...',
+ 	  backdrop: false,
+Index: package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- package.json	(revision 7655038c24d2431d9f8616bee744f7bb67d0e41f)
++++ package.json	(revision )
+@@ -1,82 +1,83 @@
+ {
+-	"name": "Volos",
+-	"version": "0.0.1",
+-	"main": "login.html",
+-	"repository": "https://github.com/VolosSoftware/FrontEnd.git",
+-	"license": "2015 Copyright, Volos Portfolio Solutions, LLC. All rights reserved.",
+-	"scripts": {
+-		"test-web": "./node_modules/mocha/bin/mocha --recursive -R spec",
+-		"compile-less": "./node_modules/less/bin/lessc ./src/less/src/base.less > ./dst/css/base.css"
+-	},
++  "name": "Volos",
++  "version": "0.0.1",
++  "main": "login.html",
++  "repository": "https://github.com/VolosSoftware/FrontEnd.git",
++  "license": "2015 Copyright, Volos Portfolio Solutions, LLC. All rights reserved.",
++  "scripts": {
++    "test-web": "./node_modules/mocha/bin/mocha --recursive -R spec",
++    "compile-less": "./node_modules/less/bin/lessc ./src/less/src/base.less > ./dst/css/base.css"
++  },
+-	"title":"Volos",
++  "title": "Volos",
+-	"window": {
+-		"show": false,
+-		"toolbar": false,
+-		"frame": true,
+-		"icon": "src/svg/Volos-Black-Sail.png",
+-		"resizable": true,
+-		"min_width": 300,
+-		"min_height": 600
+-	},
+-	"dependencies": {
+-		"@volossoftware/xignite-volos": "^1.1.6",
+-		"d3": "3.5.5",
+-		"easy-barchart": "1.0.11",
+-		"expander-area-plot": "1.0.6",
+-		"jstat": "^1.1.5",
+-		"nodeify": "1.0.0",
+-		"simple-statistics": "0.9.1",
+-		"stats-lite": "1.0.3",
+-		"underscore": "1.8.3",
+-		"uuid": "*",
+-		"wd": "^0.3.12",
+-		"yahoo-finance": "*"
+-	},
+-	"devDependencies": {
+-		"angular-mocks": "^1.4.3",
+-		"body-parser": "^1.13.3",
+-		"del": "^1.2.0",
+-		"event-stream": "^3.3.1",
+-		"express": "^4.13.3",
+-		"grunt": "~0.4.5",
+-		"grunt-contrib-jshint": "~0.10.0",
+-		"grunt-contrib-nodeunit": "~0.4.1",
+-		"grunt-contrib-uglify": "~0.5.0",
+-		"gulp": "^3.9.0",
+-		"gulp-angular-filesort": "^1.1.1",
+-		"gulp-concat": "^2.6.0",
++  "window": {
++    "show": false,
++    "toolbar": false,
++    "frame": true,
++    "icon": "src/svg/Volos-Black-Sail.png",
++    "resizable": true,
++    "min_width": 300,
++    "min_height": 600
++  },
++  "dependencies": {
++    "@volossoftware/xignite-volos": "^1.1.6",
++    "d3": "3.5.5",
++    "easy-barchart": "1.0.11",
++    "expander-area-plot": "1.0.6",
++    "jstat": "^1.1.5",
++    "nodeify": "1.0.0",
++    "simple-statistics": "0.9.1",
++    "stats-lite": "1.0.3",
++    "underscore": "1.8.3",
++    "uuid": "*",
++    "wd": "^0.3.12",
++    "yahoo-finance": "*"
++  },
++  "devDependencies": {
++    "angular-mocks": "^1.4.3",
++    "body-parser": "^1.13.3",
++    "del": "^1.2.0",
++    "event-stream": "^3.3.1",
++    "express": "^4.13.3",
++    "grunt": "~0.4.5",
++    "grunt-contrib-jshint": "~0.10.0",
++    "grunt-contrib-nodeunit": "~0.4.1",
++    "grunt-contrib-uglify": "~0.5.0",
++    "gulp": "^3.9.0",
++    "gulp-angular-filesort": "^1.1.1",
++    "gulp-concat": "^2.6.0",
++    "gulp-filter": "^3.0.1",
+-		"gulp-htmlhint": "0.0.9",
+-		"gulp-htmlmin": "^1.0.0",
+-		"gulp-inject": "^1.1.1",
+-		"gulp-jshint": "^1.9.2",
+-		"gulp-less": "3.0.3",
+-		"gulp-livereload": "^3.7.0",
+-		"gulp-load-plugins": "^0.8.0",
+-		"gulp-minify-css": "^0.4.5",
+-		"gulp-ng-html2js": "^0.1.8",
+-		"gulp-ngdocs": "^0.2.13",
+-		"gulp-nodemon": "^1.0.5",
+-		"gulp-order": "^1.1.1",
+-		"gulp-print": "^1.1.0",
+-		"gulp-rename": "^1.2.0",
+-		"gulp-sourcemaps": "^1.3.0",
+-		"gulp-teamcity-reporter": "0.0.2",
+-		"gulp-uglify": "^1.1.0",
+-		"gulp-util": "^3.0.6",
+-		"jasmine-core": "^2.3.4",
+-		"jshint-stylish": "^1.0.0",
+-		"karma": "^0.13.8",
+-		"karma-coverage": "^0.5.0",
+-		"karma-jasmine": "^0.3.6",
+-		"karma-junit-reporter": "^0.2.2",
+-		"karma-ng-html2js-preprocessor": "^0.1.2",
+-		"less": "^2.5.1",
+-		"main-bower-files": "^2.5.0",
+-		"method-override": "^2.1.2",
+-		"mocha": "^2.2.1",
+-		"protractor": "^1.1.1",
+-		"q": "^1.1.2",
+-		"shelljs": "^0.2.6",
+-		"should": "^5.2.0"
+-	}
++    "gulp-htmlhint": "0.0.9",
++    "gulp-htmlmin": "^1.0.0",
++    "gulp-inject": "^1.1.1",
++    "gulp-jshint": "^1.9.2",
++    "gulp-less": "3.0.3",
++    "gulp-livereload": "^3.7.0",
++    "gulp-load-plugins": "^0.8.0",
++    "gulp-minify-css": "^0.4.5",
++    "gulp-ng-html2js": "^0.1.8",
++    "gulp-ngdocs": "^0.2.13",
++    "gulp-nodemon": "^1.0.5",
++    "gulp-order": "^1.1.1",
++    "gulp-print": "^1.1.0",
++    "gulp-rename": "^1.2.0",
++    "gulp-sourcemaps": "^1.3.0",
++    "gulp-teamcity-reporter": "0.0.2",
++    "gulp-uglify": "^1.1.0",
++    "gulp-util": "^3.0.6",
++    "jasmine-core": "^2.3.4",
++    "jshint-stylish": "^1.0.0",
++    "karma": "^0.13.8",
++    "karma-coverage": "^0.5.0",
++    "karma-jasmine": "^0.3.6",
++    "karma-junit-reporter": "^0.2.2",
++    "karma-ng-html2js-preprocessor": "^0.1.2",
++    "less": "^2.5.1",
++    "main-bower-files": "^2.5.0",
++    "method-override": "^2.1.2",
++    "mocha": "^2.2.1",
++    "protractor": "^1.1.1",
++    "q": "^1.1.2",
++    "shelljs": "^0.2.6",
++    "should": "^5.2.0"
++  }
+ }
+Index: dst.dev/package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- dst.dev/package.json	(revision )
++++ dst.dev/package.json	(revision )
+@@ -0,0 +1,83 @@
++{
++  "name": "Volos",
++  "version": "0.0.1",
++  "main": "login.html",
++  "repository": "https://github.com/VolosSoftware/FrontEnd.git",
++  "license": "2015 Copyright, Volos Portfolio Solutions, LLC. All rights reserved.",
++  "scripts": {
++    "test-web": "./node_modules/mocha/bin/mocha --recursive -R spec",
++    "compile-less": "./node_modules/less/bin/lessc ./src/less/src/base.less > ./dst/css/base.css"
++  },
++  "title": "Volos",
++  "window": {
++    "show": false,
++    "toolbar": false,
++    "frame": true,
++    "icon": "src/svg/Volos-Black-Sail.png",
++    "resizable": true,
++    "min_width": 300,
++    "min_height": 600
++  },
++  "dependencies": {
++    "@volossoftware/xignite-volos": "^1.1.6",
++    "d3": "3.5.5",
++    "easy-barchart": "1.0.11",
++    "expander-area-plot": "1.0.6",
++    "jstat": "^1.1.5",
++    "nodeify": "1.0.0",
++    "simple-statistics": "0.9.1",
++    "stats-lite": "1.0.3",
++    "underscore": "1.8.3",
++    "uuid": "*",
++    "wd": "^0.3.12",
++    "yahoo-finance": "*"
++  },
++  "devDependencies": {
++    "angular-mocks": "^1.4.3",
++    "body-parser": "^1.13.3",
++    "del": "^1.2.0",
++    "event-stream": "^3.3.1",
++    "express": "^4.13.3",
++    "grunt": "~0.4.5",
++    "grunt-contrib-jshint": "~0.10.0",
++    "grunt-contrib-nodeunit": "~0.4.1",
++    "grunt-contrib-uglify": "~0.5.0",
++    "gulp": "^3.9.0",
++    "gulp-angular-filesort": "^1.1.1",
++    "gulp-concat": "^2.6.0",
++    "gulp-filter": "^3.0.1",
++    "gulp-htmlhint": "0.0.9",
++    "gulp-htmlmin": "^1.0.0",
++    "gulp-inject": "^1.1.1",
++    "gulp-jshint": "^1.9.2",
++    "gulp-less": "3.0.3",
++    "gulp-livereload": "^3.7.0",
++    "gulp-load-plugins": "^0.8.0",
++    "gulp-minify-css": "^0.4.5",
++    "gulp-ng-html2js": "^0.1.8",
++    "gulp-ngdocs": "^0.2.13",
++    "gulp-nodemon": "^1.0.5",
++    "gulp-order": "^1.1.1",
++    "gulp-print": "^1.1.0",
++    "gulp-rename": "^1.2.0",
++    "gulp-sourcemaps": "^1.3.0",
++    "gulp-teamcity-reporter": "0.0.2",
++    "gulp-uglify": "^1.1.0",
++    "gulp-util": "^3.0.6",
++    "jasmine-core": "^2.3.4",
++    "jshint-stylish": "^1.0.0",
++    "karma": "^0.13.8",
++    "karma-coverage": "^0.5.0",
++    "karma-jasmine": "^0.3.6",
++    "karma-junit-reporter": "^0.2.2",
++    "karma-ng-html2js-preprocessor": "^0.1.2",
++    "less": "^2.5.1",
++    "main-bower-files": "^2.5.0",
++    "method-override": "^2.1.2",
++    "mocha": "^2.2.1",
++    "protractor": "^1.1.1",
++    "q": "^1.1.2",
++    "shelljs": "^0.2.6",
++    "should": "^5.2.0"
++  }
++}
+Index: gulpfile.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- gulpfile.js	(revision 7655038c24d2431d9f8616bee744f7bb67d0e41f)
++++ gulpfile.js	(revision )
+@@ -1,5 +1,4 @@
+ var gulp = require('gulp');
+-var gutil = require('gulp-util')
+ var plugins = require('gulp-load-plugins')();
+ var del = require('del');
+ var es = require('event-stream');
+@@ -8,9 +7,10 @@
+ var Q = require('q');
+ 
+ var paths = {
+-    scripts: ['src/modules/**/*.js','src/modules/**/**/*.js', 'src/app.js', '!src/modules/login/node_modules'],
++    scripts: ['src/modules/**/*.js','src/modules/**/**/*.js', 'src/app.js'],
+     styles: 'src/less/*.less',
+     index: 'index.html',
++    package: 'package.json',
+     partials: ['src/modules/**/*.html', '!index.html'],
+     dstDev: './dst.dev',
+     dstProd: './dst.prod',
+@@ -23,7 +23,9 @@
+ var pipes = {};
+ 
+ pipes.orderedVendorScripts = function orderedVendorScripts() {
+-    return plugins.order(['jquery.js', 'angular.js','kendo.js', 'angular-busy.js', 'angular-deckgrid.js', 'ng-scrollbar.js', 'angular-aria.js', 'angular-animate.js', 'angular-sanitize.js', 'ui-grid.js', 'angular-ui-router.js', 'ui-bootstrap-tpls.js', 'bootstrap.js', 'Amqp-0-9-1-debug.js', 'WebSocket-debug.js', 'line-chart.js', 'moment.js', 'jquery-ui.js', 'd3.js', 'angular-vis.js', 'vis.js']);
++    return plugins.order(['jquery.js', 'angular.js','kendo.js', 'angular-busy.js','ng-scrollbar.js', 'angular-aria.js', 'angular-animate.js',
++        'angular-sanitize.js', 'ui-grid.js', 'angular-ui-router.js', 'ui-bootstrap-tpls.js', 'bootstrap.js', 'Amqp-0-9-1-debug.js', 'WebSocket-debug.js', 'line-chart.js',
++        'moment.js', 'jquery-ui.js', 'd3.js', 'angular-vis.js', 'vis.js']);
+ };
+ 
+ pipes.orderedAppScripts = function orderedAppScripts() {
+@@ -36,6 +38,16 @@
+     });
+ };
+ 
++pipes.nwPackageProd = function nwPackageProd () {
++    return gulp.src(paths.package)
++        .pipe(gulp.dest(paths.dstProd))
++};
++
++pipes.nwPackageDev = function nwPackageDev () {
++    return gulp.src(paths.package)
++        .pipe(gulp.dest(paths.dstDev))
++};
++
+ pipes.validatedAppScripts = function validatedAppScripts() {
+     return gulp.src(paths.scripts)
+         .pipe(plugins.jshint())
+@@ -55,7 +67,7 @@
+         .pipe(pipes.orderedAppScripts())
+         .pipe(plugins.sourcemaps.init())
+         .pipe(plugins.concat('app.min.js'))
+-        .pipe(plugins.uglify().on('error', gutil.log))
++        .pipe(plugins.uglify().on('error', plugins.util.log))
+         .pipe(plugins.sourcemaps.write())
+         .pipe(gulp.dest(paths.dstScriptsProd));
+ };
+@@ -66,10 +78,14 @@
+ };
+ 
+ pipes.builtVendorScriptsProd = function builtVendorScriptsProd() {
+-    return gulp.src(bowerFiles())
++
++    var filter = plugins.filter(['**/*.js']);
++
++    return gulp.src(bowerFiles(), { base: 'bower_components'})
++        .pipe(filter)
+         .pipe(pipes.orderedVendorScripts())
+         .pipe(plugins.concat('vendor.min.js'))
+-        .pipe(plugins.uglify().on('error', gutil.log))
++        .pipe(plugins.uglify().on('error', plugins.util.log))
+         .pipe(gulp.dest(paths.dstScriptsProd));
+ };
+ 
+@@ -95,7 +111,7 @@
+         .pipe(plugins.htmlhint.failReporter())
+         .pipe(plugins.htmlmin({collapseWhitespace: true, removeComments: true}))
+         .pipe(plugins.ngHtml2js({
+-            moduleName: "Second"
++            moduleName: "login"
+         }));
+ };
+ 
+@@ -182,6 +198,12 @@
+     return deferred.promise;
+ });
+ 
++// transfers package.json into production directory
++gulp.task('nw-package-prod', pipes.nwPackageProd);
++
++// transfers package.json into production directory
++gulp.task('nw-package-dev', pipes.nwPackageDev);
++
+ // checks html source files for syntax errors
+ gulp.task('validate-partials', pipes.validatedPartials);
+ 
+@@ -231,10 +253,10 @@
+ gulp.task('build-app-prod', pipes.builtAppProd);
+ 
+ // cleans and builds a complete dev environment
+-gulp.task('clean-build-app-dev', ['clean-dev'], pipes.builtAppDev);
++gulp.task('clean-build-app-dev', ['clean-dev', 'nw-package-dev'], pipes.builtAppDev);
+ 
+ // cleans and builds a complete prod environment
+-gulp.task('clean-build-app-prod', ['clean-prod'], pipes.builtAppProd);
++gulp.task('clean-build-app-prod', ['clean-prod', 'nw-package-prod'], pipes.builtAppProd);
+ 
+ // clean, build, and watch live changes to the dev environment
+ gulp.task('watch-dev', ['clean-build-app-dev', 'validate-devserver-scripts'], function() {
+\ No newline at end of file
+Index: bower.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- bower.json	(revision 7655038c24d2431d9f8616bee744f7bb67d0e41f)
++++ bower.json	(revision )
+@@ -1,36 +1,37 @@
+ {
+-  "name": "my-project",
+-  "version": "1.0.0",
+-  "main": "path/to/main.css",
+-  "dependencies": {
++	"name": "my-project",
++	"version": "1.0.0",
++	"main": "path/to/main.css",
++	"dependencies": {
++		"angular": "~1.3.15",
+-    "angular-animate": "~1.3.14",
+-    "angular-sanitize": "~1.3.14",
+-    "angular-ui-grid": "~3.0.1",
+-    "angular-ui-router": "~0.2.13",
+-    "angular-visjs": "~4.*.*",
+-    "angular-aria": "1.4.2",
+-    "bootstrap": "~3.3.2",
+-    "d3": "~3.5.5",
+-    "jquery": "~2.1.3",
+-    "jquery-ui": "~1.11.3",
+-    "kaazing-amqp-0-9-1-client-javascript": "5.0.*",
+-    "moment": "~2.9.0",
+-    "ng-scrollbar": "~0.0.7",
+-    "ui-router-extras": "~0.0.13",
+-    "vis": "~4.2.*",
+-    "font-awesome": "~4.3.0",
+-    "angular-bootstrap": "0.13.0",
+-    "angular-moment": "0.10.1",
+-    "ui-bootstrap": "0.13.0",
+-    "n3-line-chart": "~1.1.9",
++		"angular-animate": "~1.3.14",
++		"angular-sanitize": "~1.3.14",
++		"angular-ui-grid": "~3.0.1",
++		"angular-ui-router": "~0.2.13",
++		"angular-visjs": "~4.*.*",
++		"angular-aria": "1.4.2",
++		"bootstrap": "~3.3.2",
++		"d3": "~3.5.5",
++		"jquery": "~2.1.3",
++		"jquery-ui": "~1.11.3",
++		"kaazing-amqp-0-9-1-client-javascript": "5.0.*",
++		"moment": "~2.9.0",
++		"ng-scrollbar": "~0.0.7",
++		"ui-router-extras": "~0.0.13",
++		"vis": "~4.2.*",
++		"font-awesome": "~4.3.0",
++		"angular-bootstrap": "0.13.0",
++		"angular-moment": "0.10.1",
++		"ui-bootstrap": "0.13.0",
++		"n3-line-chart": "~1.1.9",
+-    "angular-deckgrid": "~0.5.0",
+-    "angular-busy": "~4.1.3"
++		"angular-busy": "~4.1.3",
++		"angular-deckgrid": "~0.5.0"
+-  },
+-  "resolutions": {
+-    "angular": "~1.3.15",
+-    "vis": "~4.2.0"
+-  },
+-  "devDependencies": {
+-    "ui-router-extras": "~0.0.13"
+-  }
++	},
++	"resolutions": {
++		"angular": "~1.3.15",
++		"vis": "~4.2.0"
++	},
++	"devDependencies": {
++		"ui-router-extras": "~0.0.13"
++	}
+ }
+Index: src/modules/volos/login.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/volos/login.js	(revision 7655038c24d2431d9f8616bee744f7bb67d0e41f)
++++ src/modules/volos/login.js	(revision )
+@@ -3,7 +3,7 @@
+  */
+ angular.module('login', ['Second', 'cgBusy', 'ui.bootstrap', 'ngScrollbar', 'ui.grid', 'ui.router', 'ngAnimate',
+     'n3-line-chart', 'ngSanitize', 'vsOptions', 'ngVis', 'Structure', 'vsRabbit', 'Helpers', 'Home',
+-    'Optimization', 'vsPlot', 'Analyze', 'Database', 'akoenig.deckgrid', 'Scenario', 'PL'])
++    'Optimization', 'vsPlot', 'Analyze', 'Database', 'deckgrid', 'Scenario', 'PL'])
+     .config(["$stateProvider", "$urlRouterProvider",
+         function ($stateProvider, $urlRouterProvider) {
+             var states = [];
+Index: src/app.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/app.js	(revision 7655038c24d2431d9f8616bee744f7bb67d0e41f)
++++ src/app.js	(revision )
+@@ -15,7 +15,7 @@
+ 
+ angular.module('Second', ['cgBusy', 'ui.bootstrap', 'ngScrollbar', 'ui.grid', 'ui.router', 'ngAnimate',
+     'n3-line-chart', 'ngSanitize', 'vsOptions', 'ngVis', 'Structure', 'vsRabbit', 'Helpers', 'Home',
+-    'Optimization', 'vsPlot', 'Analyze', 'Database', 'akoenig.deckgrid', 'Scenario', 'PL'])
++    'Optimization', 'vsPlot', 'Analyze', 'Database', 'deckgrid', 'Scenario', 'PL'])
+     .config(["$stateProvider", "$urlRouterProvider", "vsConnectionProvider", "userProvider",
+         function ($stateProvider, $urlRouterProvider) {
+ 
+Index: src/modules/volos/loginCtrl.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/volos/loginCtrl.js	(revision 7655038c24d2431d9f8616bee744f7bb67d0e41f)
++++ src/modules/volos/loginCtrl.js	(revision )
+@@ -30,8 +30,8 @@
+         $scope.nwWindow = Window;
+ 
+         $scope.signIn = {
+-            username: "Login ID",
+-            password: 'Password'
++            username: "volos",
++            password: 'test'
+         };
+ 
+         $scope.connection = vsConnection;
