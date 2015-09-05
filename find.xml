@@ -1,7 +1,7 @@
 <application>
   <component name="FindSettings">
-    <option name="customScope" value="File 'C:\Users\Admin\PycharmProjects\FrontEnd\src\less\kendo.common-material.min.less'" />
-    <option name="defaultScopeName" value="File 'C:\Users\Admin\PycharmProjects\FrontEnd\src\less\kendo.common-material.min.less'" />
-    <option name="SEARCH_SCOPE" value="File 'C:\Users\Admin\PycharmProjects\FrontEnd\src\less\kendo.common-material.min.less'" />
+    <option name="customScope" value="src" />
+    <option name="defaultScopeName" value="src" />
+    <option name="SEARCH_SCOPE" value="src" />
   </component>
 </application>
