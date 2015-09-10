@@ -6,4 +6,11 @@
       <option name="WORKING_DIRECTORY" value="C:/kaazing/kaazing-gateway-community-5.0.0/bin" />
     </exec>
   </tool>
+  <tool name="Powershell" description="Powershell" showInMainMenu="true" showInEditor="true" showInProject="true" showInSearchPopup="true" disabled="false" useConsole="true" showConsoleOnStdOut="false" showConsoleOnStdErr="false" synchronizeAfterRun="true">
+    <exec>
+      <option name="COMMAND" value="C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/PycharmProjects/FrontEnd" />
+    </exec>
+  </tool>
 </toolSet>
