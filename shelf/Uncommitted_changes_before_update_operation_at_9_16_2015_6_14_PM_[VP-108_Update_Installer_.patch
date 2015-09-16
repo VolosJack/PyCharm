@@ -1,0 +1,99 @@
+Index: VolosUpdate.aip
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- VolosUpdate.aip	(revision 95180f8d951cf07646fbcf7fedfb5c869ac9850a)
++++ VolosUpdate.aip	(revision )
+@@ -1,19 +1,10 @@
+ <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+-<DOCUMENT Type="Advanced Installer" CreateVersion="12.4" version="12.4" Modules="update" RootPath="." Language="en" Id="{FEA734B5-5161-4091-ABC7-06BE79C2C4C5}">
++<DOCUMENT Type="Advanced Installer" CreateVersion="12.4" version="12.4.1" Modules="update" RootPath="." Language="en" Id="{FEA734B5-5161-4091-ABC7-06BE79C2C4C5}">
+   <COMPONENT cid="caphyon.advinst.msicomp.DictionaryComponent">
+     <ROW Path="&lt;AI_DICTS&gt;aiu-ue.ail"/>
+     <ROW Path="&lt;AI_DICTS&gt;aiu-ue_en.ail"/>
+   </COMPONENT>
+   <COMPONENT cid="caphyon.advinst.msicomp.UpdaterEditorComponent">
+-    <ROW Section="Update" Key="Name" Value="Volos"/>
+-    <ROW Section="Update" Key="ProductVersion" Value="0.0.0.95"/>
+-    <ROW Section="Update" Key="URL" Value="https://volostestupdate.s3.amazonaws.com/Volos0.0.0.95.exe?AWSAccessKeyId=AKIAJY2FNKHSPKQOREQA&amp;Expires=1442289600&amp;Signature=KIgZyelCHa1wlP1TSnoE3ZUyrXQ%3D"/>
+-    <ROW Section="Update" Key="Size" Value="..\..\Downloads\Volos0.0.0.95.exe"/>
+-    <ROW Section="Update" Key="ReleaseDate" Value="18217"/>
+-    <ROW Section="Update" Key="ServerFileName" Value="Volos0.0.0.95.exe"/>
+-    <ROW Section="Update" Key="Flags" Value="Sys64"/>
+-    <ROW Section="Update" Key="RegistryKey" Value="HKUD\Software\Volos Portfolio Solutions, LLC\Volos\Version"/>
+-    <ROW Section="Update" Key="Version" Value="0.0.0.95"/>
+     <ROW Section="Update #1" Key="Name" Value="Volos"/>
+     <ROW Section="Update #1" Key="ProductVersion" Value="0.0.0.96"/>
+     <ROW Section="Update #1" Key="URL" Value="https://volostestupdate.s3.amazonaws.com/Volos0.0.0.96.exe?AWSAccessKeyId=AKIAJY2FNKHSPKQOREQA&amp;Expires=1442289600&amp;Signature=beeOYcCSJbhOmGtrLnYpMRXEZO0%3D"/>
+Index: AWS.ps1
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- AWS.ps1	(revision 95180f8d951cf07646fbcf7fedfb5c869ac9850a)
++++ AWS.ps1	(revision )
+@@ -1,6 +1,4 @@
+ Set-ExecutionPolicy Unrestricted -Force
+-cd "C:\Users\Admin\PycharmProjects\FrontEnd"
+-
+     
+ Write-S3Object -BucketName volosupdate -File Volos-SetupFiles/Volos0.0.0.96.exe -AccessKey AKIAJY2FNKHSPKQOREQA -ProfileName volosinstall -SecretKey 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 
+ Write-S3Object -BucketName volosupdate -File VolosUpdate.txt -AccessKey AKIAJY2FNKHSPKQOREQA -ProfileName volosinstall -SecretKey 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 
+\ No newline at end of file
+Index: Volos.aip
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Volos.aip	(revision 95180f8d951cf07646fbcf7fedfb5c869ac9850a)
++++ Volos.aip	(revision )
+@@ -32,7 +32,7 @@
+     <ROW Property="ProductCode" Value="1033:{A4782538-135B-4D48-80DC-C876048DA25D} " Type="16"/>
+     <ROW Property="ProductLanguage" Value="1033"/>
+     <ROW Property="ProductName" Value="Volos"/>
+-    <ROW Property="ProductVersion" Value="0.0.0.96" Type="32"/>
++    <ROW Property="ProductVersion" Value="0.0.0.97" Type="32"/>
+     <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
+     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
+     <ROW Property="UpgradeCode" Value="{5A1B32CE-8560-4690-A48E-3E492DA194CC}"/>
+@@ -111,7 +111,7 @@
+     <ROW Property="AI_IA_ENABLE" Registry="AI_IA_ENABLE" HklmSearch="AI_IA_ENABLE" HkcuSearch="AI_IA_ENABLE_1" Hklm64Search="AI_IA_ENABLE_2" Hkcu64Search="AI_IA_ENABLE_3"/>
+   </COMPONENT>
+   <COMPONENT cid="caphyon.advinst.msicomp.BuildComponent">
+-    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="Volos-SetupFiles" PackageFileName="VolosInstall" Languages="en" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExeIconPath="dst.dev\svg\VolosSailWhite.ico" CreateMd5="true" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" ExeName="[|ProductName][|ProductVersion]" MsiPackageType="AI_ALL"/>
++    <ROW BuildKey="DefaultBuild" BuildName="DefaultBuild" BuildOrder="1" BuildType="0" PackageFolder="Volos-SetupFiles" PackageFileName="VolosInstall" Languages="en" InstallationType="4" CabsLocation="1" PackageType="1" FilesInsideExe="true" ExeIconPath="dst.dev\svg\VolosSailWhite.ico" CreateMd5="true" ExtractionFolder="[AppDataFolder][|Manufacturer]\[|ProductName] [|ProductVersion]\install" ExtUI="true" UseLargeSchema="true" ExeName="[|ProductName]" MsiPackageType="AI_ALL"/>
+     <ATTRIBUTE name="CompConditionPolicy" value="0"/>
+     <ATTRIBUTE name="CurrentBuild" value="DefaultBuild"/>
+     <ATTRIBUTE name="ShareDatabase" value="true"/>
+@@ -450,7 +450,7 @@
+     <ROW XmlElement="swidregid" ParentElement="swidsoftware_creator" Name="swid:regid" Condition="1" Order="1" Flags="14" Text="regid.2014-07.com.volossoftware"/>
+     <ROW XmlElement="swidregid_1" ParentElement="swidsoftware_licensor" Name="swid:regid" Condition="1" Order="1" Flags="14" Text="regid.2014-07.com.volossoftware"/>
+     <ROW XmlElement="swidregid_2" ParentElement="swidtag_creator" Name="swid:regid" Condition="1" Order="1" Flags="14" Text="regid.2014-07.com.volossoftware"/>
+-    <ROW XmlElement="swidreview" ParentElement="swidnumeric" Name="swid:review" Condition="1" Order="3" Flags="14" Text="96"/>
++    <ROW XmlElement="swidreview" ParentElement="swidnumeric" Name="swid:review" Condition="1" Order="3" Flags="14" Text="97"/>
+     <ROW XmlElement="swidsoftware_creator" ParentElement="swidsoftware_identification_tag" Name="swid:software_creator" Condition="1" Order="3" Flags="14"/>
+     <ROW XmlElement="swidsoftware_id" ParentElement="swidsoftware_identification_tag" Name="swid:software_id" Condition="1" Order="5" Flags="14"/>
+     <ROW XmlElement="swidsoftware_identification_tag" Name="swid:software_identification_tag" Condition="1" Order="0" Flags="14"/>
+Index: VolosUpdate.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- VolosUpdate.txt	(revision 95180f8d951cf07646fbcf7fedfb5c869ac9850a)
++++ VolosUpdate.txt	(revision )
+@@ -9,14 +9,3 @@
+ ServerFileName = Volos0.0.0.96.exe
+ RegistryKey = HKUD\Software\Volos Portfolio Solutions, LLC\Volos\Version
+ Version = 0.0.0.96
+-
+-[Update]
+-Name = Volos
+-ProductVersion = 0.0.0.95
+-URL = https://volostestupdate.s3.amazonaws.com/Volos0.0.0.95.exe?AWSAccessKeyId=AKIAJY2FNKHSPKQOREQA&Expires=1442289600&Signature=KIgZyelCHa1wlP1TSnoE3ZUyrXQ%3D
+-Size = 122284381
+-ReleaseDate = 09/09/2015
+-ServerFileName = Volos0.0.0.95.exe
+-Flags = Sys64
+-RegistryKey = HKUD\Software\Volos Portfolio Solutions, LLC\Volos\Version
+-Version = 0.0.0.95
