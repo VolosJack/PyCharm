@@ -1,0 +1,160 @@
+Index: log.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- log.js	(revision )
++++ log.js	(revision )
+@@ -0,0 +1,1 @@
++
+\ No newline at end of file
+Index: package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- package.json	(revision 0a44bde004b00d676b90de33677a0736314635b4)
++++ package.json	(revision )
+@@ -1,0 +1,0 @@
+Index: dst.dev/login.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- dst.dev/login.html	(revision 0a44bde004b00d676b90de33677a0736314635b4)
++++ dst.dev/login.html	(revision )
+@@ -57,7 +57,7 @@
+ <!--<script type="text/javascript" src="bower_components/vis/dist/vis.js"></script>-->
+ 
+ <!-- bower:js --><script src="bower_components/jquery.js"></script><script src="bower_components/angular.js"></script><script src="bower_components/angular-busy.js"></script><script src="bower_components/ng-scrollbar.js"></script><script src="bower_components/angular-aria.js"></script><script src="bower_components/angular-animate.js"></script><script src="bower_components/angular-sanitize.js"></script><script src="bower_components/ui-grid.js"></script><script src="bower_components/angular-ui-router.js"></script><script src="bower_components/ui-bootstrap-tpls.js"></script><script src="bower_components/bootstrap.js"></script><script src="bower_components/moment.js"></script><script src="bower_components/jquery-ui.js"></script><script src="bower_components/d3.js"></script><script src="bower_components/angular-vis.js"></script><script src="bower_components/angular-moment.js"></script><script src="bower_components/ct-ui-router-extras.js"></script><script src="bower_components/line-chart.min.js"></script><script src="bower_components/vis.min.js"></script><!-- endinject -->
+-<!-- inject:js --><script src="app.js"></script><script src="vsPlot/vsPlot.js"></script><script src="vsPlot/directives/thesisPlot/thesisPlotFactory.js"></script><script src="vsPlot/directives/thesisPlot/thesisPlotDirective.js"></script><script src="vsPlot/directives/predictionLine/predictionLineFactory.js"></script><script src="vsPlot/directives/predictionLine/predictionLineDirective.js"></script><script src="vsPlot/directives/predictionDate/predictionDateFactorySpec.js"></script><script src="vsPlot/directives/predictionDate/predictionDateFactory.js"></script><script src="vsPlot/directives/predictionDate/predictionDateDirectiveSpec.js"></script><script src="vsPlot/directives/predictionDate/predictionDateDirective.js"></script><script src="vsPlot/directives/predictionDate/maturityDateFactory.js"></script><script src="vsPlot/services/thesisFactory.js"></script><script src="vsPlot/services/HistDataFactory.js"></script><script src="vsPlot/services/futureIntervalService.js"></script><script src="vsPlot/services/dataService.js"></script><script src="vsPlot/directives/vsPlotDirective.js"></script><script src="vsPlot/directives/intervalControlDirective.js"></script><script src="vsPlot/controllers/predictionLineCtrl.js"></script><script src="scenario/scenario.js"></script><script src="scenario/controllers/scenarioCtrl.js"></script><script src="structure/services/structureService.js"></script><script src="structure/structure.js"></script><script src="structure/filters/indexStart.js"></script><script src="structure/directives/vsStructureDirective.js"></script><script src="structure/controllers/structureCtrl.js"></script><script src="structure/controllers/parametersCtrl.js"></script><script src="analyze/analyze.js"></script><script src="profitLoss/directives/vsPlPlotDirective.js"></script><script src="profitLoss/controllers/PLPlotCtrl.js"></script><script src="profitLoss/profitLoss.js"></script><script src="profitLoss/controllers/pLCtrl.js"></script><script src="Options/app.js"></script><script src="Options/Services/OptionsSettingsFactory.js"></script><script src="Options/Services/OptionsDataService.js"></script><script src="Options/Services/OptionsApiService.js"></script><script src="Options/Directives/OptionsHistogramDirective.js"></script><script src="Options/Directives/OptionsAreaChartDirective.js"></script><script src="Options/Controllers/OptionsController.js"></script><script src="optimization/optimization.js"></script><script src="optimization/directives/parametersDirective.js"></script><script src="optimization/controllers/optResultCtrl.js"></script><script src="optimization/controllers/optimizationCtrl.js"></script><script src="nav/controllers/notifyCtrl.js"></script><script src="nav/controllers/navBarCtrl.js"></script><script src="home/home.js"></script><script src="home/directives/tableDirective.js"></script><script src="home/directives/hstPlotDirective.js"></script><script src="home/controllers/tableCtrl.js"></script><script src="home/controllers/hstPlotCtrl.js"></script><script src="home/controllers/homeCtrl.js"></script><script src="helpers/helpers.js"></script><script src="helpers/services/yahooService.js"></script><script src="helpers/services/xigniteService.js"></script><script src="helpers/services/vsIVService.js"></script><script src="helpers/services/userService.js"></script><script src="helpers/services/dataService.js"></script><script src="helpers/filters/underScoreFilter.js"></script><script src="helpers/directives/svgClickDirective.js"></script><script src="helpers/directives/datePickerDirective.js"></script><script src="helpers/directives/angular-deckgrid.js"></script><script src="database/database.js"></script><script src="database/services/sqliteService.js"></script><script src="database/services/resultsService.js"></script><script src="database/factories/vsScenarioFactory.js"></script><script src="database/factories/vsPositionFactory.js"></script><script src="database/factories/vsPLFactory.js"></script><script src="database/factories/vsOptimizationFactory.js"></script><script src="database/factories/vsContractFactory.js"></script><script src="companyInfo/services/vsIVService.js"></script><script src="companyInfo/services/tickerService.js"></script><script src="companyInfo/services/companyInfoService.js"></script><script src="companyInfo/services/companyInfoAutocompleteService.js"></script><script src="companyInfo/services/companyDataService.js"></script><script src="companyInfo/filters/companyInfoFilter.js"></script><script src="companyInfo/directives/enterDirective.js"></script><script src="companyInfo/directives/companyInfoDirective.js"></script><script src="companyInfo/controllers/companyInfoCtrl.js"></script><script src="analyze/directives/vsGraph3dDirective.js"></script><script src="analyze/directives/vsflipDirective.js"></script><script src="analyze/controllers/graph3dCtrl.js"></script><script src="analyze/controllers/analyzeCtrl.js"></script><script src="zendesk/zendesk.js"></script><script src="vsRabbit/vsSocketFactory.js"></script><script src="vsRabbit/vsRequestFactory.js"></script><script src="vsRabbit/vsPublisherFactory.js"></script><script src="vsRabbit/vsConsumerFactory.js"></script><script src="vsRabbit/vsConnectionService.js"></script><script src="Options/Options.js"></script><script src="kaazing/WebSocket-debug.js"></script><script src="kaazing/AmqpClient.js"></script><script src="login/login.js"></script><script src="login/loginCtrl.js"></script><script src="helpers/kendo.js"></script><!-- endinject -->
++<!-- inject:js --><script src="app.js"></script><script src="vsPlot/directives/predictionDate/predictionDateFactorySpec.js"></script><script src="vsPlot/vsPlot.js"></script><script src="vsPlot/directives/predictionDate/predictionDateFactory.js"></script><script src="vsPlot/directives/predictionDate/predictionDateDirectiveSpec.js"></script><script src="vsPlot/directives/predictionDate/predictionDateDirective.js"></script><script src="vsPlot/directives/predictionDate/maturityDateFactory.js"></script><script src="vsPlot/directives/thesisPlot/thesisPlotFactory.js"></script><script src="vsPlot/directives/thesisPlot/thesisPlotDirective.js"></script><script src="vsPlot/directives/predictionLine/predictionLineFactory.js"></script><script src="vsPlot/directives/predictionLine/predictionLineDirective.js"></script><script src="vsPlot/services/thesisFactory.js"></script><script src="vsPlot/services/HistDataFactory.js"></script><script src="vsPlot/services/futureIntervalService.js"></script><script src="vsPlot/services/dataService.js"></script><script src="vsPlot/directives/vsPlotDirective.js"></script><script src="vsPlot/directives/intervalControlDirective.js"></script><script src="vsPlot/controllers/predictionLineCtrl.js"></script><script src="scenario/scenario.js"></script><script src="scenario/controllers/scenarioCtrl.js"></script><script src="structure/services/structureService.js"></script><script src="structure/structure.js"></script><script src="structure/filters/indexStart.js"></script><script src="structure/directives/vsStructureDirective.js"></script><script src="structure/controllers/structureCtrl.js"></script><script src="structure/controllers/parametersCtrl.js"></script><script src="analyze/analyze.js"></script><script src="profitLoss/directives/vsPlPlotDirective.js"></script><script src="profitLoss/controllers/PLPlotCtrl.js"></script><script src="profitLoss/profitLoss.js"></script><script src="profitLoss/controllers/pLCtrl.js"></script><script src="Options/app.js"></script><script src="Options/Services/OptionsSettingsFactory.js"></script><script src="Options/Services/OptionsDataService.js"></script><script src="Options/Services/OptionsApiService.js"></script><script src="Options/Directives/OptionsHistogramDirective.js"></script><script src="Options/Directives/OptionsAreaChartDirective.js"></script><script src="Options/Controllers/OptionsController.js"></script><script src="optimization/optimization.js"></script><script src="optimization/directives/parametersDirective.js"></script><script src="optimization/controllers/optResultCtrl.js"></script><script src="optimization/controllers/optimizationCtrl.js"></script><script src="nav/controllers/notifyCtrl.js"></script><script src="nav/controllers/navBarCtrl.js"></script><script src="home/home.js"></script><script src="home/directives/tableDirective.js"></script><script src="home/directives/hstPlotDirective.js"></script><script src="home/controllers/tableCtrl.js"></script><script src="home/controllers/hstPlotCtrl.js"></script><script src="home/controllers/homeCtrl.js"></script><script src="database/database.js"></script><script src="database/services/sqliteService.js"></script><script src="database/services/resultsService.js"></script><script src="helpers/helpers.js"></script><script src="helpers/services/yahooService.js"></script><script src="helpers/services/xigniteService.js"></script><script src="helpers/services/vsIVService.js"></script><script src="helpers/services/userService.js"></script><script src="helpers/services/dataService.js"></script><script src="database/factories/vsScenarioFactory.js"></script><script src="database/factories/vsPositionFactory.js"></script><script src="database/factories/vsPLFactory.js"></script><script src="database/factories/vsOptimizationFactory.js"></script><script src="database/factories/vsContractFactory.js"></script><script src="helpers/filters/underScoreFilter.js"></script><script src="helpers/directives/svgClickDirective.js"></script><script src="helpers/directives/datePickerDirective.js"></script><script src="helpers/directives/angular-deckgrid.js"></script><script src="companyInfo/services/vsIVService.js"></script><script src="companyInfo/services/tickerService.js"></script><script src="companyInfo/services/companyInfoService.js"></script><script src="companyInfo/services/companyInfoAutocompleteService.js"></script><script src="companyInfo/services/companyDataService.js"></script><script src="companyInfo/filters/companyInfoFilter.js"></script><script src="companyInfo/directives/enterDirective.js"></script><script src="companyInfo/directives/companyInfoDirective.js"></script><script src="companyInfo/controllers/companyInfoCtrl.js"></script><script src="analyze/directives/vsGraph3dDirective.js"></script><script src="analyze/directives/vsflipDirective.js"></script><script src="analyze/controllers/graph3dCtrl.js"></script><script src="analyze/controllers/analyzeCtrl.js"></script><script src="vsRabbit/vsSocketFactory.js"></script><script src="vsRabbit/vsRequestFactory.js"></script><script src="vsRabbit/vsPublisherFactory.js"></script><script src="vsRabbit/vsConsumerFactory.js"></script><script src="vsRabbit/vsConnectionService.js"></script><script src="zendesk/zendesk.js"></script><script src="Options/Options.js"></script><script src="login/login.js"></script><script src="login/loginCtrl.js"></script><script src="kaazing/WebSocket-debug.js"></script><script src="kaazing/AmqpClient.js"></script><script src="helpers/kendo.js"></script><!-- endinject -->
+ 
+ <!-- Submodules -->
+ 
+\ No newline at end of file
+Index: docs/js/docs-setup.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- docs/js/docs-setup.js	(revision 0a44bde004b00d676b90de33677a0736314635b4)
++++ docs/js/docs-setup.js	(revision )
+@@ -446,6 +446,15 @@
+     },
+     {
+       "section": "api",
++      "id": "thesisPlot",
++      "shortName": "thesisPlot",
++      "type": "directive",
++      "moduleName": "thesisPlot",
++      "shortDescription": "Please update the description and restriction.",
++      "keywords": "_please api description directive restriction thesisplot update"
++    },
++    {
++      "section": "api",
+       "id": "vsPlot",
+       "shortName": "vsPlot",
+       "type": "object",
+@@ -488,15 +497,6 @@
+       "moduleName": "vsPlot",
+       "shortDescription": "Directive for the prediction line",
+       "keywords": "api companydata directive file js prediction predictionline predictionlinedirective vsplot"
+-    },
+-    {
+-      "section": "api",
+-      "id": "vsPlot.directive:thesisPlot",
+-      "shortName": "thesisPlot",
+-      "type": "directive",
+-      "moduleName": "vsPlot",
+-      "shortDescription": "Directive for the thesis plot",
+-      "keywords": "$interval $timeout api axis bar bars called calls chart clears cone creates d3 directive drawchart drawfuturedates drawhistoricalforecast drawlinesandsliders drawriskneutralforecast draws drawsteptwo elements file forecast future futureinterval histdata historical identifies intervals js method mousemove movable neutral plot price removes risk sliders thesis thesisplot thesisplotdirective vsplot"
+     },
+     {
+       "section": "api",
+\ No newline at end of file
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- .gitignore	(revision 0a44bde004b00d676b90de33677a0736314635b4)
++++ .gitignore	(revision )
+@@ -54,5 +54,7 @@
+ cache
+ docs
+ Volos-cache
++/VolosUpdate.txt
++/VolosUpdate.back.aip
+ Volos-SetupFiles
+ target
+Index: VolosUpdate.aip
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- VolosUpdate.aip	(revision 0a44bde004b00d676b90de33677a0736314635b4)
++++ VolosUpdate.aip	(revision )
+@@ -13,6 +13,15 @@
+     <ROW Section="Update #1" Key="ServerFileName" Value="Volos0.0.0.96.exe"/>
+     <ROW Section="Update #1" Key="RegistryKey" Value="HKUD\Software\Volos Portfolio Solutions, LLC\Volos\Version"/>
+     <ROW Section="Update #1" Key="Version" Value="0.0.0.96"/>
++    <ROW Section="Update" Key="Name" Value="Build140"/>
++    <ROW Section="Update" Key="ProductVersion" Value="0.0.0.97"/>
++    <ROW Section="Update" Key="URL" Value="https://volosupdate.s3.uswest2.amazonaws.com/?X-Amz-Expires=421397&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAJY2FNKHSPKQOREQA/20150910/uswest2/s3/aws4_request&amp;X-Amz-Date=20150910T065643Z&amp;X-Amz-SignedHeaders=content-type;host&amp;X-Amz-Signature=c66655f95119c3dc5b7620269a80f8650a8ae2c32b5bae994bd0ec482536b46e"/>
++    <ROW Section="Update" Key="Size" Value="Volos-SetupFiles\Volos.exe"/>
++    <ROW Section="Update" Key="ReleaseDate" Value="18225"/>
++    <ROW Section="Update" Key="MD5" Value="Volos-SetupFiles\Volos.exe"/>
++    <ROW Section="Update" Key="ServerFileName" Value="Volos.exe"/>
++    <ROW Section="Update" Key="RegistryKey" Value="HKUD\Software\Volos Portfolio Solutions, LLC\Volos\Version"/>
++    <ROW Section="Update" Key="Version" Value="0.0.0.97"/>
+     <ATTRIBUTE name="OutputFileName" value="VolosUpdate.txt"/>
+     <ATTRIBUTE name="OutputFolder" value="."/>
+   </COMPONENT>
+Index: docs/partials/api/thesisPlot.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- docs/partials/api/thesisPlot.html	(revision 0a44bde004b00d676b90de33677a0736314635b4)
++++ docs/partials/api/thesisPlot.html	(revision )
+@@ -1,0 +1,0 @@
+Index: dst.dev/package.json
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- dst.dev/package.json	(revision 0a44bde004b00d676b90de33677a0736314635b4)
++++ dst.dev/package.json	(revision )
+@@ -23,6 +23,7 @@
+     "d3": "3.5.5",
+     "easy-barchart": "1.0.11",
+     "expander-area-plot": "1.0.6",
++    "gulp": "^3.9.0",
+     "jstat": "^1.1.5",
+     "nodeify": "1.0.0",
+     "simple-statistics": "0.9.1",
+Index: VolosUpdate.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- VolosUpdate.txt	(revision 0a44bde004b00d676b90de33677a0736314635b4)
++++ VolosUpdate.txt	(revision )
+@@ -1,5 +1,16 @@
+ ;aiu;
+ 
++[Update]
++Name = Build140
++ProductVersion = 0.0.0.97
++URL = https://volosupdate.s3.uswest2.amazonaws.com/?X-Amz-Expires=421397&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJY2FNKHSPKQOREQA/20150910/uswest2/s3/aws4_request&X-Amz-Date=20150910T065643Z&X-Amz-SignedHeaders=content-type;host&X-Amz-Signature=c66655f95119c3dc5b7620269a80f8650a8ae2c32b5bae994bd0ec482536b46e
++Size = 122297032
++ReleaseDate = 17/09/2015
++MD5 = 113cb48a9795211dc8e9ac87b3d8d6b0
++ServerFileName = Volos.exe
++RegistryKey = HKUD\Software\Volos Portfolio Solutions, LLC\Volos\Version
++Version = 0.0.0.97
++
+ [Update #1]
+ Name = Volos
+ ProductVersion = 0.0.0.96
