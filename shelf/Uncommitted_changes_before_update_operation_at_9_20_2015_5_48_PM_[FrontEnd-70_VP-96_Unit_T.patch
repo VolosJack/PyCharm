@@ -1,0 +1,372 @@
+Index: src/modules/companyInfo/controllers/companyInfoCtrlSpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/companyInfo/controllers/companyInfoCtrlSpec.js	(revision )
++++ src/modules/companyInfo/controllers/companyInfoCtrlSpec.js	(revision )
+@@ -0,0 +1,50 @@
++/**
++ * Created by CLong on 8/13/2015.
++ */
++'use strict';
++
++describe('Controller: Home.companyCtrl', function () {
++
++    // load the controller's module
++    beforeEach(module('Home'));
++
++    var ctrl, scope, xigniteService, Ticker, companyData, LocalTickers, q, deferred;
++
++    // Initialize the controller and a mock scope
++    beforeEach(inject(function ($controller, $rootScope, $q) {
++        q = $q;
++        scope = $rootScope.$new();
++
++        xigniteService = {
++            getOptions: function () {
++                deferred = q.defer();
++                return deferred.promise;
++                }
++            };
++
++        companyData = {
++            setData: function () {
++                }
++            };
++
++        LocalTickers = {
++            getTickers: function () {
++                deferred = q.defer();
++                return deferred.promise;
++                }
++            };
++
++        ctrl = $controller('companyCtrl', {
++            $scope: scope,
++            companyData: companyData,
++            LocalTickers: LocalTickers,
++            xigniteService: xigniteService,
++            Ticker: Ticker
++        });
++    }));
++
++    it('should be defined', function () {
++        expect(ctrl).toBeDefined();
++    });
++
++});
+\ No newline at end of file
+Index: src/modules/companyInfo/directives/enterDirectiveSpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/companyInfo/directives/enterDirectiveSpec.js	(revision )
++++ src/modules/companyInfo/directives/enterDirectiveSpec.js	(revision )
+@@ -0,0 +1,19 @@
++/**
++ * Created by CLong on 8/13/2015.
++ */
++describe('Directive: Home.enterDir', function () {
++    var ele, scope;
++
++    beforeEach(module('Home'));
++    beforeEach(inject(function ($compile, $rootScope) {
++        scope = $rootScope.$new();
++
++        ele = angular.element('<div enter-dir></div>');
++
++        $compile(ele)(scope);
++
++        //scope.$apply();
++        $rootScope.$digest();
++    }));
++
++});
+Index: mockFiles/app.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- mockFiles/app.js	(revision 120cf3a50690dae17f0b6c0321cfa3d929e9eed7)
++++ mockFiles/app.js	(revision )
+@@ -20,7 +20,7 @@
+ 
+ angular.module('Second', ['cgBusy', 'ui.bootstrap', 'ngScrollbar', 'ui.grid', 'ui.router', 'ngAnimate',
+     'n3-line-chart', 'ngSanitize', 'ngVis', 'Structure', 'vsRabbit', 'Helpers', 'Home',
+-    'Optimization', 'vsPlot', 'Analyze', 'Database', 'deckgrid', 'Scenario', 'PL'])
++    'Optimization', 'vsPlot', 'Analyze', 'Database', 'akoenig.deckgrid', 'Scenario', 'PL'])
+     .config(["$stateProvider", "$urlRouterProvider",
+         function ($stateProvider, $urlRouterProvider) {
+ 
+Index: test/helpers/vsSocketFactorySpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- test/helpers/vsSocketFactorySpec.js	(revision )
++++ test/helpers/vsSocketFactorySpec.js	(revision )
+@@ -0,0 +1,16 @@
++/**
++ * Created by CLong on 8/13/2015.
++ */
++/**
++ * Created by CLong on 8/13/2015.
++ */
++describe('Service: Helpers.vsSocketFactory', function() {
++
++  beforeEach(module('Helpers'));
++
++  var vsSocketFactory;
++  beforeEach(inject(function(_vsSocketFactory_) {
++    vsSocketFactory = _vsSocketFactory_;
++  }));
++
++});
+\ No newline at end of file
+Index: test/vsPlot/predictionDateDirectiveSpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- test/vsPlot/predictionDateDirectiveSpec.js	(revision 120cf3a50690dae17f0b6c0321cfa3d929e9eed7)
++++ test/vsPlot/predictionDateDirectiveSpec.js	(revision )
+@@ -1,3 +1,28 @@
+ /**
+  * Created by CLong on 8/13/2015.
+  */
++'use strict';
++
++describe('Controller: Analyze.graph3DCtrl', function () {
++
++    // load the controller's module
++    beforeEach(module('ui.router'));
++    beforeEach(module('Analyze'));
++
++    var ctrl, scope, contract;
++
++    // Initialize the controller and a mock scope
++    beforeEach(inject(function ($controller, $rootScope) {
++        scope = $rootScope.$new();
++
++        ctrl = $controller('graph3DCtrl', {
++            $scope: scope,
++            contract: contract
++        });
++    }));
++
++    it('should be defined', function () {
++        expect(ctrl).toBeDefined();
++    });
++
++});
+\ No newline at end of file
+Index: src/modules/companyInfo/directives/companyInfoDirectiveSpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/companyInfo/directives/companyInfoDirectiveSpec.js	(revision )
++++ src/modules/companyInfo/directives/companyInfoDirectiveSpec.js	(revision )
+@@ -0,0 +1,20 @@
++describe('Directive: Home.companyInfo', function () {
++    var ele, scope;
++
++    beforeEach(module('Home'));
++    beforeEach(module('src/modules/companyInfo/templates/companyInfo.html'));
++    beforeEach(inject(function ($compile, $rootScope) {
++        scope = $rootScope.$new();
++
++        ele = angular.element('<company-info></company-info>');
++
++        $compile(ele)(scope);
++
++        //scope.$apply();
++        $rootScope.$digest();
++    }));
++
++    it('should not render empty html', function () {
++        expect(ele.html()).not.toBe('');
++    });
++});
+Index: karma.conf.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- karma.conf.js	(revision 120cf3a50690dae17f0b6c0321cfa3d929e9eed7)
++++ karma.conf.js	(revision )
+@@ -51,66 +51,66 @@
+       'src/modules/scenario/scenario.js',
+       'src/modules/analyze/analyze.js',
+       'mockFiles/helpers.js',
+-      'src/modules/vsRabbit/vsSocketFactory.js',
++      'src/modules/helpers/services/vsSocketFactory.js',
+       'src/modules/structure/structure.js',
+       'mockFiles/home.js',
+       'src/modules/database/services/resultsService.js',
+       'src/modules/database/services/sqliteService.js',
+       'src/modules/home/controllers/homeCtrl.js',
+-      'test/home/homeCtrlSpec.js',
++      'src/modules/home/controllers/homeCtrlSpec.js',
+       'src/modules/home/controllers/hstPlotCtrl.js',
+-      'test/home/hstPlotCtrlSpec.js',
++      'src/modules/home/controllers/hstPlotCtrlSpec.js',
+       'src/modules/home/controllers/tableCtrl.js',
+       'test/home/tableCtrlSpec.js',
+       'src/modules/helpers/services/xigniteService.js',
+       'test/helpers/xigniteServiceSpec.js',
+       'src/modules/helpers/services/dataService.js',
+-      'test/helpers/dataServiceSpec.js',
++      'src/modules/helpers/services/dataServiceSpec.js',
+       'src/modules/helpers/services/userService.js',
+       'test/helpers/userServiceSpec.js',
+-      'src/modules/vsRabbit/vsConsumerFactory.js',
++      'src/modules/helpers/services/vsConsumerFactory.js',
+       'test/helpers/vsConsumerFactorySpec.js',
+       'mockFiles/vsIVService.js',
+       //'src/modules/helpers/services/vsIVServiceSpec.js',
+-      'src/modules/vsRabbit/vsPublisherFactory.js',
++      'src/modules/helpers/services/vsPublisherFactory.js',
+       //'src/modules/helpers/services/vsPublisherFactorySpec.js',
+-      'src/modules/vsRabbit/vsRequestFactory.js',
+-      'test/vsRabbit/vsRequestFactorySpec.js',
+-      'src/modules/vsRabbit/vsSocketFactory.js',
+-      'test/vsRabbit/vsSocketFactorySpec.js',
++      'src/modules/helpers/services/vsRequestFactory.js',
++      'test/helpers/vsRequestFactorySpec.js',
++      'src/modules/helpers/services/vsSocketFactory.js',
++      'test/helpers/vsSocketFactorySpec.js',
+       'src/modules/helpers/services/yahooService.js',
+       'test/helpers/yahooServiceSpec.js',
+       'src/modules/helpers/filters/underScoreFilter.js',
+       'test/helpers/underScoreFilterSpec.js',
+       'src/modules/companyInfo/controllers/companyInfoCtrl.js',
+-      'test/companyInfo/companyInfoCtrlSpec.js',
++      'src/modules/companyInfo/controllers/companyInfoCtrlSpec.js',
+       'src/modules/companyInfo/services/companyInfoAutocompleteService.js',
+       'src/modules/analyze/controllers/analyzeCtrl.js',
+-      'test/analyze/analyzeCtrlSpec.js',
++      'src/modules/analyze/controllers/analyzeCtrlSpec.js',
+       'src/modules/analyze/controllers/graph3DCtrl.js',
+-      'test/analyze/graph3dCtrlSpec.js',
++      'src/modules/analyze/controllers/graph3DCtrlSpec.js',
+       'src/modules/optimization/controllers/optimizationCtrl.js',
+       'test/optimization/optimizationCtrlSpec.js',
+       //'src/modules/optimization/controllers/optResultCtrl.js',
+       //'src/modules/optimization/controllers/optResultCtrlSpec.js',
+       'src/modules/scenario/controllers/scenarioCtrl.js',
+-      'test/scenario/scenarioCtrlSpec.js',
++      'src/modules/scenario/controllers/scenarioCtrlSpec.js',
+       'src/modules/structure/controllers/structureCtrl.js',
+       'test/structure/structureCtrlSpec.js',
+       'src/modules/vsPlot/controllers/predictionLineCtrl.js',
+-      'test/vsPlot/predictionLineCtrlSpec.js',
++      'src/modules/vsPlot/controllers/predictionLineCtrlSpec.js',
+       'src/modules/companyInfo/templates/companyInfo.html',
+       'src/modules/companyInfo/directives/companyInfoDirective.js',
+-      //'test/companyInfo/companyInfoDirectiveSpec.js',
++      'src/modules/companyInfo/directives/companyInfoDirectiveSpec.js',
+       'src/modules/companyInfo/filters/companyInfoFilter.js',
+       'mockFiles/companyDataService.js',
+       'src/modules/companyInfo/services/tickerService.js',
+       'mockFiles/vsConnectionService.js',
+       'test/helpers/vsConnectionServiceSpec.js',
+       'src/modules/companyInfo/directives/enterDirective.js',
+-      'test/companyInfo/enterDirectiveSpec.js',
++      'src/modules/companyInfo/directives/enterDirectiveSpec.js',
+       'src/modules/home/directives/hstPlotDirective.js',
+-      //'test/home/hstPlotDirectiveSpec.js',
++      'test/home/hstPlotDirectiveSpec.js',
+       'src/modules/home/templates/hstPlot.html',
+       'src/modules/optimization/directives/optimizationSettings.html',
+       //'src/modules/structure/directives/vsStructureDirective.js',
+Index: test/vsPlot/dataServiceSpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- test/vsPlot/dataServiceSpec.js	(revision 120cf3a50690dae17f0b6c0321cfa3d929e9eed7)
++++ test/vsPlot/dataServiceSpec.js	(revision )
+@@ -1,3 +1,13 @@
+ /**
+  * Created by CLong on 8/13/2015.
+  */
++describe('Service: Helpers.dataService', function() {
++
++  beforeEach(module('Helpers'));
++
++  var dataService;
++  beforeEach(inject(function(_dataService_) {
++    dataService = _dataService_;
++  }));
++
++});
+\ No newline at end of file
+Index: test/analyze/graph3dCtrlSpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- test/analyze/graph3dCtrlSpec.js	(revision 120cf3a50690dae17f0b6c0321cfa3d929e9eed7)
++++ test/analyze/graph3dCtrlSpec.js	(revision )
+@@ -1,23 +1,28 @@
+-/**
+- * Created by CLong on 8/13/2015.
+- */
+ 'use strict';
+ 
+-describe('Controller: Analyze.graph3DCtrl', function () {
++describe('Controller: Analyze.analyze', function () {
+ 
+     // load the controller's module
+     beforeEach(module('ui.router'));
+     beforeEach(module('Analyze'));
+ 
+-    var ctrl, scope, contract;
++    var ctrl, scope, resultsService, vsContract, companyData, contracts;
+ 
+     // Initialize the controller and a mock scope
+     beforeEach(inject(function ($controller, $rootScope) {
+         scope = $rootScope.$new();
+ 
+-        ctrl = $controller('graph3DCtrl', {
++        companyData = {
++            setTicker: function () {
++                }
++            };
++
++        ctrl = $controller('analyze', {
+             $scope: scope,
+-            contract: contract
++            companyData: companyData,
++            contracts: contracts,
++            resultsService: resultsService,
++            vsContract: vsContract
+         });
+     }));
+ 
+\ No newline at end of file
+Index: test/helpers/vsRequestFactorySpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- test/helpers/vsRequestFactorySpec.js	(revision )
++++ test/helpers/vsRequestFactorySpec.js	(revision )
+@@ -0,0 +1,13 @@
++/**
++ * Created by CLong on 8/13/2015.
++ */
++describe('Service: Helpers.vsRequestFactory', function() {
++
++  beforeEach(module('Helpers'));
++
++  var vsRequestFactory;
++  beforeEach(inject(function(_vsRequestFactory_) {
++    vsRequestFactory = _vsRequestFactory_;
++  }));
++
++});
+\ No newline at end of file

@@ -1,0 +1,119 @@
+Index: docs/js/docs-setup.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- docs/js/docs-setup.js	(revision 120cf3a50690dae17f0b6c0321cfa3d929e9eed7)
++++ docs/js/docs-setup.js	(revision )
+@@ -446,6 +446,15 @@
+     },
+     {
+       "section": "api",
++      "id": "thesisPlot",
++      "shortName": "thesisPlot",
++      "type": "directive",
++      "moduleName": "thesisPlot",
++      "shortDescription": "Please update the description and restriction.",
++      "keywords": "_please api description directive restriction thesisplot update"
++    },
++    {
++      "section": "api",
+       "id": "vsPlot",
+       "shortName": "vsPlot",
+       "type": "object",
+@@ -488,15 +497,6 @@
+       "moduleName": "vsPlot",
+       "shortDescription": "Directive for the prediction line",
+       "keywords": "api companydata directive file js prediction predictionline predictionlinedirective vsplot"
+-    },
+-    {
+-      "section": "api",
+-      "id": "vsPlot.directive:thesisPlot",
+-      "shortName": "thesisPlot",
+-      "type": "directive",
+-      "moduleName": "vsPlot",
+-      "shortDescription": "Directive for the thesis plot",
+-      "keywords": "$interval $timeout api axis bar bars called calls chart clears cone creates d3 directive drawchart drawfuturedates drawhistoricalforecast drawlinesandsliders drawriskneutralforecast draws drawsteptwo elements file forecast future futureinterval histdata historical identifies intervals js method mousemove movable neutral plot price removes risk sliders thesis thesisplot thesisplotdirective vsplot"
+     },
+     {
+       "section": "api",
+\ No newline at end of file
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- .gitignore	(revision 120cf3a50690dae17f0b6c0321cfa3d929e9eed7)
++++ .gitignore	(revision )
+@@ -54,5 +54,7 @@
+ cache
+ docs
+ Volos-cache
++/VolosUpdate.txt
++/VolosUpdate.back.aip
+ Volos-SetupFiles
+ target
+Index: VolosUpdate.aip
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- VolosUpdate.aip	(revision 120cf3a50690dae17f0b6c0321cfa3d929e9eed7)
++++ VolosUpdate.aip	(revision )
+@@ -13,6 +13,15 @@
+     <ROW Section="Update #1" Key="ServerFileName" Value="Volos0.0.0.96.exe"/>
+     <ROW Section="Update #1" Key="RegistryKey" Value="HKUD\Software\Volos Portfolio Solutions, LLC\Volos\Version"/>
+     <ROW Section="Update #1" Key="Version" Value="0.0.0.96"/>
++    <ROW Section="Update" Key="Name" Value="Build140"/>
++    <ROW Section="Update" Key="ProductVersion" Value="0.0.0.97"/>
++    <ROW Section="Update" Key="URL" Value="https://volosupdate.s3.uswest2.amazonaws.com/?X-Amz-Expires=421397&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAJY2FNKHSPKQOREQA/20150910/uswest2/s3/aws4_request&amp;X-Amz-Date=20150910T065643Z&amp;X-Amz-SignedHeaders=content-type;host&amp;X-Amz-Signature=c66655f95119c3dc5b7620269a80f8650a8ae2c32b5bae994bd0ec482536b46e"/>
++    <ROW Section="Update" Key="Size" Value="Volos-SetupFiles\Volos.exe"/>
++    <ROW Section="Update" Key="ReleaseDate" Value="18225"/>
++    <ROW Section="Update" Key="MD5" Value="Volos-SetupFiles\Volos.exe"/>
++    <ROW Section="Update" Key="ServerFileName" Value="Volos.exe"/>
++    <ROW Section="Update" Key="RegistryKey" Value="HKUD\Software\Volos Portfolio Solutions, LLC\Volos\Version"/>
++    <ROW Section="Update" Key="Version" Value="0.0.0.97"/>
+     <ATTRIBUTE name="OutputFileName" value="VolosUpdate.txt"/>
+     <ATTRIBUTE name="OutputFolder" value="."/>
+   </COMPONENT>
+Index: src/less/login.less
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/less/login.less	(revision 120cf3a50690dae17f0b6c0321cfa3d929e9eed7)
++++ src/less/login.less	(revision )
+@@ -2,6 +2,8 @@
+   background-color: black;
+   margin: 0 0 0 0;
+   height: 100%;
++  width: 100%;
++  position: fixed;
+ 
+   #bow{
+     background-color: white;
+\ No newline at end of file
+Index: VolosUpdate.txt
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- VolosUpdate.txt	(revision 120cf3a50690dae17f0b6c0321cfa3d929e9eed7)
++++ VolosUpdate.txt	(revision )
+@@ -1,5 +1,16 @@
+ ;aiu;
+ 
++[Update]
++Name = Build140
++ProductVersion = 0.0.0.97
++URL = https://volosupdate.s3.uswest2.amazonaws.com/?X-Amz-Expires=421397&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAJY2FNKHSPKQOREQA/20150910/uswest2/s3/aws4_request&X-Amz-Date=20150910T065643Z&X-Amz-SignedHeaders=content-type;host&X-Amz-Signature=c66655f95119c3dc5b7620269a80f8650a8ae2c32b5bae994bd0ec482536b46e
++Size = 122297032
++ReleaseDate = 17/09/2015
++MD5 = 113cb48a9795211dc8e9ac87b3d8d6b0
++ServerFileName = Volos.exe
++RegistryKey = HKUD\Software\Volos Portfolio Solutions, LLC\Volos\Version
++Version = 0.0.0.97
++
+ [Update #1]
+ Name = Volos
+ ProductVersion = 0.0.0.96
