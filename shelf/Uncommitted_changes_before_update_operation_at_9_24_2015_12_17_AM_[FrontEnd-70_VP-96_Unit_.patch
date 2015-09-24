@@ -1,0 +1,453 @@
+Index: VolosUpdate.txt
+===================================================================
+--- VolosUpdate.txt	(revision 28e9366bafdaf8072a5548ce847eafe5f0bcd8ef)
++++ VolosUpdate.txt	(revision 28e9366bafdaf8072a5548ce847eafe5f0bcd8ef)
+@@ -1,11 +0,0 @@
+-;aiu;
+-
+-[Update #1]
+-Name = Volos
+-ProductVersion = 0.0.0.96
+-URL = https://volostestupdate.s3.amazonaws.com/Volos0.0.0.96.exe?AWSAccessKeyId=AKIAJY2FNKHSPKQOREQA&Expires=1442289600&Signature=beeOYcCSJbhOmGtrLnYpMRXEZO0%3D
+-Size = 122297056
+-ReleaseDate = 09/09/2015
+-ServerFileName = Volos0.0.0.96.exe
+-RegistryKey = HKUD\Software\Volos Portfolio Solutions, LLC\Volos\Version
+-Version = 0.0.0.96
+Index: docs/js/docs-setup.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- docs/js/docs-setup.js	(revision 28e9366bafdaf8072a5548ce847eafe5f0bcd8ef)
++++ docs/js/docs-setup.js	(revision )
+@@ -446,6 +446,15 @@
+     },
+     {
+       "section": "api",
++      "id": "thesisPlot",
++      "shortName": "thesisPlot",
++      "type": "directive",
++      "moduleName": "thesisPlot",
++      "shortDescription": "Please update the description and restriction.",
++      "keywords": "_please api description directive restriction thesisplot update"
++    },
++    {
++      "section": "api",
+       "id": "vsPlot",
+       "shortName": "vsPlot",
+       "type": "object",
+@@ -488,15 +497,6 @@
+       "moduleName": "vsPlot",
+       "shortDescription": "Directive for the prediction line",
+       "keywords": "api companydata directive file js prediction predictionline predictionlinedirective vsplot"
+-    },
+-    {
+-      "section": "api",
+-      "id": "vsPlot.directive:thesisPlot",
+-      "shortName": "thesisPlot",
+-      "type": "directive",
+-      "moduleName": "vsPlot",
+-      "shortDescription": "Directive for the thesis plot",
+-      "keywords": "$interval $timeout api axis bar bars called calls chart clears cone creates d3 directive drawchart drawfuturedates drawhistoricalforecast drawlinesandsliders drawriskneutralforecast draws drawsteptwo elements file forecast future futureinterval histdata historical identifies intervals js method mousemove movable neutral plot price removes risk sliders thesis thesisplot thesisplotdirective vsplot"
+     },
+     {
+       "section": "api",
+\ No newline at end of file
+Index: src/update.txt
+===================================================================
+--- src/update.txt	(revision 28e9366bafdaf8072a5548ce847eafe5f0bcd8ef)
++++ src/update.txt	(revision 28e9366bafdaf8072a5548ce847eafe5f0bcd8ef)
+@@ -1,2 +0,0 @@
+-;aiu;
+-
+Index: .gitignore
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- .gitignore	(revision 28e9366bafdaf8072a5548ce847eafe5f0bcd8ef)
++++ .gitignore	(revision )
+@@ -54,5 +54,7 @@
+ cache
+ docs
+ Volos-cache
++/VolosUpdate.txt
++/VolosUpdate.back.aip
+ Volos-SetupFiles
+ target
+Index: test/vsPlot/predictionDateDirectiveSpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- test/vsPlot/predictionDateDirectiveSpec.js	(revision 28e9366bafdaf8072a5548ce847eafe5f0bcd8ef)
++++ test/vsPlot/predictionDateDirectiveSpec.js	(revision )
+@@ -1,3 +1,28 @@
+ /**
+  * Created by CLong on 8/13/2015.
+  */
++'use strict';
++
++describe('Controller: Analyze.graph3DCtrl', function () {
++
++    // load the controller's module
++    beforeEach(module('ui.router'));
++    beforeEach(module('Analyze'));
++
++    var ctrl, scope, contract;
++
++    // Initialize the controller and a mock scope
++    beforeEach(inject(function ($controller, $rootScope) {
++        scope = $rootScope.$new();
++
++        ctrl = $controller('graph3DCtrl', {
++            $scope: scope,
++            contract: contract
++        });
++    }));
++
++    it('should be defined', function () {
++        expect(ctrl).toBeDefined();
++    });
++
++});
+\ No newline at end of file
+Index: test/vsPlot/dataServiceSpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- test/vsPlot/dataServiceSpec.js	(revision 28e9366bafdaf8072a5548ce847eafe5f0bcd8ef)
++++ test/vsPlot/dataServiceSpec.js	(revision )
+@@ -1,3 +1,13 @@
+ /**
+  * Created by CLong on 8/13/2015.
+  */
++describe('Service: Helpers.dataService', function() {
++
++  beforeEach(module('Helpers'));
++
++  var dataService;
++  beforeEach(inject(function(_dataService_) {
++    dataService = _dataService_;
++  }));
++
++});
+\ No newline at end of file
+Index: src/less/login.less
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/less/login.less	(revision 28e9366bafdaf8072a5548ce847eafe5f0bcd8ef)
++++ src/less/login.less	(revision )
+@@ -2,6 +2,8 @@
+   background-color: black;
+   margin: 0 0 0 0;
+   height: 100%;
++  width: 100%;
++  position: fixed;
+ 
+   #bow{
+     background-color: white;
+\ No newline at end of file
+Index: test/helpers/vsRequestFactorySpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- test/helpers/vsRequestFactorySpec.js	(revision )
++++ test/helpers/vsRequestFactorySpec.js	(revision )
+@@ -0,0 +1,13 @@
++/**
++ * Created by CLong on 8/13/2015.
++ */
++describe('Service: Helpers.vsRequestFactory', function() {
++
++  beforeEach(module('Helpers'));
++
++  var vsRequestFactory;
++  beforeEach(inject(function(_vsRequestFactory_) {
++    vsRequestFactory = _vsRequestFactory_;
++  }));
++
++});
+\ No newline at end of file
+Index: src/modules/zendesk/zendesk.js
+===================================================================
+--- src/modules/zendesk/zendesk.js	(revision 28e9366bafdaf8072a5548ce847eafe5f0bcd8ef)
++++ src/modules/zendesk/zendesk.js	(revision 28e9366bafdaf8072a5548ce847eafe5f0bcd8ef)
+@@ -1,31 +0,0 @@
+-/**
+- * Created by Admin on 8/12/2015.
+- */
+-
+-window.zEmbed || function (e, t) {
+-    var n, o, d, i, s, a = [], r = document.createElement("iframe");
+-    window.zEmbed = function () {
+-        a.push(arguments)
+-    },
+-        window.zE = window.zE || window.zEmbed,
+-        r.src = "javascript:false",
+-        r.title = "",
+-        r.role = "presentation",
+-        (r.frameElement || r).style.cssText = "display: none",
+-        d = document.getElementsByTagName("script"),
+-        d = d[d.length - 1],
+-        d.parentNode.insertBefore(r, d),
+-        i = r.contentWindow,
+-        s = i.document;
+-    try {
+-        o = s
+-    } catch (c) {
+-        n = document.domain,
+-            r.src = 'javascript:var d=document.open();d.domain="' + n + '";void(0);',
+-            o = s
+-    }
+-    o.open()._l = function () {
+-        var o = this.createElement("script");
+-        n && (this.domain = n), o.id = "js-iframe-async", o.src = e, this.t = +new Date, this.zendeskHost = t, this.zEQueue = a, this.body.appendChild(o)
+-    }, o.write('<body onload="document._l();">'), o.close()
+-}("https://assets.zendesk.com/embeddable_framework/main.js", "volossoftware.zendesk.com");
+Index: mockFiles/app.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- mockFiles/app.js	(revision 28e9366bafdaf8072a5548ce847eafe5f0bcd8ef)
++++ mockFiles/app.js	(revision )
+@@ -20,7 +20,7 @@
+ 
+ angular.module('Second', ['cgBusy', 'ui.bootstrap', 'ngScrollbar', 'ui.grid', 'ui.router', 'ngAnimate',
+     'n3-line-chart', 'ngSanitize', 'ngVis', 'Structure', 'vsRabbit', 'Helpers', 'Home',
+-    'Optimization', 'vsPlot', 'Analyze', 'Database', 'deckgrid', 'Scenario', 'PL'])
++    'Optimization', 'vsPlot', 'Analyze', 'Database', 'akoenig.deckgrid', 'Scenario', 'PL'])
+     .config(["$stateProvider", "$urlRouterProvider",
+         function ($stateProvider, $urlRouterProvider) {
+ 
+Index: dst.dev/login.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- dst.dev/login.html	(revision 28e9366bafdaf8072a5548ce847eafe5f0bcd8ef)
++++ dst.dev/login.html	(revision )
+@@ -17,6 +17,9 @@
+ 			win.show();
+ 		});
+ 	</script>
++	<!-- Start of volossoftware Zendesk Widget script -->
++	<script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("https://assets.zendesk.com/embeddable_framework/main.js","volossoftware.zendesk.com");/*]]>*/</script>
++	<!-- End of volossoftware Zendesk Widget script -->
+ 	<!-- inject:css -->	<link rel="stylesheet" href="base.css">	<!-- endinject -->
+ 	<!--<link href="src/modules/login/login.css" rel="stylesheet" type="text/css">-->
+ 	<!--<link href="bower_components/vis/dist/vis.css" rel="stylesheet">-->
+@@ -57,7 +60,7 @@
+ <!--<script type="text/javascript" src="bower_components/vis/dist/vis.js"></script>-->
+ 
+ <!-- bower:js --><script src="bower_components/jquery.js"></script><script src="bower_components/angular.js"></script><script src="bower_components/angular-busy.js"></script><script src="bower_components/ng-scrollbar.js"></script><script src="bower_components/angular-aria.js"></script><script src="bower_components/angular-animate.js"></script><script src="bower_components/angular-sanitize.js"></script><script src="bower_components/ui-grid.js"></script><script src="bower_components/angular-ui-router.js"></script><script src="bower_components/ui-bootstrap-tpls.js"></script><script src="bower_components/bootstrap.js"></script><script src="bower_components/moment.js"></script><script src="bower_components/jquery-ui.js"></script><script src="bower_components/d3.js"></script><script src="bower_components/angular-vis.js"></script><script src="bower_components/angular-moment.js"></script><script src="bower_components/ct-ui-router-extras.js"></script><script src="bower_components/hotkeys.min.js"></script><script src="bower_components/line-chart.min.js"></script><script src="bower_components/vis.min.js"></script><!-- endinject -->
+-<!-- inject:js --><script src="app.js"></script><script src="vsPlot/vsPlot.js"></script><script src="vsPlot/directives/thesisPlot/thesisPlotFactory.js"></script><script src="vsPlot/directives/thesisPlot/thesisPlotDirective.js"></script><script src="vsPlot/directives/predictionDate/predictionDateFactorySpec.js"></script><script src="vsPlot/directives/predictionDate/predictionDateFactory.js"></script><script src="vsPlot/directives/predictionDate/predictionDateDirectiveSpec.js"></script><script src="vsPlot/directives/predictionDate/predictionDateDirective.js"></script><script src="vsPlot/directives/predictionDate/maturityDateFactory.js"></script><script src="vsPlot/directives/predictionLine/predictionLineFactory.js"></script><script src="vsPlot/directives/predictionLine/predictionLineDirective.js"></script><script src="vsPlot/services/thesisFactory.js"></script><script src="vsPlot/services/HistDataFactory.js"></script><script src="vsPlot/services/futureIntervalService.js"></script><script src="vsPlot/services/dataService.js"></script><script src="vsPlot/directives/vsPlotDirective.js"></script><script src="vsPlot/directives/intervalControlDirective.js"></script><script src="vsPlot/controllers/predictionLineCtrl.js"></script><script src="structure/services/structureService.js"></script><script src="structure/structure.js"></script><script src="structure/filters/indexStart.js"></script><script src="structure/directives/vsStructureDirective.js"></script><script src="structure/controllers/structureCtrl.js"></script><script src="structure/controllers/parametersCtrl.js"></script><script src="structure/controllers/modalCtrl.js"></script><script src="scenario/scenario.js"></script><script src="scenario/controllers/scenarioCtrl.js"></script><script src="analyze/analyze.js"></script><script src="profitLoss/directives/vsPlPlotDirective.js"></script><script src="profitLoss/controllers/PLPlotCtrl.js"></script><script src="profitLoss/profitLoss.js"></script><script src="profitLoss/controllers/pLCtrl.js"></script><script src="Options/app.js"></script><script src="Options/Services/OptionsSettingsFactory.js"></script><script src="Options/Services/OptionsDataService.js"></script><script src="Options/Services/OptionsApiService.js"></script><script src="Options/Directives/OptionsHistogramDirective.js"></script><script src="Options/Directives/OptionsAreaChartDirective.js"></script><script src="Options/Controllers/OptionsController.js"></script><script src="optimization/optimization.js"></script><script src="optimization/directives/parametersDirective.js"></script><script src="optimization/controllers/optResultCtrl.js"></script><script src="optimization/controllers/optimizationCtrl.js"></script><script src="nav/controllers/notifyCtrl.js"></script><script src="nav/controllers/navBarCtrl.js"></script><script src="home/home.js"></script><script src="home/directives/tableDirective.js"></script><script src="home/directives/hstPlotDirective.js"></script><script src="home/controllers/tableCtrl.js"></script><script src="home/controllers/hstPlotCtrl.js"></script><script src="home/controllers/homeCtrl.js"></script><script src="helpers/helpers.js"></script><script src="helpers/services/yahooService.js"></script><script src="helpers/services/xigniteService.js"></script><script src="helpers/services/vsIVService.js"></script><script src="helpers/services/userService.js"></script><script src="helpers/services/dataService.js"></script><script src="helpers/filters/underScoreFilter.js"></script><script src="helpers/directives/svgClickDirective.js"></script><script src="helpers/directives/datePickerDirective.js"></script><script src="helpers/directives/angular-deckgrid.js"></script><script src="database/database.js"></script><script src="database/services/sqliteService.js"></script><script src="database/services/resultsService.js"></script><script src="database/factories/vsScenarioFactory.js"></script><script src="database/factories/vsPositionFactory.js"></script><script src="database/factories/vsPLFactory.js"></script><script src="database/factories/vsOptimizationFactory.js"></script><script src="database/factories/vsContractFactory.js"></script><script src="companyInfo/services/vsIVService.js"></script><script src="companyInfo/services/tickerService.js"></script><script src="companyInfo/services/companyInfoService.js"></script><script src="companyInfo/services/companyInfoAutocompleteService.js"></script><script src="companyInfo/services/companyDataService.js"></script><script src="companyInfo/filters/companyInfoFilter.js"></script><script src="companyInfo/directives/enterDirective.js"></script><script src="companyInfo/directives/companyInfoDirective.js"></script><script src="companyInfo/controllers/companyInfoCtrl.js"></script><script src="analyze/directives/vsGraph3dDirective.js"></script><script src="analyze/directives/vsflipDirective.js"></script><script src="analyze/controllers/graph3dCtrl.js"></script><script src="analyze/controllers/analyzeCtrl.js"></script><script src="zendesk/zendesk.js"></script><script src="vsRabbit/vsSocketFactory.js"></script><script src="vsRabbit/vsRequestFactory.js"></script><script src="vsRabbit/vsPublisherFactory.js"></script><script src="vsRabbit/vsConsumerFactory.js"></script><script src="vsRabbit/vsConnectionService.js"></script><script src="Options/Options.js"></script><script src="login/login.js"></script><script src="login/loginCtrl.js"></script><script src="kaazing/WebSocket-debug.js"></script><script src="kaazing/AmqpClient.js"></script><script src="helpers/kendo.js"></script><!-- endinject -->
++<!-- inject:js --><script src="app.js"></script><script src="vsPlot/vsPlot.js"></script><script src="vsPlot/directives/thesisPlot/thesisPlotFactory.js"></script><script src="vsPlot/directives/thesisPlot/thesisPlotDirective.js"></script><script src="vsPlot/directives/predictionDate/predictionDateFactorySpec.js"></script><script src="vsPlot/directives/predictionDate/predictionDateFactory.js"></script><script src="vsPlot/directives/predictionDate/predictionDateDirectiveSpec.js"></script><script src="vsPlot/directives/predictionDate/predictionDateDirective.js"></script><script src="vsPlot/directives/predictionDate/maturityDateFactory.js"></script><script src="vsPlot/directives/predictionLine/predictionLineFactory.js"></script><script src="vsPlot/directives/predictionLine/predictionLineDirective.js"></script><script src="vsPlot/services/thesisFactory.js"></script><script src="vsPlot/services/HistDataFactory.js"></script><script src="vsPlot/services/futureIntervalService.js"></script><script src="vsPlot/services/dataService.js"></script><script src="vsPlot/directives/vsPlotDirective.js"></script><script src="vsPlot/directives/intervalControlDirective.js"></script><script src="vsPlot/controllers/predictionLineCtrl.js"></script><script src="structure/services/structureService.js"></script><script src="structure/structure.js"></script><script src="structure/filters/indexStart.js"></script><script src="structure/directives/vsStructureDirective.js"></script><script src="structure/controllers/structureCtrl.js"></script><script src="structure/controllers/parametersCtrl.js"></script><script src="structure/controllers/modalCtrl.js"></script><script src="analyze/analyze.js"></script><script src="profitLoss/directives/vsPlPlotDirective.js"></script><script src="profitLoss/controllers/PLPlotCtrl.js"></script><script src="profitLoss/profitLoss.js"></script><script src="profitLoss/controllers/pLCtrl.js"></script><script src="scenario/scenario.js"></script><script src="scenario/controllers/scenarioCtrl.js"></script><script src="Options/app.js"></script><script src="Options/Services/OptionsSettingsFactory.js"></script><script src="Options/Services/OptionsDataService.js"></script><script src="Options/Services/OptionsApiService.js"></script><script src="Options/Directives/OptionsHistogramDirective.js"></script><script src="Options/Directives/OptionsAreaChartDirective.js"></script><script src="Options/Controllers/OptionsController.js"></script><script src="optimization/optimization.js"></script><script src="optimization/directives/parametersDirective.js"></script><script src="optimization/controllers/optResultCtrl.js"></script><script src="optimization/controllers/optimizationCtrl.js"></script><script src="nav/controllers/notifyCtrl.js"></script><script src="nav/controllers/navBarCtrl.js"></script><script src="home/home.js"></script><script src="home/directives/tableDirective.js"></script><script src="home/directives/hstPlotDirective.js"></script><script src="home/controllers/tableCtrl.js"></script><script src="home/controllers/hstPlotCtrl.js"></script><script src="home/controllers/homeCtrl.js"></script><script src="helpers/helpers.js"></script><script src="helpers/services/yahooService.js"></script><script src="helpers/services/xigniteService.js"></script><script src="helpers/services/vsIVService.js"></script><script src="helpers/services/userService.js"></script><script src="helpers/services/dataService.js"></script><script src="helpers/filters/underScoreFilter.js"></script><script src="helpers/directives/svgClickDirective.js"></script><script src="helpers/directives/datePickerDirective.js"></script><script src="helpers/directives/angular-deckgrid.js"></script><script src="database/database.js"></script><script src="database/services/sqliteService.js"></script><script src="database/services/resultsService.js"></script><script src="database/factories/vsScenarioFactory.js"></script><script src="database/factories/vsPositionFactory.js"></script><script src="database/factories/vsPLFactory.js"></script><script src="database/factories/vsOptimizationFactory.js"></script><script src="database/factories/vsContractFactory.js"></script><script src="companyInfo/services/vsIVService.js"></script><script src="companyInfo/services/tickerService.js"></script><script src="companyInfo/services/companyInfoService.js"></script><script src="companyInfo/services/companyInfoAutocompleteService.js"></script><script src="companyInfo/services/companyDataService.js"></script><script src="companyInfo/filters/companyInfoFilter.js"></script><script src="companyInfo/directives/enterDirective.js"></script><script src="companyInfo/directives/companyInfoDirective.js"></script><script src="companyInfo/controllers/companyInfoCtrl.js"></script><script src="analyze/directives/vsGraph3dDirective.js"></script><script src="analyze/directives/vsflipDirective.js"></script><script src="analyze/controllers/graph3dCtrl.js"></script><script src="analyze/controllers/analyzeCtrl.js"></script><script src="vsRabbit/vsSocketFactory.js"></script><script src="vsRabbit/vsRequestFactory.js"></script><script src="vsRabbit/vsPublisherFactory.js"></script><script src="vsRabbit/vsConsumerFactory.js"></script><script src="vsRabbit/vsConnectionService.js"></script><script src="Options/Options.js"></script><script src="login/login.js"></script><script src="login/loginCtrl.js"></script><script src="kaazing/WebSocket-debug.js"></script><script src="kaazing/AmqpClient.js"></script><script src="helpers/kendo.js"></script><!-- endinject -->
+ 
+ <!-- Submodules -->
+ 
+\ No newline at end of file
+Index: test/helpers/vsSocketFactorySpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- test/helpers/vsSocketFactorySpec.js	(revision )
++++ test/helpers/vsSocketFactorySpec.js	(revision )
+@@ -0,0 +1,16 @@
++/**
++ * Created by CLong on 8/13/2015.
++ */
++/**
++ * Created by CLong on 8/13/2015.
++ */
++describe('Service: Helpers.vsSocketFactory', function() {
++
++  beforeEach(module('Helpers'));
++
++  var vsSocketFactory;
++  beforeEach(inject(function(_vsSocketFactory_) {
++    vsSocketFactory = _vsSocketFactory_;
++  }));
++
++});
+\ No newline at end of file
+Index: login.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- login.html	(revision 28e9366bafdaf8072a5548ce847eafe5f0bcd8ef)
++++ login.html	(revision )
+@@ -17,6 +17,9 @@
+ 			win.show();
+ 		});
+ 	</script>
++	<!-- Start of volossoftware Zendesk Widget script -->
++	<script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("https://assets.zendesk.com/embeddable_framework/main.js","volossoftware.zendesk.com");/*]]>*/</script>
++	<!-- End of volossoftware Zendesk Widget script -->
+ 	<!-- inject:css -->	<!-- endinject -->
+ 	<!--<link href="src/modules/login/login.css" rel="stylesheet" type="text/css">-->
+ 	<!--<link href="bower_components/vis/dist/vis.css" rel="stylesheet">-->
+\ No newline at end of file
+Index: VolosUpdate.aip
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- VolosUpdate.aip	(revision 28e9366bafdaf8072a5548ce847eafe5f0bcd8ef)
++++ VolosUpdate.aip	(revision )
+@@ -13,6 +13,15 @@
+     <ROW Section="Update #1" Key="ServerFileName" Value="Volos0.0.0.96.exe"/>
+     <ROW Section="Update #1" Key="RegistryKey" Value="HKUD\Software\Volos Portfolio Solutions, LLC\Volos\Version"/>
+     <ROW Section="Update #1" Key="Version" Value="0.0.0.96"/>
++    <ROW Section="Update" Key="Name" Value="Build140"/>
++    <ROW Section="Update" Key="ProductVersion" Value="0.0.0.97"/>
++    <ROW Section="Update" Key="URL" Value="https://volosupdate.s3.uswest2.amazonaws.com/?X-Amz-Expires=421397&amp;X-Amz-Algorithm=AWS4-HMAC-SHA256&amp;X-Amz-Credential=AKIAJY2FNKHSPKQOREQA/20150910/uswest2/s3/aws4_request&amp;X-Amz-Date=20150910T065643Z&amp;X-Amz-SignedHeaders=content-type;host&amp;X-Amz-Signature=c66655f95119c3dc5b7620269a80f8650a8ae2c32b5bae994bd0ec482536b46e"/>
++    <ROW Section="Update" Key="Size" Value="Volos-SetupFiles\Volos.exe"/>
++    <ROW Section="Update" Key="ReleaseDate" Value="18225"/>
++    <ROW Section="Update" Key="MD5" Value="Volos-SetupFiles\Volos.exe"/>
++    <ROW Section="Update" Key="ServerFileName" Value="Volos.exe"/>
++    <ROW Section="Update" Key="RegistryKey" Value="HKUD\Software\Volos Portfolio Solutions, LLC\Volos\Version"/>
++    <ROW Section="Update" Key="Version" Value="0.0.0.97"/>
+     <ATTRIBUTE name="OutputFileName" value="VolosUpdate.txt"/>
+     <ATTRIBUTE name="OutputFolder" value="."/>
+   </COMPONENT>
+Index: karma.conf.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- karma.conf.js	(revision 28e9366bafdaf8072a5548ce847eafe5f0bcd8ef)
++++ karma.conf.js	(revision )
+@@ -51,33 +51,33 @@
+       'src/modules/scenario/scenario.js',
+       'src/modules/analyze/analyze.js',
+       'mockFiles/helpers.js',
+-      'src/modules/vsRabbit/vsSocketFactory.js',
++      'src/modules/helpers/services/vsSocketFactory.js',
+       'src/modules/structure/structure.js',
+       'mockFiles/home.js',
+       'src/modules/database/services/resultsService.js',
+       'src/modules/database/services/sqliteService.js',
+       'src/modules/home/controllers/homeCtrl.js',
+-      'test/home/homeCtrlSpec.js',
++      'src/modules/home/controllers/homeCtrlSpec.js',
+       'src/modules/home/controllers/hstPlotCtrl.js',
+-      'test/home/hstPlotCtrlSpec.js',
++      'src/modules/home/controllers/hstPlotCtrlSpec.js',
+       'src/modules/home/controllers/tableCtrl.js',
+       'test/home/tableCtrlSpec.js',
+       'src/modules/helpers/services/xigniteService.js',
+       'test/helpers/xigniteServiceSpec.js',
+       'src/modules/helpers/services/dataService.js',
+-      'test/helpers/dataServiceSpec.js',
++      'src/modules/helpers/services/dataServiceSpec.js',
+       'src/modules/helpers/services/userService.js',
+       'test/helpers/userServiceSpec.js',
+-      'src/modules/vsRabbit/vsConsumerFactory.js',
++      'src/modules/helpers/services/vsConsumerFactory.js',
+       'test/helpers/vsConsumerFactorySpec.js',
+       'mockFiles/vsIVService.js',
+       //'src/modules/helpers/services/vsIVServiceSpec.js',
+-      'src/modules/vsRabbit/vsPublisherFactory.js',
++      'src/modules/helpers/services/vsPublisherFactory.js',
+       //'src/modules/helpers/services/vsPublisherFactorySpec.js',
+-      'src/modules/vsRabbit/vsRequestFactory.js',
+-      'test/vsRabbit/vsRequestFactorySpec.js',
+-      'src/modules/vsRabbit/vsSocketFactory.js',
+-      'test/vsRabbit/vsSocketFactorySpec.js',
++      'src/modules/helpers/services/vsRequestFactory.js',
++      'test/helpers/vsRequestFactorySpec.js',
++      'src/modules/helpers/services/vsSocketFactory.js',
++      'test/helpers/vsSocketFactorySpec.js',
+       'src/modules/helpers/services/yahooService.js',
+       'test/helpers/yahooServiceSpec.js',
+       'src/modules/helpers/filters/underScoreFilter.js',
+@@ -86,22 +86,22 @@
+       'test/companyInfo/companyInfoCtrlSpec.js',
+       'src/modules/companyInfo/services/companyInfoAutocompleteService.js',
+       'src/modules/analyze/controllers/analyzeCtrl.js',
+-      'test/analyze/analyzeCtrlSpec.js',
++      'src/modules/analyze/controllers/analyzeCtrlSpec.js',
+       'src/modules/analyze/controllers/graph3DCtrl.js',
+-      'test/analyze/graph3dCtrlSpec.js',
++      'src/modules/analyze/controllers/graph3DCtrlSpec.js',
+       'src/modules/optimization/controllers/optimizationCtrl.js',
+       'test/optimization/optimizationCtrlSpec.js',
+       //'src/modules/optimization/controllers/optResultCtrl.js',
+       //'src/modules/optimization/controllers/optResultCtrlSpec.js',
+       'src/modules/scenario/controllers/scenarioCtrl.js',
+-      'test/scenario/scenarioCtrlSpec.js',
++      'src/modules/scenario/controllers/scenarioCtrlSpec.js',
+       'src/modules/structure/controllers/structureCtrl.js',
+       'test/structure/structureCtrlSpec.js',
+       'src/modules/vsPlot/controllers/predictionLineCtrl.js',
+-      'test/vsPlot/predictionLineCtrlSpec.js',
++      'src/modules/vsPlot/controllers/predictionLineCtrlSpec.js',
+       'src/modules/companyInfo/templates/companyInfo.html',
+       'src/modules/companyInfo/directives/companyInfoDirective.js',
+-      //'test/companyInfo/companyInfoDirectiveSpec.js',
++      'test/companyInfo/companyInfoDirectiveSpec.js',
+       'src/modules/companyInfo/filters/companyInfoFilter.js',
+       'mockFiles/companyDataService.js',
+       'src/modules/companyInfo/services/tickerService.js',
+@@ -110,7 +110,7 @@
+       'src/modules/companyInfo/directives/enterDirective.js',
+       'test/companyInfo/enterDirectiveSpec.js',
+       'src/modules/home/directives/hstPlotDirective.js',
+-      //'test/home/hstPlotDirectiveSpec.js',
++      'test/home/hstPlotDirectiveSpec.js',
+       'src/modules/home/templates/hstPlot.html',
+       'src/modules/optimization/directives/optimizationSettings.html',
+       //'src/modules/structure/directives/vsStructureDirective.js',
+Index: test/analyze/graph3dCtrlSpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- test/analyze/graph3dCtrlSpec.js	(revision 28e9366bafdaf8072a5548ce847eafe5f0bcd8ef)
++++ test/analyze/graph3dCtrlSpec.js	(revision )
+@@ -1,23 +1,28 @@
+-/**
+- * Created by CLong on 8/13/2015.
+- */
+ 'use strict';
+ 
+-describe('Controller: Analyze.graph3DCtrl', function () {
++describe('Controller: Analyze.analyze', function () {
+ 
+     // load the controller's module
+     beforeEach(module('ui.router'));
+     beforeEach(module('Analyze'));
+ 
+-    var ctrl, scope, contract;
++    var ctrl, scope, resultsService, vsContract, companyData, contracts;
+ 
+     // Initialize the controller and a mock scope
+     beforeEach(inject(function ($controller, $rootScope) {
+         scope = $rootScope.$new();
+ 
+-        ctrl = $controller('graph3DCtrl', {
++        companyData = {
++            setTicker: function () {
++                }
++            };
++
++        ctrl = $controller('analyze', {
+             $scope: scope,
+-            contract: contract
++            companyData: companyData,
++            contracts: contracts,
++            resultsService: resultsService,
++            vsContract: vsContract
+         });
+     }));
+ 
+\ No newline at end of file
