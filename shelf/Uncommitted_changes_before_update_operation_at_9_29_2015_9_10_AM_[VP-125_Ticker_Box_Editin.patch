@@ -1,0 +1,338 @@
+Index: VolosUpdate.txt
+===================================================================
+--- VolosUpdate.txt	(revision 3d6759f4314f858ccc48cfd9b1d7d783fab21d69)
++++ VolosUpdate.txt	(revision 3d6759f4314f858ccc48cfd9b1d7d783fab21d69)
+@@ -1,11 +0,0 @@
+-;aiu;
+-
+-[Update #1]
+-Name = Volos
+-ProductVersion = 0.0.0.96
+-URL = https://volostestupdate.s3.amazonaws.com/Volos0.0.0.96.exe?AWSAccessKeyId=AKIAJY2FNKHSPKQOREQA&Expires=1442289600&Signature=beeOYcCSJbhOmGtrLnYpMRXEZO0%3D
+-Size = 122297056
+-ReleaseDate = 09/09/2015
+-ServerFileName = Volos0.0.0.96.exe
+-RegistryKey = HKUD\Software\Volos Portfolio Solutions, LLC\Volos\Version
+-Version = 0.0.0.96
+Index: src/update.txt
+===================================================================
+--- src/update.txt	(revision 3d6759f4314f858ccc48cfd9b1d7d783fab21d69)
++++ src/update.txt	(revision 3d6759f4314f858ccc48cfd9b1d7d783fab21d69)
+@@ -1,2 +0,0 @@
+-;aiu;
+-
+Index: Volos.aip
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- Volos.aip	(revision 3d6759f4314f858ccc48cfd9b1d7d783fab21d69)
++++ Volos.aip	(revision )
+@@ -1,5 +1,5 @@
+ <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+-<DOCUMENT Type="Advanced Installer" CreateVersion="12.3.1" version="12.4" Modules="professional" RootPath="." Language="en" Id="{03ED99E4-5C4E-42E3-96EF-5E8600BD03B0}">
++<DOCUMENT Type="Advanced Installer" CreateVersion="12.3.1" version="12.4.2" Modules="professional" RootPath="." Language="en" Id="{03ED99E4-5C4E-42E3-96EF-5E8600BD03B0}">
+   <COMPONENT cid="caphyon.advinst.msicomp.ProjectOptionsComponent">
+     <ROW Name="HiddenItems" Value="MsiJavaComponent;MsiDriverPackagesComponent;UserAccountsComponent;ScheduledTasksComponent;SqlConnectionComponent;AutorunComponent;FirewallExceptionComponent;GameUxComponent;MsiDirectEditorComponent;SharePointSlnComponent;SilverlightSlnComponent;MultipleInstancesComponent;SccmComponent;ActSyncAppComponent"/>
+   </COMPONENT>
+@@ -29,10 +29,10 @@
+     <ROW Property="AppLogoIcon" Value="applogoicon" MultiBuildValue="DefaultBuild:SailVector01.jpg" Type="1" MsiKey="AppLogoIcon"/>
+     <ROW Property="CTRLS" Value="2"/>
+     <ROW Property="Manufacturer" Value="Volos Portfolio Solutions, LLC"/>
+-    <ROW Property="ProductCode" Value="1033:{A4782538-135B-4D48-80DC-C876048DA25D} " Type="16"/>
++    <ROW Property="ProductCode" Value="1033:{E9771733-2EA6-4564-A9F7-9F08B4DFDF72} " Type="16"/>
+     <ROW Property="ProductLanguage" Value="1033"/>
+     <ROW Property="ProductName" Value="Volos"/>
+-    <ROW Property="ProductVersion" Value="0.0.0.97" Type="32"/>
++    <ROW Property="ProductVersion" Value="0.0.197" Type="32"/>
+     <ROW Property="RUNAPPLICATION" Value="1" Type="4"/>
+     <ROW Property="SecureCustomProperties" Value="OLDPRODUCTS;AI_NEWERPRODUCTFOUND;AI_SETUPEXEPATH;SETUPEXEDIR"/>
+     <ROW Property="UpgradeCode" Value="{5A1B32CE-8560-4690-A48E-3E492DA194CC}"/>
+@@ -54,7 +54,7 @@
+     <ROW Directory="regid.201407.com.volossoftware_Dir" Directory_Parent="CommonAppDataFolder" DefaultDir="REGID2~1.VOL|regid.2014-07.com.volossoftware"/>
+   </COMPONENT>
+   <COMPONENT cid="caphyon.advinst.msicomp.MsiCompsComponent">
+-    <ROW Component="AI_CustomARPName" ComponentId="{34F921CC-3933-4BCE-88EA-7B0D0AD9AE75}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
++    <ROW Component="AI_CustomARPName" ComponentId="{AE7F239F-2CC9-44CC-A116-BC155F419BF7}" Directory_="APPDIR" Attributes="4" KeyPath="DisplayName" Options="1"/>
+     <ROW Component="AI_ExePath" ComponentId="{B2016A16-7937-4D6B-B51A-C7ECC1165C28}" Directory_="APPDIR" Attributes="260" KeyPath="AI_ExePath"/>
+     <ROW Component="AI_IA_ENABLE" ComponentId="{0A0E7C7A-2425-44EE-BDF4-18FE7CF521AB}" Directory_="APPDIR" Attributes="260" KeyPath="AI_IA_ENABLE" Options="1"/>
+     <ROW Component="ProductInformation" ComponentId="{ADFE6A4E-A006-49BE-8F86-19AF8265A3A0}" Directory_="APPDIR" Attributes="4" KeyPath="Version"/>
+@@ -121,7 +121,7 @@
+     <ROW Path="&lt;AI_DICTS&gt;ui_en.ail"/>
+   </COMPONENT>
+   <COMPONENT cid="caphyon.advinst.msicomp.DigCertStoreComponent">
+-    <ROW TimeStampUrl="http://timestamp.comodoca.com/authenticode" SignerDescription="[|ProductName]" DescriptionUrl="http://www.volossoftware.com" SignOptions="7" SignTool="0" EnableLUAPatching="1" UseSha256="1" Thumbprint="b8a2f32f8646fc6a0cc19dc48fd3b51ab21eba5c Subject: Charles Long&#10;Issuer: Charles Long&#10;Valid from 07/08/2015 to 07/08/2020"/>
++    <ROW TimeStampUrl="http://timestamp.digicert.com" SignerDescription="[|ProductName]" DescriptionUrl="http://www.volossoftware.com" SignOptions="7" SignTool="0" EnableLUAPatching="1" UseSha256="1" Thumbprint="fa731f9b8c5661a0a9924ab0f0cec34c309d197d Subject: Volos Portfolio Solutions, LLC&#10;Issuer: DigiCert EV Code Signing CA (SHA2)&#10;Valid from 09/23/2015 to 09/15/2016"/>
+   </COMPONENT>
+   <COMPONENT cid="caphyon.advinst.msicomp.FragmentComponent">
+     <ROW Fragment="CommonUI.aip" Path="&lt;AI_FRAGS&gt;CommonUI.aip"/>
+@@ -436,7 +436,7 @@
+     <ROW XmlAttribute="xsischemaLocation" XmlElement="swidsoftware_identification_tag" Name="xsi:schemaLocation" Flags="14" Order="3" Value="http://standards.iso.org/iso/19770/-2/2008/schema.xsd software_identification_tag.xsd"/>
+   </COMPONENT>
+   <COMPONENT cid="caphyon.advinst.msicomp.XmlElementComponent">
+-    <ROW XmlElement="swidbuild" ParentElement="swidnumeric" Name="swid:build" Condition="1" Order="2" Flags="14" Text="0"/>
++    <ROW XmlElement="swidbuild" ParentElement="swidnumeric" Name="swid:build" Condition="1" Order="2" Flags="14" Text="197"/>
+     <ROW XmlElement="swidentitlement_required_indicator" ParentElement="swidsoftware_identification_tag" Name="swid:entitlement_required_indicator" Condition="1" Order="0" Flags="14" Text="false"/>
+     <ROW XmlElement="swidmajor" ParentElement="swidnumeric" Name="swid:major" Condition="1" Order="0" Flags="14" Text="0"/>
+     <ROW XmlElement="swidminor" ParentElement="swidnumeric" Name="swid:minor" Condition="1" Order="1" Flags="14" Text="0"/>
+@@ -450,7 +450,7 @@
+     <ROW XmlElement="swidregid" ParentElement="swidsoftware_creator" Name="swid:regid" Condition="1" Order="1" Flags="14" Text="regid.2014-07.com.volossoftware"/>
+     <ROW XmlElement="swidregid_1" ParentElement="swidsoftware_licensor" Name="swid:regid" Condition="1" Order="1" Flags="14" Text="regid.2014-07.com.volossoftware"/>
+     <ROW XmlElement="swidregid_2" ParentElement="swidtag_creator" Name="swid:regid" Condition="1" Order="1" Flags="14" Text="regid.2014-07.com.volossoftware"/>
+-    <ROW XmlElement="swidreview" ParentElement="swidnumeric" Name="swid:review" Condition="1" Order="3" Flags="14" Text="97"/>
++    <ROW XmlElement="swidreview" ParentElement="swidnumeric" Name="swid:review" Condition="1" Order="3" Flags="14" Text="0"/>
+     <ROW XmlElement="swidsoftware_creator" ParentElement="swidsoftware_identification_tag" Name="swid:software_creator" Condition="1" Order="3" Flags="14"/>
+     <ROW XmlElement="swidsoftware_id" ParentElement="swidsoftware_identification_tag" Name="swid:software_id" Condition="1" Order="5" Flags="14"/>
+     <ROW XmlElement="swidsoftware_identification_tag" Name="swid:software_identification_tag" Condition="1" Order="0" Flags="14"/>
+Index: dst.dev/login.html
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+--- dst.dev/login.html	(revision 3d6759f4314f858ccc48cfd9b1d7d783fab21d69)
++++ dst.dev/login.html	(revision )
+@@ -17,6 +17,9 @@
+ 			win.show();
+ 		});
+ 	</script>
++	<!-- Start of volossoftware Zendesk Widget script -->
++	<script>/*<![CDATA[*/window.zEmbed||function(e,t){var n,o,d,i,s,a=[],r=document.createElement("iframe");window.zEmbed=function(){a.push(arguments)},window.zE=window.zE||window.zEmbed,r.src="javascript:false",r.title="",r.role="presentation",(r.frameElement||r).style.cssText="display: none",d=document.getElementsByTagName("script"),d=d[d.length-1],d.parentNode.insertBefore(r,d),i=r.contentWindow,s=i.document;try{o=s}catch(c){n=document.domain,r.src='javascript:var d=document.open();d.domain="'+n+'";void(0);',o=s}o.open()._l=function(){var o=this.createElement("script");n&&(this.domain=n),o.id="js-iframe-async",o.src=e,this.t=+new Date,this.zendeskHost=t,this.zEQueue=a,this.body.appendChild(o)},o.write('<body onload="document._l();">'),o.close()}("https://assets.zendesk.com/embeddable_framework/main.js","volossoftware.zendesk.com");/*]]>*/</script>
++	<!-- End of volossoftware Zendesk Widget script -->
+ 	<!-- inject:css -->	<link rel="stylesheet" href="base.css">	<!-- endinject -->
+ 	<!--<link href="src/modules/login/login.css" rel="stylesheet" type="text/css">-->
+ 	<!--<link href="bower_components/vis/dist/vis.css" rel="stylesheet">-->
+@@ -56,8 +59,8 @@
+ <!--<script type="text/javascript" src="bower_components/angular-visjs/angular-vis.js"></script>-->
+ <!--<script type="text/javascript" src="bower_components/vis/dist/vis.js"></script>-->
+ 
+-<!-- bower:js --><script src="bower_components/jquery.js"></script><script src="bower_components/angular.js"></script><script src="bower_components/angular-busy.js"></script><script src="bower_components/ng-scrollbar.js"></script><script src="bower_components/angular-aria.js"></script><script src="bower_components/angular-animate.js"></script><script src="bower_components/angular-sanitize.js"></script><script src="bower_components/ui-grid.js"></script><script src="bower_components/angular-ui-router.js"></script><script src="bower_components/ui-bootstrap-tpls.js"></script><script src="bower_components/bootstrap.js"></script><script src="bower_components/moment.js"></script><script src="bower_components/jquery-ui.js"></script><script src="bower_components/d3.js"></script><script src="bower_components/angular-vis.js"></script><script src="bower_components/angular-moment.js"></script><script src="bower_components/ct-ui-router-extras.js"></script><script src="bower_components/hotkeys.min.js"></script><script src="bower_components/line-chart.min.js"></script><script src="bower_components/vis.min.js"></script><!-- endinject -->
+-<!-- inject:js --><script src="app.js"></script><script src="vsPlot/vsPlot.js"></script><script src="vsPlot/directives/thesisPlot/thesisPlotFactory.js"></script><script src="vsPlot/directives/thesisPlot/thesisPlotDirective.js"></script><script src="vsPlot/directives/predictionDate/predictionDateFactorySpec.js"></script><script src="vsPlot/directives/predictionDate/predictionDateFactory.js"></script><script src="vsPlot/directives/predictionDate/predictionDateDirectiveSpec.js"></script><script src="vsPlot/directives/predictionDate/predictionDateDirective.js"></script><script src="vsPlot/directives/predictionDate/maturityDateFactory.js"></script><script src="vsPlot/directives/predictionLine/predictionLineFactory.js"></script><script src="vsPlot/directives/predictionLine/predictionLineDirective.js"></script><script src="vsPlot/services/thesisFactory.js"></script><script src="vsPlot/services/HistDataFactory.js"></script><script src="vsPlot/services/futureIntervalService.js"></script><script src="vsPlot/services/dataService.js"></script><script src="vsPlot/directives/vsPlotDirective.js"></script><script src="vsPlot/directives/intervalControlDirective.js"></script><script src="vsPlot/controllers/predictionLineCtrl.js"></script><script src="structure/services/structureService.js"></script><script src="structure/structure.js"></script><script src="structure/filters/indexStart.js"></script><script src="structure/directives/vsStructureDirective.js"></script><script src="structure/controllers/structureCtrl.js"></script><script src="structure/controllers/parametersCtrl.js"></script><script src="structure/controllers/modalCtrl.js"></script><script src="scenario/scenario.js"></script><script src="scenario/controllers/scenarioCtrl.js"></script><script src="analyze/analyze.js"></script><script src="profitLoss/directives/vsPlPlotDirective.js"></script><script src="profitLoss/controllers/PLPlotCtrl.js"></script><script src="profitLoss/profitLoss.js"></script><script src="profitLoss/controllers/pLCtrl.js"></script><script src="Options/app.js"></script><script src="Options/Services/OptionsSettingsFactory.js"></script><script src="Options/Services/OptionsDataService.js"></script><script src="Options/Services/OptionsApiService.js"></script><script src="Options/Directives/OptionsHistogramDirective.js"></script><script src="Options/Directives/OptionsAreaChartDirective.js"></script><script src="Options/Controllers/OptionsController.js"></script><script src="optimization/optimization.js"></script><script src="optimization/directives/parametersDirective.js"></script><script src="optimization/controllers/optResultCtrl.js"></script><script src="optimization/controllers/optimizationCtrl.js"></script><script src="nav/controllers/notifyCtrl.js"></script><script src="nav/controllers/navBarCtrl.js"></script><script src="home/home.js"></script><script src="home/directives/tableDirective.js"></script><script src="home/directives/hstPlotDirective.js"></script><script src="home/controllers/tableCtrl.js"></script><script src="home/controllers/hstPlotCtrl.js"></script><script src="home/controllers/homeCtrl.js"></script><script src="helpers/helpers.js"></script><script src="helpers/services/yahooService.js"></script><script src="helpers/services/xigniteService.js"></script><script src="helpers/services/vsIVService.js"></script><script src="helpers/services/userService.js"></script><script src="helpers/services/dataService.js"></script><script src="helpers/filters/underScoreFilter.js"></script><script src="helpers/directives/svgClickDirective.js"></script><script src="helpers/directives/datePickerDirective.js"></script><script src="helpers/directives/angular-deckgrid.js"></script><script src="database/database.js"></script><script src="database/services/sqliteService.js"></script><script src="database/services/resultsService.js"></script><script src="database/factories/vsScenarioFactory.js"></script><script src="database/factories/vsPositionFactory.js"></script><script src="database/factories/vsPLFactory.js"></script><script src="database/factories/vsOptimizationFactory.js"></script><script src="database/factories/vsContractFactory.js"></script><script src="companyInfo/services/vsIVService.js"></script><script src="companyInfo/services/tickerService.js"></script><script src="companyInfo/services/companyInfoService.js"></script><script src="companyInfo/services/companyInfoAutocompleteService.js"></script><script src="companyInfo/services/companyDataService.js"></script><script src="companyInfo/filters/companyInfoFilter.js"></script><script src="companyInfo/directives/enterDirective.js"></script><script src="companyInfo/directives/companyInfoDirective.js"></script><script src="companyInfo/controllers/companyInfoCtrl.js"></script><script src="analyze/directives/vsGraph3dDirective.js"></script><script src="analyze/directives/vsflipDirective.js"></script><script src="analyze/controllers/graph3dCtrl.js"></script><script src="analyze/controllers/analyzeCtrl.js"></script><script src="zendesk/zendesk.js"></script><script src="vsRabbit/vsSocketFactory.js"></script><script src="vsRabbit/vsRequestFactory.js"></script><script src="vsRabbit/vsPublisherFactory.js"></script><script src="vsRabbit/vsConsumerFactory.js"></script><script src="vsRabbit/vsConnectionService.js"></script><script src="Options/Options.js"></script><script src="login/login.js"></script><script src="login/loginCtrl.js"></script><script src="kaazing/WebSocket-debug.js"></script><script src="kaazing/AmqpClient.js"></script><script src="helpers/kendo.js"></script><!-- endinject -->
++<!-- bower:js --><script src="bower_components/jquery.js"></script><script src="bower_components/angular.js"></script><script src="bower_components/angular-busy.js"></script><script src="bower_components/ng-scrollbar.js"></script><script src="bower_components/angular-aria.js"></script><script src="bower_components/angular-animate.js"></script><script src="bower_components/angular-sanitize.js"></script><script src="bower_components/ui-grid.js"></script><script src="bower_components/angular-ui-router.js"></script><script src="bower_components/ui-bootstrap-tpls.js"></script><script src="bower_components/bootstrap.js"></script><script src="bower_components/moment.js"></script><script src="bower_components/jquery-ui.js"></script><script src="bower_components/d3.js"></script><script src="bower_components/angular-vis.js"></script><script src="bower_components/angular-moment.js"></script><script src="bower_components/ct-ui-router-extras.js"></script><script src="bower_components/hotkeys.min.js"></script><script src="bower_components/line-chart.min.js"></script><script src="bower_components/vis.min.js"></script><script src="bower_components/xignite-search.min.js"></script><!-- endinject -->
++<!-- inject:js --><script src="app.js"></script><script src="vsPlot/vsPlot.js"></script><script src="vsPlot/directives/thesisPlot/thesisPlotFactory.js"></script><script src="vsPlot/directives/thesisPlot/thesisPlotDirective.js"></script><script src="vsPlot/directives/predictionLine/predictionLineFactory.js"></script><script src="vsPlot/directives/predictionLine/predictionLineDirective.js"></script><script src="vsPlot/directives/predictionDate/predictionDateFactorySpec.js"></script><script src="vsPlot/directives/predictionDate/predictionDateFactory.js"></script><script src="vsPlot/directives/predictionDate/predictionDateDirectiveSpec.js"></script><script src="vsPlot/directives/predictionDate/predictionDateDirective.js"></script><script src="vsPlot/directives/predictionDate/maturityDateFactory.js"></script><script src="vsPlot/services/thesisFactory.js"></script><script src="vsPlot/services/HistDataFactory.js"></script><script src="vsPlot/services/futureIntervalService.js"></script><script src="vsPlot/services/dataService.js"></script><script src="vsPlot/directives/vsPlotDirective.js"></script><script src="vsPlot/directives/intervalControlDirective.js"></script><script src="vsPlot/controllers/predictionLineCtrl.js"></script><script src="analyze/analyze.js"></script><script src="profitLoss/directives/vsPlPlotDirective.js"></script><script src="scenario/scenario.js"></script><script src="scenario/controllers/scenarioCtrl.js"></script><script src="profitLoss/controllers/PLPlotCtrl.js"></script><script src="profitLoss/profitLoss.js"></script><script src="profitLoss/controllers/pLCtrl.js"></script><script src="structure/services/structureService.js"></script><script src="structure/structure.js"></script><script src="structure/filters/indexStart.js"></script><script src="structure/directives/vsStructureDirective.js"></script><script src="structure/controllers/structureCtrl.js"></script><script src="structure/controllers/parametersCtrl.js"></script><script src="structure/controllers/modalCtrl.js"></script><script src="Options/app.js"></script><script src="Options/Services/OptionsSettingsFactory.js"></script><script src="Options/Services/OptionsDataService.js"></script><script src="Options/Services/OptionsApiService.js"></script><script src="Options/Directives/OptionsHistogramDirective.js"></script><script src="Options/Directives/OptionsAreaChartDirective.js"></script><script src="Options/Controllers/OptionsController.js"></script><script src="optimization/optimization.js"></script><script src="optimization/directives/parametersDirective.js"></script><script src="optimization/controllers/optResultCtrl.js"></script><script src="optimization/controllers/optimizationCtrl.js"></script><script src="nav/controllers/notifyCtrl.js"></script><script src="nav/controllers/navBarCtrl.js"></script><script src="home/home.js"></script><script src="home/directives/tableDirective.js"></script><script src="home/directives/hstPlotDirective.js"></script><script src="home/controllers/tableCtrl.js"></script><script src="home/controllers/hstPlotCtrl.js"></script><script src="home/controllers/homeCtrl.js"></script><script src="database/database.js"></script><script src="database/services/sqliteService.js"></script><script src="database/services/resultsService.js"></script><script src="database/factories/vsScenarioFactory.js"></script><script src="database/factories/vsPositionFactory.js"></script><script src="database/factories/vsPLFactory.js"></script><script src="database/factories/vsOptimizationFactory.js"></script><script src="database/factories/vsContractFactory.js"></script><script src="companyInfo/filters/companyInfoFilter.js"></script><script src="helpers/helpers.js"></script><script src="companyInfo/services/vsIVService.js"></script><script src="companyInfo/services/tickerService.js"></script><script src="companyInfo/services/companyInfoService.js"></script><script src="companyInfo/services/companyInfoAutocompleteService.js"></script><script src="companyInfo/services/companyDataService.js"></script><script src="companyInfo/directives/enterDirective.js"></script><script src="companyInfo/directives/companyInfoDirective.js"></script><script src="companyInfo/controllers/companyInfoCtrl.js"></script><script src="helpers/services/yahooService.js"></script><script src="helpers/services/xigniteService.js"></script><script src="helpers/services/vsIVService.js"></script><script src="helpers/services/userService.js"></script><script src="helpers/services/dataService.js"></script><script src="helpers/filters/underScoreFilter.js"></script><script src="helpers/directives/svgClickDirective.js"></script><script src="helpers/directives/datePickerDirective.js"></script><script src="helpers/directives/angular-deckgrid.js"></script><script src="analyze/directives/vsGraph3dDirective.js"></script><script src="analyze/directives/vsflipDirective.js"></script><script src="analyze/controllers/graph3dCtrl.js"></script><script src="analyze/controllers/analyzeCtrl.js"></script><script src="vsRabbit/vsSocketFactory.js"></script><script src="vsRabbit/vsRequestFactory.js"></script><script src="vsRabbit/vsPublisherFactory.js"></script><script src="vsRabbit/vsConsumerFactory.js"></script><script src="vsRabbit/vsConnectionService.js"></script><script src="Options/Options.js"></script><script src="login/login.js"></script><script src="login/loginCtrl.js"></script><script src="kaazing/WebSocket-debug.js"></script><script src="kaazing/AmqpClient.js"></script><script src="helpers/kendo.js"></script><!-- endinject -->
+ 
+ <!-- Submodules -->
+ 
+\ No newline at end of file
+Index: src/modules/zendesk/zendesk.js
+===================================================================
+--- src/modules/zendesk/zendesk.js	(revision 3d6759f4314f858ccc48cfd9b1d7d783fab21d69)
++++ src/modules/zendesk/zendesk.js	(revision 3d6759f4314f858ccc48cfd9b1d7d783fab21d69)
+@@ -1,31 +0,0 @@
+-/**
+- * Created by Admin on 8/12/2015.
+- */
+-
+-window.zEmbed || function (e, t) {
+-    var n, o, d, i, s, a = [], r = document.createElement("iframe");
+-    window.zEmbed = function () {
+-        a.push(arguments)
+-    },
+-        window.zE = window.zE || window.zEmbed,
+-        r.src = "javascript:false",
+-        r.title = "",
+-        r.role = "presentation",
+-        (r.frameElement || r).style.cssText = "display: none",
+-        d = document.getElementsByTagName("script"),
+-        d = d[d.length - 1],
+-        d.parentNode.insertBefore(r, d),
+-        i = r.contentWindow,
+-        s = i.document;
+-    try {
+-        o = s
+-    } catch (c) {
+-        n = document.domain,
+-            r.src = 'javascript:var d=document.open();d.domain="' + n + '";void(0);',
+-            o = s
+-    }
+-    o.open()._l = function () {
+-        var o = this.createElement("script");
+-        n && (this.domain = n), o.id = "js-iframe-async", o.src = e, this.t = +new Date, this.zendeskHost = t, this.zEQueue = a, this.body.appendChild(o)
+-    }, o.write('<body onload="document._l();">'), o.close()
+-}("https://assets.zendesk.com/embeddable_framework/main.js", "volossoftware.zendesk.com");
+Index: src/modules/companyInfo/controllers/companyInfoCtrl.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/companyInfo/controllers/companyInfoCtrl.js	(revision 3d6759f4314f858ccc48cfd9b1d7d783fab21d69)
++++ src/modules/companyInfo/controllers/companyInfoCtrl.js	(revision )
+@@ -18,98 +18,99 @@
+  * @requires vsIV
+  * */
+ angular.module('Home')
+-	.controller('companyCtrl', ["$scope", "companyData", "LocalTickers", "xigniteService", "Ticker", "hotkeys",
++    .controller('companyCtrl', ["$scope", "companyData", "LocalTickers", "xigniteService", "Ticker", "hotkeys",
+         function companyCtrl($scope, companyData, LocalTickers, xigniteService, Ticker, hotkeys) {
+ 
+-        //Sets companyData on scope from factory
+-		$scope.companyData = companyData;
++            //Sets companyData on scope from factory
++            $scope.companyData = companyData;
+ 
+-        hotkeys.add({
+-            combo: 's',
+-            description: 'This one goes to 11',
++            hotkeys.add({
++                combo: 's',
++                description: 'This one goes to 11',
+-            callback: function() {
++                callback: function () {
+-              console.log("PRESSED S KEY DOWN");
+-            }
+-        });
++                    console.log("PRESSED S KEY DOWN");
++                }
++            });
+ 
+ 
+-        //Watches changes on ticker input and calls function in companyData service to get data for the company
+-        //$scope.$watch("ticker", function (newTicker, oldTicker) {
+-			//if (newTicker !== oldTicker) {
+-        //        companyData.setTicker(newTicker);
+-        //        Ticker.prepForBroadcast(newTicker);
+-        //        getName(newTicker);
+-        //    }
+-        //});
+-        $scope.$on('Technicals', function (event, data) {
+-            var assetAnalysisData = JSON.parse(data);
+-            companyData.setAssetAnalysis(assetAnalysisData);
+-        });
++            //Watches changes on ticker input and calls function in companyData service to get data for the company
++            //$scope.$watch("ticker", function (newTicker, oldTicker) {
++            //if (newTicker !== oldTicker) {
++            //        companyData.setTicker(newTicker);
++            //        Ticker.prepForBroadcast(newTicker);
++            //        getName(newTicker);
++            //    }
++            //});
++            $scope.$on('Technicals', function (event, data) {
++                var assetAnalysisData = JSON.parse(data);
++                companyData.setAssetAnalysis(assetAnalysisData);
++            });
+ 
+-        $scope.submitTicker = function (newTicker) {
++            $scope.submitTicker = function (newTicker) {
+                 console.log("submit ticker: " + newTicker);
+                 companyData.setTicker(newTicker);
+                 Ticker.prepForBroadcast(newTicker);
+                 companyData.getAssetAnalysis(newTicker);
+-
+-        };
++            };
+ 
+-        //$scope.companyName = companyData.companyName;
++            //$scope.companyName = companyData.companyName;
+ 
+-        //$scope.getName = function (ticker) {
+-        //
+-        //    console.log("get name");
+-        //
+-        //    var compArr = $scope.companies;
+-        //
+-        //    for(var t = 0; t < compArr.length; t++){
+-        //
+-        //        if(compArr[t].ticker == ticker.toUpperCase()){
+-        //
+-        //            $scope.companyName = compArr[t].company;
+-        //            companyData.companyName = $scope.companyName;
+-        //
+-        //        }
+-        //
+-        //    }
+-        //
+-        //};
++            //$scope.getName = function (ticker) {
++            //
++            //    console.log("get name");
++            //
++            //    var compArr = $scope.companies;
++            //
++            //    for(var t = 0; t < compArr.length; t++){
++            //
++            //        if(compArr[t].ticker == ticker.toUpperCase()){
++            //
++            //            $scope.companyName = compArr[t].company;
++            //            companyData.companyName = $scope.companyName;
++            //
++            //        }
++            //
++            //    }
++            //
++            //};
+ 
+-        //Pulls the list of tickers from the LocalTickers factory
++            //Pulls the list of tickers from the LocalTickers factory
++
+-		$scope.tickerList = LocalTickers.getTickers("...");
++            $scope.tickerList = LocalTickers.getTickers("...");
++
+-		  $scope.tickerList.then(function(data){
++            $scope.tickerList.then(function (data) {
+-			$scope.tickerList = data.tickers;
+-            $scope.companies = data.companies;
+-		  });
++                $scope.tickerList = data.tickers;
++                $scope.companies = data.companies;
++            });
+ 
+-        /**
+-         * @ngdoc method
+-         * @name submitTicker
+-         * @methodOf Home.controller:companyInfoCtrl
+-         * @description
+-         * Passes new ticker into companyData.setTicker, getName(), and Ticker.prepForBroadcast
+-         * from input box
+-         *
+-         * @param {string} ticker current ticker
+-         *
+-         */
+-        /**
+-         * @ngdoc method
+-         * @name getName
+-         * @methodOf Home.controller:companyInfoCtrl
+-         * @description
+-         * Gets the name of the company to display over the logo
+-         *
+-         * @param {string} ticker current ticker
+-         *
+-         */
+-        /**
+-         * @ngdoc method
+-         * @name tickerList
+-         * @methodOf Home.controller:companyInfoCtrl
+-         * @description
+-         * Gets the tickers to pass into the autocomplete box
+-         *
+-         */
++            /**
++             * @ngdoc method
++             * @name submitTicker
++             * @methodOf Home.controller:companyInfoCtrl
++             * @description
++             * Passes new ticker into companyData.setTicker, getName(), and Ticker.prepForBroadcast
++             * from input box
++             *
++             * @param {string} ticker current ticker
++             *
++             */
++            /**
++             * @ngdoc method
++             * @name getName
++             * @methodOf Home.controller:companyInfoCtrl
++             * @description
++             * Gets the name of the company to display over the logo
++             *
++             * @param {string} ticker current ticker
++             *
++             */
++            /**
++             * @ngdoc method
++             * @name tickerList
++             * @methodOf Home.controller:companyInfoCtrl
++             * @description
++             * Gets the tickers to pass into the autocomplete box
++             *
++             */
+ 
+-	}]);
++        }]);
