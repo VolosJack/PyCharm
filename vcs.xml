@@ -50,8 +50,12 @@
           <option name="url" value="https://github.com/VolosSoftware/Support_Center.git" />
           <option name="userName" value="" />
         </UrlAndUserName>
+        <UrlAndUserName>
+          <option name="url" value="https://github.com/angular/material-start.git" />
+          <option name="userName" value="" />
+        </UrlAndUserName>
       </list>
     </option>
-    <option name="cloneParentDir" value="C:\Users\Admin\PycharmProjects" />
+    <option name="cloneParentDir" value="C:\Users\VolosJack\PycharmProjects" />
   </component>
 </application>
