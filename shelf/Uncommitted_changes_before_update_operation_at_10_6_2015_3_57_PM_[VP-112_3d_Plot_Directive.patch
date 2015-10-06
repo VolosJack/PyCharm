@@ -1,0 +1,74 @@
+Index: src/modules/helpers/services/trackingService.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/helpers/services/trackingService.js	(revision )
++++ src/modules/helpers/services/trackingService.js	(revision )
+@@ -0,0 +1,21 @@
++/**
++ * @ngdoc service
++ * @name tracking
++ * @description
++ * _Please update the description and dependencies._
++ *
++ * */
++angular.module('Helpers')
++    .service('tracking', ["$interval", function ($interval) {
++        var self = this;
++        this.positions = [];
++
++        function recordPosition(x, y ) {
++            self.positions.push([x,y])
++        }
++
++        this.startReporting = function startReporting(){
++            $interval(recordPosition())
++        }
++    }]);
++
+Index: src/modules/optimization/controllers/optResultCtrl.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- src/modules/optimization/controllers/optResultCtrl.js	(revision 08ef415a766b514d1f2977bb477520948bda9866)
++++ src/modules/optimization/controllers/optResultCtrl.js	(revision )
+@@ -22,7 +22,7 @@
+         var __ = this;
+         __.optimization = optimization;
+         __.hstOpt = hstOpt;
+-        console.log('optimization = ',optimization);
++        console.log('optimization = ', __.optimization);
+         __.display = {
+             neutral: true,
+             historical: true
+Index: test/helpers/trackingServiceSpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- test/helpers/trackingServiceSpec.js	(revision )
++++ test/helpers/trackingServiceSpec.js	(revision )
+@@ -0,0 +1,21 @@
++describe('Service: Helpers.tracking', function () {
++
++    // load the service's module
++    beforeEach(module('Helpers'));
++
++    // instantiate service
++    var service;
++
++    //update the injection
++    beforeEach(inject(function (tracking) {
++        service = tracking;
++    }));
++
++    /**
++     * @description
++     * Sample test case to check if the service is injected properly
++     * */
++    it('should be injected and defined', function () {
++        expect(service).toBeDefined();
++    });
++});
