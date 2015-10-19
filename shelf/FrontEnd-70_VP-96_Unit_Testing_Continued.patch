@@ -1,0 +1,47 @@
+Index: test/helpers/vsSocketFactorySpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- test/helpers/vsSocketFactorySpec.js	(revision )
++++ test/helpers/vsSocketFactorySpec.js	(revision )
+@@ -0,0 +1,16 @@
++/**
++ * Created by CLong on 8/13/2015.
++ */
++/**
++ * Created by CLong on 8/13/2015.
++ */
++describe('Service: Helpers.vsSocketFactory', function() {
++
++  beforeEach(module('Helpers'));
++
++  var vsSocketFactory;
++  beforeEach(inject(function(_vsSocketFactory_) {
++    vsSocketFactory = _vsSocketFactory_;
++  }));
++
++});
+\ No newline at end of file
+Index: test/helpers/vsRequestFactorySpec.js
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>windows-1252
+===================================================================
+--- test/helpers/vsRequestFactorySpec.js	(revision )
++++ test/helpers/vsRequestFactorySpec.js	(revision )
+@@ -0,0 +1,13 @@
++/**
++ * Created by CLong on 8/13/2015.
++ */
++describe('Service: Helpers.vsRequestFactory', function() {
++
++  beforeEach(module('Helpers'));
++
++  var vsRequestFactory;
++  beforeEach(inject(function(_vsRequestFactory_) {
++    vsRequestFactory = _vsRequestFactory_;
++  }));
++
++});
+\ No newline at end of file
