@@ -1,0 +1,59 @@
+Index: VolosUpdate.txt
+===================================================================
+--- VolosUpdate.txt	(revision 259a77a9547751098d39ef16c9b62aef8caa1512)
++++ VolosUpdate.txt	(revision 259a77a9547751098d39ef16c9b62aef8caa1512)
+@@ -1,11 +0,0 @@
+-;aiu;
+-
+-[Update #1]
+-Name = Volos
+-ProductVersion = 0.0.0.96
+-URL = https://volostestupdate.s3.amazonaws.com/Volos0.0.0.96.exe?AWSAccessKeyId=AKIAJY2FNKHSPKQOREQA&Expires=1442289600&Signature=beeOYcCSJbhOmGtrLnYpMRXEZO0%3D
+-Size = 122297056
+-ReleaseDate = 09/09/2015
+-ServerFileName = Volos0.0.0.96.exe
+-RegistryKey = HKUD\Software\Volos Portfolio Solutions, LLC\Volos\Version
+-Version = 0.0.0.96
+Index: src/update.txt
+===================================================================
+--- src/update.txt	(revision 259a77a9547751098d39ef16c9b62aef8caa1512)
++++ src/update.txt	(revision 259a77a9547751098d39ef16c9b62aef8caa1512)
+@@ -1,2 +0,0 @@
+-;aiu;
+-
+Index: src/modules/zendesk/zendesk.js
+===================================================================
+--- src/modules/zendesk/zendesk.js	(revision 259a77a9547751098d39ef16c9b62aef8caa1512)
++++ src/modules/zendesk/zendesk.js	(revision 259a77a9547751098d39ef16c9b62aef8caa1512)
+@@ -1,31 +0,0 @@
+-/**
+- * Created by Admin on 8/12/2015.
+- */
+-
+-window.zEmbed || function (e, t) {
+-    var n, o, d, i, s, a = [], r = document.createElement("iframe");
+-    window.zEmbed = function () {
+-        a.push(arguments)
+-    },
+-        window.zE = window.zE || window.zEmbed,
+-        r.src = "javascript:false",
+-        r.title = "",
+-        r.role = "presentation",
+-        (r.frameElement || r).style.cssText = "display: none",
+-        d = document.getElementsByTagName("script"),
+-        d = d[d.length - 1],
+-        d.parentNode.insertBefore(r, d),
+-        i = r.contentWindow,
+-        s = i.document;
+-    try {
+-        o = s
+-    } catch (c) {
+-        n = document.domain,
+-            r.src = 'javascript:var d=document.open();d.domain="' + n + '";void(0);',
+-            o = s
+-    }
+-    o.open()._l = function () {
+-        var o = this.createElement("script");
+-        n && (this.domain = n), o.id = "js-iframe-async", o.src = e, this.t = +new Date, this.zendeskHost = t, this.zEQueue = a, this.body.appendChild(o)
+-    }, o.write('<body onload="document._l();">'), o.close()
+-}("https://assets.zendesk.com/embeddable_framework/main.js", "volossoftware.zendesk.com");
